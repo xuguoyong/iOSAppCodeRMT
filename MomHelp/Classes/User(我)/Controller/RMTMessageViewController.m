@@ -8,8 +8,8 @@
 
 #import "RMTMessageViewController.h"
 #import "RMTMessageListTableViewCell.h"
-#import "RMTMessageDetailViewController.h"
-
+#import "RMTRMTMessageDetailViewController.h"
+#import "RMTMessageListModel.h"
 
 typedef NS_ENUM (NSInteger,MessageType) {
     SYSTEM_Message,
@@ -26,6 +26,9 @@ typedef NS_ENUM (NSInteger,MessageType) {
 @property (nonatomic,strong) UITableView *receveTableView;
 @property (nonatomic,strong) UITableView *changeTableView;
 @property (nonatomic,strong) UIScrollView *bgScrollView;
+@property (nonatomic,strong) NSMutableArray *systemMegList;
+
+
 @end
 
 @implementation RMTMessageViewController
@@ -89,6 +92,14 @@ typedef NS_ENUM (NSInteger,MessageType) {
 
 }
 
+- (NSMutableArray *)systemMegList
+{
+    if (!_systemMegList) {
+        _systemMegList = [[NSMutableArray alloc] init];
+    }
+    return _systemMegList;
+    
+}
 - (UITableView *)getTabelVIewWithFrame:(CGRect)frame withTabaleViewType:(MessageType)type
 {
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -100,8 +111,12 @@ typedef NS_ENUM (NSInteger,MessageType) {
     tableView.backgroundColor = viewAndTableViewBackgroundColor;
     tableView.separatorColor = tableViewSeparateColor;
     [tableView registerNib:[UINib nibWithNibName:@"RMTMessageListTableViewCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    
-    
+    if (type == SYSTEM_Message) {
+        [tableView addRefreshNormalHeaderWithRefreshBlock:^{
+           [self requestSystemMessageWithIndex:0];
+        }];
+    }
+   /*
     
     [tableView addRefreshNormalHeaderWithRefreshBlock:^{
         if (type == SYSTEM_Message) {
@@ -125,7 +140,7 @@ typedef NS_ENUM (NSInteger,MessageType) {
         }
     }];
     
-    
+    */
     return tableView;
 
 }
@@ -136,7 +151,7 @@ typedef NS_ENUM (NSInteger,MessageType) {
     self.title = @"消息";
     [self.view addSubview:self.bgView];
     [self.view addSubview:self.bgScrollView];
-
+    [self requestSystemMessageWithIndex:0];
     
 }
 
@@ -154,7 +169,10 @@ typedef NS_ENUM (NSInteger,MessageType) {
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    if (tableView == self.systemTableView) {
+        return self.systemMegList.count;
+    }
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -164,14 +182,19 @@ typedef NS_ENUM (NSInteger,MessageType) {
 {
 
     RMTMessageListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-   
+    cell.model = self.systemMegList[indexPath.row];
     return cell;
 
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RMTRMTMessageDetailViewController *detail  =[[RMTRMTMessageDetailViewController alloc] initWithNibName:@"RMTRMTMessageDetailViewController" bundle:nil];
+   RMTMessageListModel *model =  self.systemMegList[indexPath.row];
+    model.status = @"0";
+    [self.systemTableView reloadData];
     
-    RMTMessageDetailViewController *detail  =[[RMTMessageDetailViewController alloc] init];
+    detail.detailModel = model;
     [self.navigationController pushViewController:detail animated:YES];
     
 }
@@ -208,17 +231,32 @@ typedef NS_ENUM (NSInteger,MessageType) {
 //请求系统消息
 - (void)requestSystemMessageWithIndex:(NSInteger)pageIndex
 {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+  
+    [RMTDataService getDataWithURL:GET_Message_List parma:nil showErrorMessage:YES showHUD:YES logData:YES success:^(NSDictionary *responseObj) {
+          [self.systemMegList removeAllObjects];
+        for (NSDictionary *dic in [responseObj objectForKey:@"data"]) {
+         RMTMessageListModel *model =[RMTMessageListModel mj_objectWithKeyValues:dic];
+            [self.systemMegList addObject:model];
+            
+        }
+        [self.systemTableView reloadData];
+        [self.systemTableView.mj_header endRefreshing];
+        
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+    
+    
 }
 //请求收益消息
 - (void)requestReceveMoneyMessageWithIndex:(NSInteger)pageIndex
 {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+
 }
 //请求转让消息
 - (void)requestdemiseMessageWithIndex:(NSInteger)pageIndex
 {
-    NSLog(@"%@",NSStringFromSelector(_cmd));
+
 }
 
 @end

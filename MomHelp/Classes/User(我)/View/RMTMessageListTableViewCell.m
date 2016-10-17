@@ -14,10 +14,13 @@
     [super awakeFromNib];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-  
+-(void)setModel:(RMTMessageListModel *)model
+{
+    _model = model;
+    self.timeLabel.text  = model.date;
+    self.readView.hidden = [model.status intValue] == 0?NO:YES;
+    self.messageContentLabel.text = model.title;
+    
 }
 
 @end

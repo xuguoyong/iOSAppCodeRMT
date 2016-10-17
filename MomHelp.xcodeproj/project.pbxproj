@@ -50,7 +50,6 @@
 		6705C0D31DB0E286007D42EF /* RMTImageViewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6705C0D21DB0E286007D42EF /* RMTImageViewCollectionViewCell.m */; };
 		671C5CB01DB1C54900D6CAEC /* RMTMessageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C5CAE1DB1C54900D6CAEC /* RMTMessageListTableViewCell.m */; };
 		671C5CB11DB1C54900D6CAEC /* RMTMessageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CAF1DB1C54900D6CAEC /* RMTMessageListTableViewCell.xib */; };
-		671C5CB41DB1C90900D6CAEC /* RMTMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C5CB31DB1C90900D6CAEC /* RMTMessageDetailViewController.m */; };
 		671C5CB81DB1CAC000D6CAEC /* RMTFriendHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C5CB61DB1CAC000D6CAEC /* RMTFriendHeaderCell.m */; };
 		671C5CB91DB1CAC000D6CAEC /* RMTFriendHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CB71DB1CAC000D6CAEC /* RMTFriendHeaderCell.xib */; };
 		671C5CBD1DB1CFBD00D6CAEC /* RMTReceveDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C5CBB1DB1CFBD00D6CAEC /* RMTReceveDetailCell.m */; };
@@ -63,6 +62,9 @@
 		674A68A61DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68A41DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib */; };
 		674A68AA1DB484EE00E9E08C /* RMTUserInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68A81DB484EE00E9E08C /* RMTUserInfoHeadCell.m */; };
 		674A68AB1DB484EE00E9E08C /* RMTUserInfoHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68A91DB484EE00E9E08C /* RMTUserInfoHeadCell.xib */; };
+		674A68AE1DB49F2600E9E08C /* RMTMessageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68AD1DB49F2600E9E08C /* RMTMessageListModel.m */; };
+		674A68B21DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68B01DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m */; };
+		674A68B31DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68B11DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -297,8 +299,6 @@
 		671C5CAD1DB1C54900D6CAEC /* RMTMessageListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMessageListTableViewCell.h; sourceTree = "<group>"; };
 		671C5CAE1DB1C54900D6CAEC /* RMTMessageListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMessageListTableViewCell.m; sourceTree = "<group>"; };
 		671C5CAF1DB1C54900D6CAEC /* RMTMessageListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMessageListTableViewCell.xib; sourceTree = "<group>"; };
-		671C5CB21DB1C90900D6CAEC /* RMTMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMessageDetailViewController.h; sourceTree = "<group>"; };
-		671C5CB31DB1C90900D6CAEC /* RMTMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMessageDetailViewController.m; sourceTree = "<group>"; };
 		671C5CB51DB1CAC000D6CAEC /* RMTFriendHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTFriendHeaderCell.h; sourceTree = "<group>"; };
 		671C5CB61DB1CAC000D6CAEC /* RMTFriendHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTFriendHeaderCell.m; sourceTree = "<group>"; };
 		671C5CB71DB1CAC000D6CAEC /* RMTFriendHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTFriendHeaderCell.xib; sourceTree = "<group>"; };
@@ -317,6 +317,11 @@
 		674A68A71DB484EE00E9E08C /* RMTUserInfoHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTUserInfoHeadCell.h; sourceTree = "<group>"; };
 		674A68A81DB484EE00E9E08C /* RMTUserInfoHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTUserInfoHeadCell.m; sourceTree = "<group>"; };
 		674A68A91DB484EE00E9E08C /* RMTUserInfoHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTUserInfoHeadCell.xib; sourceTree = "<group>"; };
+		674A68AC1DB49F2600E9E08C /* RMTMessageListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMessageListModel.h; sourceTree = "<group>"; };
+		674A68AD1DB49F2600E9E08C /* RMTMessageListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMessageListModel.m; sourceTree = "<group>"; };
+		674A68AF1DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTRMTMessageDetailViewController.h; sourceTree = "<group>"; };
+		674A68B01DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTRMTMessageDetailViewController.m; sourceTree = "<group>"; };
+		674A68B11DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTRMTMessageDetailViewController.xib; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -803,8 +808,9 @@
 				6705C0C51DB0BD46007D42EF /* RMTAppAbountViewController.xib */,
 				6705C0C81DB0C865007D42EF /* RMTIdeaFeelbackViewController.h */,
 				6705C0C91DB0C865007D42EF /* RMTIdeaFeelbackViewController.m */,
-				671C5CB21DB1C90900D6CAEC /* RMTMessageDetailViewController.h */,
-				671C5CB31DB1C90900D6CAEC /* RMTMessageDetailViewController.m */,
+				674A68AF1DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.h */,
+				674A68B01DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m */,
+				674A68B11DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib */,
 			);
 			name = "三级界面";
 			sourceTree = "<group>";
@@ -1457,6 +1463,8 @@
 				DC4E89491DAF34BF00E24579 /* RMTUserInfoModel.m */,
 				DC4E896F1DAF8B3000E24579 /* RMTUserCenterModel.h */,
 				DC4E89701DAF8B3000E24579 /* RMTUserCenterModel.m */,
+				674A68AC1DB49F2600E9E08C /* RMTMessageListModel.h */,
+				674A68AD1DB49F2600E9E08C /* RMTMessageListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1615,6 +1623,7 @@
 				BA8D45A91D619E9900952EB5 /* dropdown_anim__00040@2x.png in Resources */,
 				BA8D45BD1D619E9900952EB5 /* dropdown_anim__00059@2x.png in Resources */,
 				BA8D45BE1D619E9900952EB5 /* dropdown_anim__0005@2x.png in Resources */,
+				674A68B31DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib in Resources */,
 				BA6C12EE1D672A3300A88D86 /* 1245101.jpg in Resources */,
 				6700732C1DB2236A00859D9A /* README.txt in Resources */,
 				DC4E89591DAF488D00E24579 /* RMTRegisterCompeleteViewController.xib in Resources */,
@@ -1731,7 +1740,6 @@
 				670073421DB22A0B00859D9A /* NSDate+HooDatePicker.m in Sources */,
 				670072E31DB1F2DE00859D9A /* RMTMemberHeaderTableViewCell.m in Sources */,
 				DC4E89471DAF2BE700E24579 /* RMTTool.m in Sources */,
-				671C5CB41DB1C90900D6CAEC /* RMTMessageDetailViewController.m in Sources */,
 				DCBE942A1DADCF3C003677AF /* RMTHealthCarViewController.m in Sources */,
 				DCBE943C1DAE11C2003677AF /* RMTAdModel.m in Sources */,
 				BA9458BE1D6442F20025994F /* AppDelegate+NetWorking.m in Sources */,
@@ -1747,6 +1755,7 @@
 				DC4E89531DAF3D7E00E24579 /* RMTForgotPasswdViewController.m in Sources */,
 				6705C0CA1DB0C865007D42EF /* RMTIdeaFeelbackViewController.m in Sources */,
 				BAEB05471D5D85BB001D1E86 /* SGTabBar.m in Sources */,
+				674A68B21DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m in Sources */,
 				BA8D45D81D61A5BA00952EB5 /* XGYRefreshBackGifFooter.m in Sources */,
 				671C5CC21DB1E56600D6CAEC /* RMTMenueCell.m in Sources */,
 				DC4E89C01DAF909800E24579 /* RMTSettingTableViewCell.m in Sources */,
@@ -1798,6 +1807,7 @@
 				DCBE943F1DAE1279003677AF /* RMTProductListModel.m in Sources */,
 				BA8D45DB1D61A5D900952EB5 /* XGYRefreshAutoGifFooter.m in Sources */,
 				6700734B1DB230C200859D9A /* RMTWinMoneyHeadCell.m in Sources */,
+				674A68AE1DB49F2600E9E08C /* RMTMessageListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

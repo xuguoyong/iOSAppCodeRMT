@@ -14,7 +14,7 @@
 #define VersionType @""
 
 
-//测试库
+////测试库
 //#define MainURL  @"http://192.168.1.197:7777"
 //#define VersionType @"beta"
 
@@ -39,4 +39,14 @@
 /** 获取用户中心界面*/
 #define GET_User_Center @"/user/userIndex"
 
+/** 获取用户中心界面*/
+#define GET_User_Center @"/user/userIndex"
+/**消息列表*/
+#define GET_Message_List @"/message/list"
+
+/**消息详情*/
+#define GET_Message_Details @"/message/details"
+
 #endif /* SGAddressURL_h */
+
+

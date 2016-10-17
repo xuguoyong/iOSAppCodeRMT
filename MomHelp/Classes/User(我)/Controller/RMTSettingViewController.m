@@ -175,7 +175,6 @@
 {
     [RMTUserInfoModel clearAccountToken];
     [self.navigationController popViewControllerAnimated:YES];
-    [self.tabBarController setSelectedIndex:0];
     [SGControllerTool popToLoginControllerTarget:self.tabBarController];
    
 

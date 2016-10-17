@@ -38,9 +38,7 @@
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
     
     [SGHttpTool get:allURL params:parma success:^(id responseObj) {
-        if (logObject) {
-            NSLog(@"请求接口是 ：%@ ==\n 后台返回数据 responseObj ==%@",url,responseObj);
-        }
+     
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
            NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
@@ -103,9 +101,6 @@
     });
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
     [SGHttpTool post:allURL params:parma success:^(id responseObj) {
-        if (logObject) {
-            NSLog(@"请求接口是 ：%@ ==\n 后台返回数据 responseObj ==%@",url,responseObj);
-        }
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
             NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];

@@ -59,6 +59,10 @@
 		671C5CC31DB1E56600D6CAEC /* RMTMenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CC11DB1E56600D6CAEC /* RMTMenueCell.xib */; };
 		674A68A01DB46E3200E9E08C /* RMTMoneyHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */; };
 		674A68A11DB46E3200E9E08C /* RMTMoneyHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */; };
+		674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68A31DB47E4E00E9E08C /* RMTReceveMoneyListCell.m */; };
+		674A68A61DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68A41DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib */; };
+		674A68AA1DB484EE00E9E08C /* RMTUserInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68A81DB484EE00E9E08C /* RMTUserInfoHeadCell.m */; };
+		674A68AB1DB484EE00E9E08C /* RMTUserInfoHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68A91DB484EE00E9E08C /* RMTUserInfoHeadCell.xib */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -307,6 +311,12 @@
 		674A689D1DB46E3200E9E08C /* RMTMoneyHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMoneyHeaderCell.h; sourceTree = "<group>"; };
 		674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMoneyHeaderCell.m; sourceTree = "<group>"; };
 		674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMoneyHeaderCell.xib; sourceTree = "<group>"; };
+		674A68A21DB47E4E00E9E08C /* RMTReceveMoneyListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTReceveMoneyListCell.h; sourceTree = "<group>"; };
+		674A68A31DB47E4E00E9E08C /* RMTReceveMoneyListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTReceveMoneyListCell.m; sourceTree = "<group>"; };
+		674A68A41DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTReceveMoneyListCell.xib; sourceTree = "<group>"; };
+		674A68A71DB484EE00E9E08C /* RMTUserInfoHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTUserInfoHeadCell.h; sourceTree = "<group>"; };
+		674A68A81DB484EE00E9E08C /* RMTUserInfoHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTUserInfoHeadCell.m; sourceTree = "<group>"; };
+		674A68A91DB484EE00E9E08C /* RMTUserInfoHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTUserInfoHeadCell.xib; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -619,6 +629,9 @@
 				670073481DB230C200859D9A /* RMTWinMoneyHeadCell.h */,
 				670073491DB230C200859D9A /* RMTWinMoneyHeadCell.m */,
 				6700734A1DB230C200859D9A /* RMTWinMoneyHeadCell.xib */,
+				674A68A71DB484EE00E9E08C /* RMTUserInfoHeadCell.h */,
+				674A68A81DB484EE00E9E08C /* RMTUserInfoHeadCell.m */,
+				674A68A91DB484EE00E9E08C /* RMTUserInfoHeadCell.xib */,
 				670072DA1DB1F24F00859D9A /* 成员 */,
 			);
 			name = "人脉";
@@ -652,6 +665,9 @@
 				674A689D1DB46E3200E9E08C /* RMTMoneyHeaderCell.h */,
 				674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */,
 				674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */,
+				674A68A21DB47E4E00E9E08C /* RMTReceveMoneyListCell.h */,
+				674A68A31DB47E4E00E9E08C /* RMTReceveMoneyListCell.m */,
+				674A68A41DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib */,
 			);
 			name = "钱包";
 			sourceTree = "<group>";
@@ -1544,6 +1560,7 @@
 				BA8D45B81D619E9900952EB5 /* dropdown_anim__00054@2x.png in Resources */,
 				BA8D459E1D619E9900952EB5 /* dropdown_anim__00030@2x.png in Resources */,
 				DC4E89541DAF3D7E00E24579 /* RMTForgotPasswdViewController.xib in Resources */,
+				674A68AB1DB484EE00E9E08C /* RMTUserInfoHeadCell.xib in Resources */,
 				BA1416281D62EF1100C23C27 /* test.gif in Resources */,
 				BA8D45981D619E9900952EB5 /* dropdown_anim__00025@2x.png in Resources */,
 				BA8D459D1D619E9900952EB5 /* dropdown_anim__0002@2x.png in Resources */,
@@ -1554,6 +1571,7 @@
 				BA8D45B41D619E9900952EB5 /* dropdown_anim__00050@2x.png in Resources */,
 				DC4E89681DAF720900E24579 /* RMTUserOtherTableViewCell.xib in Resources */,
 				BA8D45881D619E9900952EB5 /* dropdown_anim__00010@2x.png in Resources */,
+				674A68A61DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib in Resources */,
 				BA8D45991D619E9900952EB5 /* dropdown_anim__00026@2x.png in Resources */,
 				BA14163C1D62FBFC00C23C27 /* small.gif in Resources */,
 				BA8D45921D619E9900952EB5 /* dropdown_anim__0001@2x.png in Resources */,
@@ -1707,6 +1725,7 @@
 				BA8D45431D619C9F00952EB5 /* MJRefreshConst.m in Sources */,
 				BA8D45D51D61A58500952EB5 /* XGYRefreshGifHeader.m in Sources */,
 				DC4E89581DAF488D00E24579 /* RMTRegisterCompeleteViewController.m in Sources */,
+				674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */,
 				DC4E896B1DAF88D300E24579 /* RMTRecordViewController.m in Sources */,
 				BA8D45451D619C9F00952EB5 /* UIScrollView+MJExtension.m in Sources */,
 				670073421DB22A0B00859D9A /* NSDate+HooDatePicker.m in Sources */,
@@ -1771,6 +1790,7 @@
 				BA8D45401D619C9F00952EB5 /* MJRefreshNormalHeader.m in Sources */,
 				BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */,
 				BA8D45461D619C9F00952EB5 /* UIScrollView+MJRefresh.m in Sources */,
+				674A68AA1DB484EE00E9E08C /* RMTUserInfoHeadCell.m in Sources */,
 				BA8D45351D619C9F00952EB5 /* MJRefreshBackFooter.m in Sources */,
 				DC4E894A1DAF34BF00E24579 /* RMTUserInfoModel.m in Sources */,
 				670072F21DB2064400859D9A /* RMTWinMoneyViewController.m in Sources */,

@@ -54,7 +54,6 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
 }
 
-
 /**
  分享按钮的点击事件
 
@@ -63,7 +62,6 @@
 - (void)shareButtonClick:(UIButton *)bar
 {
     NSLog(@"分享按钮");
-    
     
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
     share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

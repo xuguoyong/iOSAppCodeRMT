@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="RMTUserInfoHeadCell">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="333" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhW-Tg-5e7">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="dxm-7f-EYM"/>
+                            <constraint firstAttribute="height" constant="21" id="qUM-QI-Eyn"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defult_head_icon" translatesAutoresizingMaskIntoConstraints="NO" id="XN4-2w-2rs">
+                        <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="1AU-wB-dFC"/>
+                            <constraint firstAttribute="height" constant="50" id="Get-jF-ZUG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZhW-Tg-5e7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="JrM-5D-vIi"/>
+                    <constraint firstItem="ZhW-Tg-5e7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="SKg-Ef-bVZ"/>
+                    <constraint firstItem="XN4-2w-2rs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xc3-Eb-BsI"/>
+                    <constraint firstAttribute="trailing" secondItem="XN4-2w-2rs" secondAttribute="trailing" id="zqG-QC-eCU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="userHeadImage" destination="XN4-2w-2rs" id="Vd5-fH-oWC"/>
+            </connections>
+            <point key="canvasLocation" x="31.5" y="65"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="defult_head_icon" width="64" height="64"/>
+    </resources>
+</document>

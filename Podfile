@@ -11,4 +11,6 @@ pod 'SDWebImage', '~> 3.8.1'
 pod 'FMDB', '~> 2.6.2'
 pod 'SVProgressHUD'
 pod 'TZImagePickerController'
+pod 'AliyunOSSiOS', '~> 2.5.3'
+
 end

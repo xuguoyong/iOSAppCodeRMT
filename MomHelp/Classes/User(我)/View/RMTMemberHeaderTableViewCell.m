@@ -12,13 +12,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(RMTFriendListModel *)model
+{
+    
+    [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:model.headUrl] placeholderImage:[UIImage imageNamed:@"defultHeadName"]];
+    self.nameLabel.text = model.nick;
+    
+    self.moneyLabel.text = [NSString stringWithFormat:@"¥ %.2f",[model.sumProfit floatValue]];
+    self.friendNumberLabel.text =[NSString stringWithFormat:@"人脉 %@",model.sumContacts] ;
 }
-
 @end

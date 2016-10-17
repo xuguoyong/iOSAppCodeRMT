@@ -46,7 +46,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖励2%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr2-it-Msx">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="c0a-Bu-8EY"/>
+                                    <constraint firstAttribute="width" constant="60" id="c0a-Bu-8EY"/>
                                     <constraint firstAttribute="height" constant="25" id="oIV-jy-LBV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -111,7 +111,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖励1%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB9-gr-Fg2">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="MKq-Uk-8Rx"/>
+                                    <constraint firstAttribute="width" constant="60" id="MKq-Uk-8Rx"/>
                                     <constraint firstAttribute="height" constant="25" id="qpl-yb-IDb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -176,7 +176,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖励1%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2w-b7-vXh">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="6XI-mf-U8c"/>
+                                    <constraint firstAttribute="width" constant="60" id="6XI-mf-U8c"/>
                                     <constraint firstAttribute="height" constant="25" id="QP9-ns-2Zb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -251,6 +251,20 @@
                     <constraint firstItem="mUV-uZ-YLy" firstAttribute="leading" secondItem="ylQ-9m-CaK" secondAttribute="leading" id="zuh-fC-d5l"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="one_friend_number" destination="7ji-5w-7Yi" id="Cdb-Rc-tcb"/>
+                <outlet property="one_moneyLabel" destination="df2-iL-McZ" id="LRo-Og-Mco"/>
+                <outlet property="one_rewardLabel" destination="M2w-b7-vXh" id="2G4-PK-d9A"/>
+                <outlet property="one_titleLabel" destination="VsA-6Z-fYk" id="EDo-Pp-Etx"/>
+                <outlet property="three_friend_number" destination="nu7-dg-AlM" id="kic-lI-HYC"/>
+                <outlet property="three_moneyLabel" destination="mFm-Wx-4Ci" id="G0C-Qj-YBl"/>
+                <outlet property="three_rewardLabel" destination="qB9-gr-Fg2" id="fJ2-Il-qGD"/>
+                <outlet property="three_titleLabel" destination="kgl-pc-LU6" id="bfd-yR-AVS"/>
+                <outlet property="two_friend_number" destination="e0m-ng-Qaz" id="Xtn-vf-8YJ"/>
+                <outlet property="two_moneyLabel" destination="Iqc-lc-RsP" id="qkh-4l-0Vt"/>
+                <outlet property="two_rewardLabel" destination="dr2-it-Msx" id="Ol9-EP-oVd"/>
+                <outlet property="two_titleLabel" destination="7CK-eM-3FP" id="SUf-Wn-mhM"/>
+            </connections>
             <point key="canvasLocation" x="25" y="-12.5"/>
         </tableViewCell>
     </objects>

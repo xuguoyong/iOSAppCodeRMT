@@ -33,5 +33,7 @@
 #define textFont36 [UIFont systemFontOfSize:20.5f]
 #define textFont38 [UIFont systemFontOfSize:21.0f]
 
+#define defultHeadName @"defult_head_icon"
+
 
 #endif /* SGConfigure_h */

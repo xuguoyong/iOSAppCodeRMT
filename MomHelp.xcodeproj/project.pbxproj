@@ -65,6 +65,11 @@
 		674A68AE1DB49F2600E9E08C /* RMTMessageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68AD1DB49F2600E9E08C /* RMTMessageListModel.m */; };
 		674A68B21DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68B01DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m */; };
 		674A68B31DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68B11DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib */; };
+		674A68B61DB4C64700E9E08C /* RMTFriendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68B51DB4C64700E9E08C /* RMTFriendListModel.m */; };
+		674A68B91DB4C6BE00E9E08C /* RMTLevelDetaiListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68B81DB4C6BE00E9E08C /* RMTLevelDetaiListModel.m */; };
+		674A68BC1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68BB1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m */; };
+		674A68BF1DB4C96400E9E08C /* RMTMainFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68BE1DB4C96400E9E08C /* RMTMainFriendModel.m */; };
+		674A68C21DB4C97000E9E08C /* RMTcontrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -322,6 +327,16 @@
 		674A68AF1DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTRMTMessageDetailViewController.h; sourceTree = "<group>"; };
 		674A68B01DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTRMTMessageDetailViewController.m; sourceTree = "<group>"; };
 		674A68B11DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTRMTMessageDetailViewController.xib; sourceTree = "<group>"; };
+		674A68B41DB4C64700E9E08C /* RMTFriendListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTFriendListModel.h; sourceTree = "<group>"; };
+		674A68B51DB4C64700E9E08C /* RMTFriendListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTFriendListModel.m; sourceTree = "<group>"; };
+		674A68B71DB4C6BE00E9E08C /* RMTLevelDetaiListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTLevelDetaiListModel.h; sourceTree = "<group>"; };
+		674A68B81DB4C6BE00E9E08C /* RMTLevelDetaiListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTLevelDetaiListModel.m; sourceTree = "<group>"; };
+		674A68BA1DB4C6D100E9E08C /* RMTmyNewPeopListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTmyNewPeopListModel.h; sourceTree = "<group>"; };
+		674A68BB1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTmyNewPeopListModel.m; sourceTree = "<group>"; };
+		674A68BD1DB4C96400E9E08C /* RMTMainFriendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMainFriendModel.h; sourceTree = "<group>"; };
+		674A68BE1DB4C96400E9E08C /* RMTMainFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMainFriendModel.m; sourceTree = "<group>"; };
+		674A68C01DB4C97000E9E08C /* RMTcontrListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTcontrListModel.h; sourceTree = "<group>"; };
+		674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTcontrListModel.m; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -1465,6 +1480,16 @@
 				DC4E89701DAF8B3000E24579 /* RMTUserCenterModel.m */,
 				674A68AC1DB49F2600E9E08C /* RMTMessageListModel.h */,
 				674A68AD1DB49F2600E9E08C /* RMTMessageListModel.m */,
+				674A68B41DB4C64700E9E08C /* RMTFriendListModel.h */,
+				674A68B51DB4C64700E9E08C /* RMTFriendListModel.m */,
+				674A68B71DB4C6BE00E9E08C /* RMTLevelDetaiListModel.h */,
+				674A68B81DB4C6BE00E9E08C /* RMTLevelDetaiListModel.m */,
+				674A68BA1DB4C6D100E9E08C /* RMTmyNewPeopListModel.h */,
+				674A68BB1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m */,
+				674A68BD1DB4C96400E9E08C /* RMTMainFriendModel.h */,
+				674A68BE1DB4C96400E9E08C /* RMTMainFriendModel.m */,
+				674A68C01DB4C97000E9E08C /* RMTcontrListModel.h */,
+				674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1716,6 +1741,7 @@
 				674A68A01DB46E3200E9E08C /* RMTMoneyHeaderCell.m in Sources */,
 				BA8D453D1D619C9F00952EB5 /* MJRefreshBackNormalFooter.m in Sources */,
 				BA8D45371D619C9F00952EB5 /* MJRefreshFooter.m in Sources */,
+				674A68B91DB4C6BE00E9E08C /* RMTLevelDetaiListModel.m in Sources */,
 				BAEB05551D5DC0BC001D1E86 /* SGHttpTool.m in Sources */,
 				DCBE944B1DAE1EEF003677AF /* RMTHomePageHealthCarThreeTableViewCell.m in Sources */,
 				DC4E89671DAF720900E24579 /* RMTUserOtherTableViewCell.m in Sources */,
@@ -1733,6 +1759,7 @@
 				DCBE94481DAE1D19003677AF /* RMTHomePageAdvView.m in Sources */,
 				BA8D45431D619C9F00952EB5 /* MJRefreshConst.m in Sources */,
 				BA8D45D51D61A58500952EB5 /* XGYRefreshGifHeader.m in Sources */,
+				674A68C21DB4C97000E9E08C /* RMTcontrListModel.m in Sources */,
 				DC4E89581DAF488D00E24579 /* RMTRegisterCompeleteViewController.m in Sources */,
 				674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */,
 				DC4E896B1DAF88D300E24579 /* RMTRecordViewController.m in Sources */,
@@ -1743,6 +1770,7 @@
 				DCBE942A1DADCF3C003677AF /* RMTHealthCarViewController.m in Sources */,
 				DCBE943C1DAE11C2003677AF /* RMTAdModel.m in Sources */,
 				BA9458BE1D6442F20025994F /* AppDelegate+NetWorking.m in Sources */,
+				674A68BF1DB4C96400E9E08C /* RMTMainFriendModel.m in Sources */,
 				BAEB05581D5DC273001D1E86 /* SGBaseHttpTool.m in Sources */,
 				BA699EDC1D5C940E002B0DE7 /* SGTabBarController.m in Sources */,
 				DC4E89741DAF8C0200E24579 /* RMTMoneyViewController.m in Sources */,
@@ -1769,6 +1797,7 @@
 				BA8D45341D619C9F00952EB5 /* MJRefreshAutoFooter.m in Sources */,
 				670072D91DB1F1D100859D9A /* RMTMemberViewController.m in Sources */,
 				BA699EC91D5C8B70002B0DE7 /* main.m in Sources */,
+				674A68BC1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m in Sources */,
 				BA8D453C1D619C9F00952EB5 /* MJRefreshBackGifFooter.m in Sources */,
 				BA14163F1D63170200C23C27 /* NSFileManager+HomeDocumentPath.m in Sources */,
 				BA8D45381D619C9F00952EB5 /* MJRefreshHeader.m in Sources */,
@@ -1786,6 +1815,7 @@
 				DC4E897A1DAF8C2800E24579 /* RMTMessageViewController.m in Sources */,
 				BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */,
 				6705C0D01DB0DFDD007D42EF /* RMTTextView.m in Sources */,
+				674A68B61DB4C64700E9E08C /* RMTFriendListModel.m in Sources */,
 				BA8D45361D619C9F00952EB5 /* MJRefreshComponent.m in Sources */,
 				BA699EC81D5C8B70002B0DE7 /* AppDelegate.m in Sources */,
 				DC4E89431DAF1C3800E24579 /* RMTLoginViewController.m in Sources */,
@@ -1931,7 +1961,7 @@
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.stjk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.shentijiankang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1962,7 +1992,7 @@
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.stjk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.shentijiankang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

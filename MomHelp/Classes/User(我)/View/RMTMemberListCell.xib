@@ -76,6 +76,12 @@
                     <constraint firstItem="58R-KV-U2t" firstAttribute="top" secondItem="3oO-Wx-DQ7" secondAttribute="bottom" constant="-2" id="wDE-dK-ZRw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="timeLabel" destination="58R-KV-U2t" id="l82-xR-QjU"/>
+                <outlet property="typeImageView" destination="pEE-y0-7Hh" id="phu-pt-x6V"/>
+                <outlet property="userHeaderImageView" destination="cc6-E3-EtV" id="iMQ-de-QUI"/>
+                <outlet property="userNameLabel" destination="3oO-Wx-DQ7" id="IYI-7Q-0Ar"/>
+            </connections>
             <point key="canvasLocation" x="26" y="52.5"/>
         </tableViewCell>
     </objects>

@@ -107,7 +107,7 @@
                 <outlet property="moneyLabel" destination="cdd-Vm-4g8" id="pZi-8X-7I0"/>
                 <outlet property="timeLabel" destination="WIK-9R-hOG" id="7c3-n7-VQr"/>
                 <outlet property="topLine" destination="9SP-dF-QZE" id="F1V-ry-WK3"/>
-                <outlet property="userHeadImageView" destination="yxu-nt-zcR" id="gpI-S8-mqL"/>
+                <outlet property="userHeadImageView" destination="4FM-ph-lF1" id="tz8-QW-1Ih"/>
                 <outlet property="userNameLabel" destination="BTA-gq-YCc" id="m3A-go-sVF"/>
             </connections>
             <point key="canvasLocation" x="25" y="62.5"/>

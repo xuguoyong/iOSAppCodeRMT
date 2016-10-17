@@ -15,10 +15,16 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(RMTMainFriendModel *)model
+{
+    _model = model;
+    
+    [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:model.headUrl] placeholderImage:[UIImage imageNamed:@"defultHeadName"]];
+    self.userNameLabel.text = model.nick;
+    
+    self.receveMoney.text = [NSString stringWithFormat:@"¥ %.2f",[model.sumProfit floatValue]];
+    self.frenidNumber.text = model.sumContacts;
+    
 }
 
 @end

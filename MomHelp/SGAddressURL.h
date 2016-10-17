@@ -47,6 +47,14 @@
 /**消息详情*/
 #define GET_Message_Details @"/message/details"
 
+/**人脉成员*/
+#define GET_Friend_MemberList @"/profit/myprofit"
+
+/**人脉菜单*/
+#define GET_Friend_Muenue @"/profit/profithome"
+/**人脉收益*/
+#define GET_Friend_Profits @"/profit/profits"
+
 #endif /* SGAddressURL_h */
 
 

@@ -14,13 +14,14 @@
 #import "RMTWinMoneyViewController.h"
 #import "RMTHTMLViewController.h"
 #import "RMTShareAppViewController.h"
-
+#import "RMTMainFriendModel.h"
 #define isMenue tableView == self.menuetableView
 
 @interface RMTFreiendViewController () <UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UITableView *menuetableView;
 @property (nonatomic,strong) UIView *menueBgView;
+@property (nonatomic,strong) RMTMainFriendModel *dataModel;
 
 
 @property (nonatomic,strong) UIImageView *menueImageView;
@@ -41,10 +42,27 @@
      [self.tableView registerNib:[UINib nibWithNibName:@"RMTFriendHeaderCell" bundle:nil] forCellReuseIdentifier:@"friendHeaderCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.menueImageView];
+    __weak typeof(self)weakself= self;
+     [weakself requestDataFromBack];
+    [self.tableView addRefreshNormalHeaderWithRefreshBlock:^{
+      [weakself requestDataFromBack];
+    }];
     
 }
 
+- (void)requestDataFromBack
+{
 
+    [RMTDataService getDataWithURL:GET_Friend_Muenue parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+       
+    self.dataModel = [RMTMainFriendModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+
+}
 
 - (UIImageView *)menueImageView
 {
@@ -90,7 +108,7 @@
     if (section == 0) {
         return 1;
     }
-    return 30.0f;
+    return self.dataModel.contrList.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -152,10 +170,12 @@
     if (indexPath.section ==0) {
         RMTFriendHeaderCell *friendHeaderCell = [tableView dequeueReusableCellWithIdentifier:@"friendHeaderCell"];
         friendHeaderCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        friendHeaderCell.model = self.dataModel;
         return friendHeaderCell;
     }
     RMTReceveDetailCell *receveDetailCell = [tableView dequeueReusableCellWithIdentifier:@"receveDetailCell"];
     receveDetailCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    receveDetailCell.model = self.dataModel.contrList[indexPath.row];
     receveDetailCell.topLine.hidden = NO;
     receveDetailCell.backLine.hidden = NO;
     if (indexPath.row == 0) {

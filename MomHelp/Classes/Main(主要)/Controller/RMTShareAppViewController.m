@@ -83,6 +83,7 @@
 
 - (void)shareImageViewTouchAction:(UITapGestureRecognizer *)tap
 {
+    [SGShowMesssageTool showLoadingHUD];
     UIView *view = tap.view;
     
     SSDKPlatformType type = 100;
@@ -122,10 +123,47 @@
             break;
     }
     
+    
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
           [shareParams SSDKSetupShareParamsByText:@"我是" images:[UIImage imageNamed:@"app_icon"] url:[NSURL URLWithString:@"http://www.baidu.com"] title:@"这个是分享的标题" type:SSDKContentTypeAuto];
+    if (type ==SSDKPlatformTypeSinaWeibo ) {
+        [shareParams SSDKEnableUseClientShare];
+    }
     [ShareSDK share:type parameters:shareParams onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
-       
+        NSLog(@"%@",userData);
+        
+        switch (state) {
+            case SSDKResponseStateBegin:
+            {
+                
+               
+            }
+                break;
+            case SSDKResponseStateSuccess:
+            {
+                [SGShowMesssageTool hideLoadingHUD];
+                [SGShowMesssageTool showMessage:@"分享成功"];
+                
+            }
+                break;
+            case SSDKResponseStateCancel:
+            {
+                [SGShowMesssageTool hideLoadingHUD];
+               [SGShowMesssageTool showMessage:@"分享取消"];
+            }
+                break;
+            case SSDKResponseStateFail:
+            {
+                [SGShowMesssageTool hideLoadingHUD];
+                [SGShowMesssageTool showMessage:@"分享失败，请检查网络连接~"];
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        
     }];
 }
 

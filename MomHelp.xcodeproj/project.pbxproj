@@ -70,6 +70,7 @@
 		674A68BC1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68BB1DB4C6D100E9E08C /* RMTmyNewPeopListModel.m */; };
 		674A68BF1DB4C96400E9E08C /* RMTMainFriendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68BE1DB4C96400E9E08C /* RMTMainFriendModel.m */; };
 		674A68C21DB4C97000E9E08C /* RMTcontrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */; };
+		674A68C51DB4E86000E9E08C /* AppDelegate+ShareSDk.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68C41DB4E86000E9E08C /* AppDelegate+ShareSDk.m */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -337,6 +338,8 @@
 		674A68BE1DB4C96400E9E08C /* RMTMainFriendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMainFriendModel.m; sourceTree = "<group>"; };
 		674A68C01DB4C97000E9E08C /* RMTcontrListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTcontrListModel.h; sourceTree = "<group>"; };
 		674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTcontrListModel.m; sourceTree = "<group>"; };
+		674A68C31DB4E86000E9E08C /* AppDelegate+ShareSDk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ShareSDk.h"; sourceTree = "<group>"; };
+		674A68C41DB4E86000E9E08C /* AppDelegate+ShareSDk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ShareSDk.m"; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -948,6 +951,8 @@
 		BA699EBC1D5C8B70002B0DE7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				674A68C31DB4E86000E9E08C /* AppDelegate+ShareSDk.h */,
+				674A68C41DB4E86000E9E08C /* AppDelegate+ShareSDk.m */,
 				BA9458BC1D6442F20025994F /* AppDelegate+NetWorking.h */,
 				BA9458BD1D6442F20025994F /* AppDelegate+NetWorking.m */,
 				BA1415F21D62B72600C23C27 /* Foundation+Log.m */,
@@ -1764,6 +1769,7 @@
 				674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */,
 				DC4E896B1DAF88D300E24579 /* RMTRecordViewController.m in Sources */,
 				BA8D45451D619C9F00952EB5 /* UIScrollView+MJExtension.m in Sources */,
+				674A68C51DB4E86000E9E08C /* AppDelegate+ShareSDk.m in Sources */,
 				670073421DB22A0B00859D9A /* NSDate+HooDatePicker.m in Sources */,
 				670072E31DB1F2DE00859D9A /* RMTMemberHeaderTableViewCell.m in Sources */,
 				DC4E89471DAF2BE700E24579 /* RMTTool.m in Sources */,

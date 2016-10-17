@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RMTRegisterCompeleteViewController">
+            <connections>
+                <outlet property="messageCodeTextField" destination="Xcd-Ro-Qtl" id="hQD-0m-VzX"/>
+                <outlet property="timeButton" destination="Yav-J9-gGK" id="UIb-Rl-R48"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Xcd-Ro-Qtl">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1D0-9D-NxB"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAz-sJ-pv4">
+                    <color key="backgroundColor" red="0.82996362540000002" green="0.83888796539999999" blue="0.83888796539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="ivX-er-w0F"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yav-J9-gGK">
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="cR2-mD-eh3"/>
+                        <constraint firstAttribute="width" constant="70" id="edX-eB-beu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="timeButtonClick:" destination="-1" eventType="touchUpInside" id="PHu-qW-3az"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageCode" translatesAutoresizingMaskIntoConstraints="NO" id="Efp-87-o5N">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="a6O-M2-ish"/>
+                        <constraint firstAttribute="width" constant="22" id="bvm-Ds-0Ja"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXM-Vf-C8B">
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="pSc-nG-WWF"/>
+                    </constraints>
+                    <state key="normal" title="完成注册"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="completeButtonClick:" destination="-1" eventType="touchUpInside" id="atU-0u-T6h"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Yav-J9-gGK" firstAttribute="leading" secondItem="Xcd-Ro-Qtl" secondAttribute="trailing" constant="13" id="3kQ-Kn-EpT"/>
+                <constraint firstItem="EAz-sJ-pv4" firstAttribute="top" secondItem="Efp-87-o5N" secondAttribute="bottom" constant="15" id="7Zd-dF-VqK"/>
+                <constraint firstItem="KXM-Vf-C8B" firstAttribute="top" secondItem="EAz-sJ-pv4" secondAttribute="bottom" constant="74" id="GPb-bj-R9A"/>
+                <constraint firstItem="Xcd-Ro-Qtl" firstAttribute="leading" secondItem="Efp-87-o5N" secondAttribute="trailing" constant="13" id="MmN-18-eas"/>
+                <constraint firstItem="Efp-87-o5N" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="R7u-Qh-lXi"/>
+                <constraint firstItem="Yav-J9-gGK" firstAttribute="trailing" secondItem="EAz-sJ-pv4" secondAttribute="trailing" id="T1d-Md-m8r"/>
+                <constraint firstItem="Xcd-Ro-Qtl" firstAttribute="centerY" secondItem="Efp-87-o5N" secondAttribute="centerY" id="avY-vq-t32"/>
+                <constraint firstAttribute="trailing" secondItem="EAz-sJ-pv4" secondAttribute="trailing" constant="25" id="emm-fN-z6H"/>
+                <constraint firstItem="EAz-sJ-pv4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="jBF-q9-dDh"/>
+                <constraint firstItem="KXM-Vf-C8B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="kfM-pq-lro"/>
+                <constraint firstItem="Efp-87-o5N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="oFc-VH-YyJ"/>
+                <constraint firstItem="Yav-J9-gGK" firstAttribute="centerY" secondItem="Efp-87-o5N" secondAttribute="centerY" id="qmG-0K-ThT"/>
+                <constraint firstAttribute="trailing" secondItem="KXM-Vf-C8B" secondAttribute="trailing" constant="25" id="s4C-nK-X1R"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="messageCode" width="15" height="15"/>
+    </resources>
+</document>

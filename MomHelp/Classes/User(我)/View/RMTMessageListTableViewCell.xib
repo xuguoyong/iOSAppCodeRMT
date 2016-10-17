@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RMTMessageListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="63"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="discover" translatesAutoresizingMaskIntoConstraints="NO" id="LBp-du-Rv6">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="029-Zl-a9V"/>
+                            <constraint firstAttribute="width" constant="15" id="JDy-7b-dUK"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icj-Dk-FX4">
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="AuE-pD-fZr"/>
+                            <constraint firstAttribute="height" constant="10" id="i5g-ap-RGQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广东省深圳市宝安区十二区体检中心项目上线" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVH-vG-t5Q">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="3j1-hg-7fp"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-07-09 17：00：00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ma-cB-G0k">
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6Ma-cB-G0k" firstAttribute="height" secondItem="WVH-vG-t5Q" secondAttribute="height" id="1iW-20-Zpx"/>
+                    <constraint firstItem="icj-Dk-FX4" firstAttribute="leading" secondItem="WVH-vG-t5Q" secondAttribute="trailing" constant="8" id="A6H-gn-loZ"/>
+                    <constraint firstItem="LBp-du-Rv6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="PTZ-ed-Pc4"/>
+                    <constraint firstItem="6Ma-cB-G0k" firstAttribute="trailing" secondItem="WVH-vG-t5Q" secondAttribute="trailing" id="Vxn-Gg-ef8"/>
+                    <constraint firstItem="6Ma-cB-G0k" firstAttribute="top" secondItem="WVH-vG-t5Q" secondAttribute="bottom" constant="5" id="Ycd-Fh-viu"/>
+                    <constraint firstItem="WVH-vG-t5Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="ZrH-2C-QLg"/>
+                    <constraint firstItem="LBp-du-Rv6" firstAttribute="leading" secondItem="icj-Dk-FX4" secondAttribute="trailing" constant="6" id="ggB-mw-7DW"/>
+                    <constraint firstItem="icj-Dk-FX4" firstAttribute="centerY" secondItem="LBp-du-Rv6" secondAttribute="centerY" id="oMT-H0-M6i"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LBp-du-Rv6" secondAttribute="trailing" constant="7" id="rQt-wG-7UF"/>
+                    <constraint firstItem="6Ma-cB-G0k" firstAttribute="leading" secondItem="WVH-vG-t5Q" secondAttribute="leading" id="tAL-Xc-PPr"/>
+                    <constraint firstItem="WVH-vG-t5Q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-12" id="tBb-3K-54h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="messageContentLabel" destination="WVH-vG-t5Q" id="MT4-F2-QSh"/>
+                <outlet property="readView" destination="icj-Dk-FX4" id="7hD-Au-t9x"/>
+                <outlet property="timeLabel" destination="6Ma-cB-G0k" id="cii-qR-D66"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="discover" width="15" height="15"/>
+    </resources>
+</document>

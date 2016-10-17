@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RMTForgotPasswdViewController">
+            <connections>
+                <outlet property="nextButton" destination="sMw-db-Ejt" id="PCI-D4-IkG"/>
+                <outlet property="phoneNumberTextField" destination="vUy-tb-k4I" id="5xC-XV-00a"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_icon" translatesAutoresizingMaskIntoConstraints="NO" id="O2Y-Of-TjM">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="37r-Hw-Lci"/>
+                        <constraint firstAttribute="width" constant="25" id="T37-21-9og"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFk-9A-MQo">
+                    <color key="backgroundColor" red="0.82996362540000002" green="0.83888796539999999" blue="0.83888796539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="8VR-Ld-oJi"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vUy-tb-k4I">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="irs-Rd-5ZB"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMw-db-Ejt">
+                    <color key="backgroundColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="df4-CZ-KAx"/>
+                    </constraints>
+                    <state key="normal" title="下一步"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="nextButtonClick:" destination="-1" eventType="touchUpInside" id="6Go-ab-NnE"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="O2Y-Of-TjM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="BDy-RT-DOK"/>
+                <constraint firstItem="vUy-tb-k4I" firstAttribute="centerY" secondItem="O2Y-Of-TjM" secondAttribute="centerY" id="DKI-B0-AJV"/>
+                <constraint firstItem="vUy-tb-k4I" firstAttribute="leading" secondItem="O2Y-Of-TjM" secondAttribute="trailing" constant="8" id="GFt-cN-vUE"/>
+                <constraint firstItem="XFk-9A-MQo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="PTJ-iu-Cln"/>
+                <constraint firstItem="sMw-db-Ejt" firstAttribute="top" secondItem="XFk-9A-MQo" secondAttribute="bottom" constant="43" id="RP9-vF-Xea"/>
+                <constraint firstItem="O2Y-Of-TjM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="ZS4-vD-YOu"/>
+                <constraint firstItem="vUy-tb-k4I" firstAttribute="trailing" secondItem="XFk-9A-MQo" secondAttribute="trailing" id="egh-oa-NyU"/>
+                <constraint firstItem="sMw-db-Ejt" firstAttribute="leading" secondItem="XFk-9A-MQo" secondAttribute="leading" id="f50-wb-52F"/>
+                <constraint firstItem="sMw-db-Ejt" firstAttribute="trailing" secondItem="XFk-9A-MQo" secondAttribute="trailing" id="mVC-4e-88C"/>
+                <constraint firstAttribute="trailing" secondItem="XFk-9A-MQo" secondAttribute="trailing" constant="25" id="niP-nz-7wg"/>
+                <constraint firstItem="XFk-9A-MQo" firstAttribute="top" secondItem="O2Y-Of-TjM" secondAttribute="bottom" constant="8" id="t3A-hb-1oY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="account_icon" width="15" height="15"/>
+    </resources>
+</document>

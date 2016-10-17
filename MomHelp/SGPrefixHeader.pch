@@ -1,0 +1,77 @@
+//
+//  SGPrefixHeader.pch
+//  MomHelp
+//
+//  Created by xuguoyong on 16/8/11.
+//  Copyright © 2016年 hudongkeji. All rights reserved.
+//
+
+#ifndef SGPrefixHeader_pch
+#define SGPrefixHeader_pch
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIView+Extension.h"
+#import <UIView+SDAutoLayout.h>
+#import "SGShowMesssageTool.h"
+#import "XGYLabel.h"
+#import "UITableView+TebleViewHeaderAndFooter.h"
+#import "RMTDataService.h"
+#import "UIButton+CustomButton.h"
+#import "SGAddressURL.h"
+#import <MJExtension.h>
+#import <UIImageView+WebCache.h>
+#import "RMTTool.h"
+#import "RMTUserInfoModel.h"
+#import "NotificationName.h"
+#import <SVProgressHUD.h>
+#import "UIBarButtonItem+Extension.h"
+
+
+//屏宽-高
+#define d_screen_width [UIScreen mainScreen].bounds.size.width
+#define d_screen_height [UIScreen mainScreen].bounds.size.height
+/**
+ 判断当前是iPhone几
+ */
+#define isiPhone4 [UIScreen mainScreen].bounds.size.height==480
+#define isiPhone5 [UIScreen mainScreen].bounds.size.height==568
+#define isiPhone6 [UIScreen mainScreen].bounds.size.height==667
+#define isiPhone6p [UIScreen mainScreen].bounds.size.height==736
+
+// 颜色
+#define SGColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 随机色
+#define SGRandomColor SGColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+//颜色RGB 16进制
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+
+//调试View的时候快速设定背景色
+#define debugView(x) x.backgroundColor = [UIColor redColor]
+
+#endif
+
+
+#ifdef __OBJC__
+#import "SGConfigure.h"
+#endif
+
+//#ifdef DEBUG // 调试状态, 打开LOG功能
+//#define RMTLog(...) printf("%s\n",[[NSString stringWithFormat:VA_ARGS]UTF8String])
+//#define DDLOG_CURRENT_METHOD NSLog(@"%@-%@", NSStringFromClass([self class]), NSStringFromSelector(_cmd))
+//#else // 发布状态, 关闭LOG功能
+//#define RMTLog(...)
+//#define DDLOG_CURRENT_METHOD
+//#endif
+
+#ifdef DEBUG
+#define DDLOG(...) printf("%s\n",[[NSString stringWithFormat:VA_ARGS]UTF8String])
+
+#define DDLOG_CURRENT_METHOD NSLog(@"%@-%@", NSStringFromClass([self class]), NSStringFromSelector(_cmd))
+#else
+#define DDLOG(...) ;
+
+#define DDLOG_CURRENT_METHOD ;
+#endif

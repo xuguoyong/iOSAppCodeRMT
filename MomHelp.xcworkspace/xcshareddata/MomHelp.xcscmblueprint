@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "01bcf126-9c86-4879-b730-dee1a6d6c48b",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "01bcf126-9c86-4879-b730-dee1a6d6c48b" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "01bcf126-9c86-4879-b730-dee1a6d6c48b" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "78F627E3-C895-4720-A634-CBF934D9C93A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "01bcf126-9c86-4879-b730-dee1a6d6c48b" : "XMomHelp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MomHelp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MomHelp\/MomHelp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.30.111\/laowoRepo\/moIos",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "01bcf126-9c86-4879-b730-dee1a6d6c48b"
+    }
+  ]
+}

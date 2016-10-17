@@ -55,6 +55,11 @@
 /**人脉收益*/
 #define GET_Friend_Profits @"/profit/profits"
 
+/**我的钱包*/
+#define GET_Money_Packgae @"/account/findBalance"
+/**近期收支*/
+#define GET_Money_ResentMoneyList @"/account/logList"
+
 #endif /* SGAddressURL_h */
 
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RMTMoneyHeaderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
 @end

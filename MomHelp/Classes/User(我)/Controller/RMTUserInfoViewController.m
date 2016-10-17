@@ -34,7 +34,6 @@
     if (!_dataSource) {
         _dataSource = [[NSMutableArray alloc] init];
         [_dataSource addObject:@[@"个人信息"]];
-       // [_dataSource addObject:@[@"档案",@"钱包",@"收藏"]];
          [_dataSource addObject:@[@"档案",@"钱包"]];
         [_dataSource addObject:@[@"人脉"]];
         [_dataSource addObject:@[@"消息"]];

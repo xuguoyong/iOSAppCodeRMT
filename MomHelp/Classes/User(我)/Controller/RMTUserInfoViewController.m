@@ -39,7 +39,7 @@
         [_dataSource addObject:@[@"人脉"]];
         [_dataSource addObject:@[@"消息"]];
         [_dataSource addObject:@[@"设置"]];
-        NSLog(@"尝试本地翠盖");
+       
     }
     return _dataSource;
 }

@@ -42,10 +42,10 @@
                         <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未知名验证" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDE-Y1-Zy0">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已验证" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDE-Y1-Zy0">
                         <constraints>
-                            <constraint firstAttribute="height" constant="23" id="DiB-Qw-mqi"/>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="NGU-O6-7PZ"/>
+                            <constraint firstAttribute="height" constant="23" id="6IK-K2-Dtd"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="70" id="HJy-NS-Ah7"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.82352941176470584" green="0.82352941176470584" blue="0.82352941176470584" alpha="1" colorSpace="deviceRGB"/>
@@ -67,20 +67,19 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="SyY-eV-fXQ" firstAttribute="leading" secondItem="hDE-Y1-Zy0" secondAttribute="trailing" id="2qp-RZ-2g6"/>
                     <constraint firstItem="SyY-eV-fXQ" firstAttribute="centerY" secondItem="SAq-04-fQA" secondAttribute="centerY" id="6C7-WZ-EjP"/>
-                    <constraint firstItem="8Bv-VP-K1c" firstAttribute="centerY" secondItem="hDE-Y1-Zy0" secondAttribute="centerY" id="Ejz-OX-Lv4"/>
+                    <constraint firstItem="8Bv-VP-K1c" firstAttribute="centerY" secondItem="hDE-Y1-Zy0" secondAttribute="centerY" id="Gv3-Sj-wtx"/>
                     <constraint firstItem="ytm-P2-bEb" firstAttribute="top" secondItem="SAq-04-fQA" secondAttribute="top" constant="7" id="JsQ-LY-dDN"/>
+                    <constraint firstItem="hDE-Y1-Zy0" firstAttribute="leading" secondItem="8Bv-VP-K1c" secondAttribute="trailing" constant="6" id="PDZ-aV-cD6"/>
                     <constraint firstItem="SAq-04-fQA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="aeG-XQ-RtL"/>
-                    <constraint firstItem="hDE-Y1-Zy0" firstAttribute="leading" secondItem="ytm-P2-bEb" secondAttribute="trailing" constant="7" id="akP-hF-Ra6"/>
                     <constraint firstItem="OLh-x9-xmZ" firstAttribute="trailing" secondItem="ytm-P2-bEb" secondAttribute="trailing" id="dQ4-1z-5k2"/>
                     <constraint firstItem="SAq-04-fQA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="myi-sl-v8E"/>
                     <constraint firstAttribute="bottomMargin" secondItem="SAq-04-fQA" secondAttribute="bottom" constant="3" id="oxi-VO-oUx"/>
-                    <constraint firstItem="hDE-Y1-Zy0" firstAttribute="leading" secondItem="8Bv-VP-K1c" secondAttribute="trailing" constant="3" id="puO-O0-ZHP"/>
-                    <constraint firstItem="SyY-eV-fXQ" firstAttribute="leading" secondItem="hDE-Y1-Zy0" secondAttribute="trailing" id="q0j-y6-TFL"/>
                     <constraint firstItem="OLh-x9-xmZ" firstAttribute="leading" secondItem="ytm-P2-bEb" secondAttribute="leading" id="rB2-cg-Bav"/>
+                    <constraint firstItem="hDE-Y1-Zy0" firstAttribute="centerY" secondItem="SyY-eV-fXQ" secondAttribute="centerY" id="vXv-MQ-fAs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="SyY-eV-fXQ" secondAttribute="trailing" constant="7" id="vlQ-9R-F0O"/>
                     <constraint firstItem="ytm-P2-bEb" firstAttribute="leading" secondItem="SAq-04-fQA" secondAttribute="trailing" constant="8" id="wEY-Rs-kYb"/>
-                    <constraint firstItem="hDE-Y1-Zy0" firstAttribute="centerY" secondItem="SAq-04-fQA" secondAttribute="centerY" id="yDB-Mh-fXj"/>
                     <constraint firstItem="OLh-x9-xmZ" firstAttribute="top" secondItem="ytm-P2-bEb" secondAttribute="bottom" constant="8" id="zH1-KL-L7S"/>
                 </constraints>
             </tableViewCellContentView>

@@ -27,4 +27,13 @@
  *  获取离线缓存的数据的存放路径
  */
 + (NSString *)getOfflineCacheSqlitePath;
+
+/**
+ *  在沙盒中创建一个文件
+ *
+ *  @param documentName 文件夹的名称
+ *
+ *  @return 返回文件夹路径
+ */
++ (NSString *)createDocumentWithfileName:(NSString *)fileName;
 @end

@@ -32,7 +32,10 @@
     // 显示状态栏上面的菊花
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [SGShowMesssageTool showLoadingHUD];
+        if (showHud) {
+           [SGShowMesssageTool showLoadingHUD];
+        }
+       
     });
     
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
@@ -97,7 +100,9 @@
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [SGShowMesssageTool showLoadingHUD];
+        if (showHud) {
+            [SGShowMesssageTool showLoadingHUD];
+        }
     });
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
     [SGHttpTool post:allURL params:parma success:^(id responseObj) {

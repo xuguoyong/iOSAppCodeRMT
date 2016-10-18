@@ -31,7 +31,7 @@
 @property (nonatomic,strong) NSString *whetherCertification ;// 0;
 @property (nonatomic,strong) NSString *whetherTransactionPassword ;// 0;
 
-
+@property (nonatomic,strong) UIImage *HeadImage; ;// 0;
 
 /**
  创建一个单例来保存信息

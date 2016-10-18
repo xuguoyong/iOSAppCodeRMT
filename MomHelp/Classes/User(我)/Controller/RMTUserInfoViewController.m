@@ -98,7 +98,9 @@
 {
     [RMTDataService getDataWithURL:POST_GetUserInfo parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
         NSLog(@"%@",responseObj);
-        self.userModel = [RMTUserInfoModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
+        
+        self.userModel = [RMTUserInfoModel shareInstance];
+        [self.userModel setValuesForKeysWithDictionary:[responseObj objectForKey:@"data"]];
         [self.tableView reloadData];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
@@ -127,7 +129,13 @@
 {
     if (indexPath.section == 0) {
         RMTUserInfoTableViewCell *user = [tableView dequeueReusableCellWithIdentifier:@"userInfo"];
-        [user.userHeader sd_setImageWithURL:[NSURL URLWithString:self.userModel.headPortrait] placeholderImage:nil];
+        
+        if ([RMTUserInfoModel shareInstance].HeadImage) {
+            user.userHeader.image = [RMTUserInfoModel shareInstance].HeadImage;
+        }else
+        {
+            [user.userHeader sd_setImageWithURL:[NSURL URLWithString:self.userModel.headPortrait] placeholderImage:nil];
+        }
         user.userNikeNameLabel.text = self.userModel.nick;
         user.userMobileLabel.text = self.userModel.mobile;
         user.detailRLabel.text = [self.userModel.whetherCertification  intValue] == 1?@"已认证":@"未实名认证";

@@ -72,6 +72,12 @@
 		674A68C21DB4C97000E9E08C /* RMTcontrListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */; };
 		674A68C51DB4E86000E9E08C /* AppDelegate+ShareSDk.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68C41DB4E86000E9E08C /* AppDelegate+ShareSDk.m */; };
 		674A68C81DB4F90B00E9E08C /* RMTMoneyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68C71DB4F90B00E9E08C /* RMTMoneyModel.m */; };
+		674A68CC1DB5B6CE00E9E08C /* UploadImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68CB1DB5B6CE00E9E08C /* UploadImageTool.m */; };
+		674A68D01DB5C0F900E9E08C /* RMTChangeNickNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68CF1DB5C0F900E9E08C /* RMTChangeNickNameView.m */; };
+		674A68D21DB5C10700E9E08C /* RMTChangeNickNameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68D11DB5C10700E9E08C /* RMTChangeNickNameView.xib */; };
+		674A68D51DB5CE0900E9E08C /* RMTChangeAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68D41DB5CE0900E9E08C /* RMTChangeAreaView.m */; };
+		674A68D71DB5CE1A00E9E08C /* RMTChangeAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68D61DB5CE1A00E9E08C /* RMTChangeAreaView.xib */; };
+		674A68DA1DB5D0A500E9E08C /* RMTAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68D91DB5D0A500E9E08C /* RMTAreaModel.m */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -343,6 +349,17 @@
 		674A68C41DB4E86000E9E08C /* AppDelegate+ShareSDk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ShareSDk.m"; sourceTree = "<group>"; };
 		674A68C61DB4F90B00E9E08C /* RMTMoneyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMoneyModel.h; sourceTree = "<group>"; };
 		674A68C71DB4F90B00E9E08C /* RMTMoneyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMoneyModel.m; sourceTree = "<group>"; };
+		674A68C91DB5B2A700E9E08C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		674A68CA1DB5B6CE00E9E08C /* UploadImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageTool.h; sourceTree = "<group>"; };
+		674A68CB1DB5B6CE00E9E08C /* UploadImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageTool.m; sourceTree = "<group>"; };
+		674A68CE1DB5C0F900E9E08C /* RMTChangeNickNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTChangeNickNameView.h; sourceTree = "<group>"; };
+		674A68CF1DB5C0F900E9E08C /* RMTChangeNickNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTChangeNickNameView.m; sourceTree = "<group>"; };
+		674A68D11DB5C10700E9E08C /* RMTChangeNickNameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTChangeNickNameView.xib; sourceTree = "<group>"; };
+		674A68D31DB5CE0900E9E08C /* RMTChangeAreaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTChangeAreaView.h; sourceTree = "<group>"; };
+		674A68D41DB5CE0900E9E08C /* RMTChangeAreaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTChangeAreaView.m; sourceTree = "<group>"; };
+		674A68D61DB5CE1A00E9E08C /* RMTChangeAreaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTChangeAreaView.xib; sourceTree = "<group>"; };
+		674A68D81DB5D0A500E9E08C /* RMTAreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTAreaModel.h; sourceTree = "<group>"; };
+		674A68D91DB5D0A500E9E08C /* RMTAreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTAreaModel.m; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -850,6 +867,19 @@
 			name = "钱包";
 			sourceTree = "<group>";
 		};
+		674A68CD1DB5C0D300E9E08C /* 个人资料 */ = {
+			isa = PBXGroup;
+			children = (
+				674A68CE1DB5C0F900E9E08C /* RMTChangeNickNameView.h */,
+				674A68CF1DB5C0F900E9E08C /* RMTChangeNickNameView.m */,
+				674A68D11DB5C10700E9E08C /* RMTChangeNickNameView.xib */,
+				674A68D31DB5CE0900E9E08C /* RMTChangeAreaView.h */,
+				674A68D41DB5CE0900E9E08C /* RMTChangeAreaView.m */,
+				674A68D61DB5CE1A00E9E08C /* RMTChangeAreaView.xib */,
+			);
+			name = "个人资料";
+			sourceTree = "<group>";
+		};
 		B35E10B051B8F15CAC87B8D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1253,6 +1283,8 @@
 				BAEB058D1D5DD625001D1E86 /* SGShowMesssageTool.m */,
 				DC4E89451DAF2BE700E24579 /* RMTTool.h */,
 				DC4E89461DAF2BE700E24579 /* RMTTool.m */,
+				674A68CA1DB5B6CE00E9E08C /* UploadImageTool.h */,
+				674A68CB1DB5B6CE00E9E08C /* UploadImageTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1500,6 +1532,8 @@
 				674A68C11DB4C97000E9E08C /* RMTcontrListModel.m */,
 				674A68C61DB4F90B00E9E08C /* RMTMoneyModel.h */,
 				674A68C71DB4F90B00E9E08C /* RMTMoneyModel.m */,
+				674A68D81DB5D0A500E9E08C /* RMTAreaModel.h */,
+				674A68D91DB5D0A500E9E08C /* RMTAreaModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1507,6 +1541,7 @@
 		DCBE94241DADCE9A003677AF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				674A68CD1DB5C0D300E9E08C /* 个人资料 */,
 				670072DF1DB1F28A00859D9A /* 档案 */,
 				670072DE1DB1F28500859D9A /* 钱包 */,
 				670072DD1DB1F27B00859D9A /* 设置 */,
@@ -1626,6 +1661,7 @@
 				6700732B1DB2236A00859D9A /* read_me.txt in Resources */,
 				DC4E89C11DAF909800E24579 /* RMTSettingTableViewCell.xib in Resources */,
 				BA8D45A11D619E9900952EB5 /* dropdown_anim__00033@2x.png in Resources */,
+				674A68D21DB5C10700E9E08C /* RMTChangeNickNameView.xib in Resources */,
 				BA8D458B1D619E9900952EB5 /* dropdown_anim__00013@2x.png in Resources */,
 				BA8D45971D619E9900952EB5 /* dropdown_anim__00024@2x.png in Resources */,
 				BA8D45B71D619E9900952EB5 /* dropdown_anim__00053@2x.png in Resources */,
@@ -1667,6 +1703,7 @@
 				BA8D45A61D619E9900952EB5 /* dropdown_anim__00038@2x.png in Resources */,
 				BA8D458E1D619E9900952EB5 /* dropdown_anim__00016@2x.png in Resources */,
 				BA699EA81D5C8969002B0DE7 /* Assets.xcassets in Resources */,
+				674A68D71DB5CE1A00E9E08C /* RMTChangeAreaView.xib in Resources */,
 				BA8D45A81D619E9900952EB5 /* dropdown_anim__0003@2x.png in Resources */,
 				BA8D459F1D619E9900952EB5 /* dropdown_anim__00031@2x.png in Resources */,
 				BA8D45BF1D619E9900952EB5 /* dropdown_anim__00060@2x.png in Resources */,
@@ -1791,19 +1828,23 @@
 				BA8D45391D619C9F00952EB5 /* MJRefreshAutoGifFooter.m in Sources */,
 				BA8D453B1D619C9F00952EB5 /* MJRefreshAutoStateFooter.m in Sources */,
 				BA6D07431D6C138D0011FF0B /* iCarousel.m in Sources */,
+				674A68DA1DB5D0A500E9E08C /* RMTAreaModel.m in Sources */,
 				BA699ED91D5C93EA002B0DE7 /* SGNavigationController.m in Sources */,
 				DC4E89531DAF3D7E00E24579 /* RMTForgotPasswdViewController.m in Sources */,
+				674A68CC1DB5B6CE00E9E08C /* UploadImageTool.m in Sources */,
 				6705C0CA1DB0C865007D42EF /* RMTIdeaFeelbackViewController.m in Sources */,
 				BAEB05471D5D85BB001D1E86 /* SGTabBar.m in Sources */,
 				674A68B21DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m in Sources */,
 				BA8D45D81D61A5BA00952EB5 /* XGYRefreshBackGifFooter.m in Sources */,
 				671C5CC21DB1E56600D6CAEC /* RMTMenueCell.m in Sources */,
 				DC4E89C01DAF909800E24579 /* RMTSettingTableViewCell.m in Sources */,
+				674A68D51DB5CE0900E9E08C /* RMTChangeAreaView.m in Sources */,
 				670073411DB22A0B00859D9A /* HooDatePicker.m in Sources */,
 				DCBE94361DAE0E96003677AF /* RMTBaseModel.m in Sources */,
 				BA8D45471D619C9F00952EB5 /* UIView+MJExtension.m in Sources */,
 				671C5CBD1DB1CFBD00D6CAEC /* RMTReceveDetailCell.m in Sources */,
 				DCBE944E1DAE2236003677AF /* RMTHomePageHealthCarOneTableViewCell.m in Sources */,
+				674A68D01DB5C0F900E9E08C /* RMTChangeNickNameView.m in Sources */,
 				671C5CB81DB1CAC000D6CAEC /* RMTFriendHeaderCell.m in Sources */,
 				DC4E894E1DAF393600E24579 /* RMTRegisterViewController.m in Sources */,
 				BA8D45341D619C9F00952EB5 /* MJRefreshAutoFooter.m in Sources */,
@@ -1860,6 +1901,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BA699EAA1D5C8969002B0DE7 /* Base */,
+				674A68C91DB5B2A700E9E08C /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1871,6 +1913,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1915,6 +1958,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

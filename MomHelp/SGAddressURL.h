@@ -60,6 +60,24 @@
 /**近期收支*/
 #define GET_Money_ResentMoneyList @"/account/logList"
 
+/**阿里云的SDK请求后台参数解接口*/
+#define GET_Aliyun_SDKPamark @"/oss/clientSts"
+/**修改头像API*/
+#define POST_Change_User_HeadPortrait @"/user/headPortrait"
+
+/**修改性别API*/
+#define POST_Change_User_Sex @"/user/sex"
+/**修改昵称*/
+#define POST_Change_User_Nick @"/user/nike"
+/**修改生日*/
+#define POST_Change_User_Birthday @"/user/birthday"
+
+
+
+/**修改地区*/
+#define POST_Change_User_Area @"/user/area"
+/**获取地区*/
+#define GET_Area_List @"/area/china"
 #endif /* SGAddressURL_h */
 
 

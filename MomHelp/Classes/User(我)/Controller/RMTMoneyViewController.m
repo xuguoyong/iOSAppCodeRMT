@@ -13,6 +13,10 @@
 #import "RMTMenueCell.h"
 #import "RMTTitianRecordViewController.h"
 #import "RMTWinRecordViewController.h"
+#import "RMTTransPasswordFirstViewController.h"
+#import "RMTChangeTransPasswdViewController.h"
+#import "RMTTitianViewController.h"
+
 #define isMenue tableView == self.menuetableView
 @interface RMTMoneyViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView ;
@@ -182,6 +186,17 @@
       RMTMoneyHeaderCell *headCell = [tableView dequeueReusableCellWithIdentifier:@"headCell"];
         headCell.moneyLabel.text = [NSString stringWithFormat:@"¥ %.2f",[self.dataModel.balance floatValue]];
         headCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        __weak typeof(self)weakself= self;
+        headCell.bankCarButtonClick = ^(id data)
+        {
+            [weakself bankButtonClick:data];
+        
+        };
+        headCell.tixianButtonClick = ^(id data)
+        {
+            [weakself tixianButtonClick:data];
+        };
         return headCell;
     }
      RMTReceveMoneyListCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
@@ -213,7 +228,18 @@
     
 }
 
+#pragma mark ===银行卡按钮的点击事件
+- (void)bankButtonClick:(UIButton *)sender
+{
 
+}
+#pragma mark===提现按钮的点击事件
+- (void)tixianButtonClick:(UIButton *)sender
+{
+    RMTTitianViewController *tixian = [[RMTTitianViewController alloc] initWithNibName:@"RMTTitianViewController" bundle:nil];
+    tixian.dataModel = self.dataModel;
+    [self.navigationController pushViewController:tixian animated:YES];
+}
 
 
 #pragma mark -获取菜单
@@ -226,6 +252,7 @@
     
     if (indexPath.row == 0) {
         RMTTitianRecordViewController *member = [[RMTTitianRecordViewController alloc] init];
+        
         [self.navigationController pushViewController:member animated:YES];
     }else if (indexPath.row == 1)
     {
@@ -234,7 +261,12 @@
         
     }else if (indexPath.row ==2)
     {
-      
+//        RMTTransPasswordFirstViewController *pass = [[RMTTransPasswordFirstViewController alloc] initWithNibName:@"RMTTransPasswordFirstViewController" bundle:nil];
+//        [self.navigationController pushViewController:pass animated:YES];
+        
+            RMTChangeTransPasswdViewController *pass = [[RMTChangeTransPasswdViewController alloc] initWithNibName:@"RMTChangeTransPasswdViewController" bundle:nil];
+               [self.navigationController pushViewController:pass animated:YES];
+        
     }else
     {
        

@@ -15,9 +15,15 @@
     // Initialization code
 }
 - (IBAction)bankCarButttonClick:(id)sender {
+    if (self.bankCarButtonClick) {
+        self.bankCarButtonClick(sender);
+    }
 }
 
 - (IBAction)tixianButtonClick:(id)sender {
+    if (self.tixianButtonClick) {
+        self.tixianButtonClick(sender);
+    }
 }
 
 

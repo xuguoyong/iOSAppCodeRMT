@@ -48,4 +48,12 @@
  format:yyyy年MM月dd日  或者 yyyy-MM-dd HH:mm:ss.SSS 等
  */
 +(NSString*)dateToString:(NSString *)format byDate:(NSDate *)date;
+/**
+ *  时间戳转换为时间的方法
+ *
+ *  @param timestamp 时间戳
+ *
+ *  @return  matter 标准时间字符串
+ */
++ (NSString *)timestampChangesStandarTime:(NSString *)timestamp withFormatter:(NSString *)matter;
 @end

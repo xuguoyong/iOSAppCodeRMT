@@ -82,6 +82,16 @@
 		674A68E11DB607C100E9E08C /* RMTTitianRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68DF1DB607C100E9E08C /* RMTTitianRecordCell.m */; };
 		674A68E21DB607C100E9E08C /* RMTTitianRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68E01DB607C100E9E08C /* RMTTitianRecordCell.xib */; };
 		674A68E51DB60B2000E9E08C /* RMTWinRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68E41DB60B2000E9E08C /* RMTWinRecordViewController.m */; };
+		674A68EB1DB60D2500E9E08C /* RMTWinMoneyRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68EA1DB60D2500E9E08C /* RMTWinMoneyRecordModel.m */; };
+		674A68F01DB6160500E9E08C /* RMTTransPasswordFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68EE1DB6160500E9E08C /* RMTTransPasswordFirstViewController.m */; };
+		674A68F11DB6160500E9E08C /* RMTTransPasswordFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68EF1DB6160500E9E08C /* RMTTransPasswordFirstViewController.xib */; };
+		674A68F51DB6197800E9E08C /* RMTChangeTransPasswdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68F31DB6197800E9E08C /* RMTChangeTransPasswdViewController.m */; };
+		674A68F61DB6197800E9E08C /* RMTChangeTransPasswdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68F41DB6197800E9E08C /* RMTChangeTransPasswdViewController.xib */; };
+		674A68FA1DB61E5300E9E08C /* RMTTitianViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68F81DB61E5300E9E08C /* RMTTitianViewController.m */; };
+		674A68FB1DB61E5300E9E08C /* RMTTitianViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68F91DB61E5300E9E08C /* RMTTitianViewController.xib */; };
+		674A68FE1DB632D400E9E08C /* RMTRecordListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68FD1DB632D400E9E08C /* RMTRecordListModel.m */; };
+		674A69021DB639E800E9E08C /* RMTRecordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A69011DB639E800E9E08C /* RMTRecordDetailViewController.m */; };
+		674A690A1DB64ADE00E9E08C /* RMTAddhealthRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A69091DB64ADE00E9E08C /* RMTAddhealthRecordViewController.m */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -371,6 +381,23 @@
 		674A68E01DB607C100E9E08C /* RMTTitianRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTTitianRecordCell.xib; sourceTree = "<group>"; };
 		674A68E31DB60B2000E9E08C /* RMTWinRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTWinRecordViewController.h; sourceTree = "<group>"; };
 		674A68E41DB60B2000E9E08C /* RMTWinRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTWinRecordViewController.m; sourceTree = "<group>"; };
+		674A68E91DB60D2500E9E08C /* RMTWinMoneyRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTWinMoneyRecordModel.h; sourceTree = "<group>"; };
+		674A68EA1DB60D2500E9E08C /* RMTWinMoneyRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTWinMoneyRecordModel.m; sourceTree = "<group>"; };
+		674A68ED1DB6160500E9E08C /* RMTTransPasswordFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTTransPasswordFirstViewController.h; sourceTree = "<group>"; };
+		674A68EE1DB6160500E9E08C /* RMTTransPasswordFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTTransPasswordFirstViewController.m; sourceTree = "<group>"; };
+		674A68EF1DB6160500E9E08C /* RMTTransPasswordFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTTransPasswordFirstViewController.xib; sourceTree = "<group>"; };
+		674A68F21DB6197800E9E08C /* RMTChangeTransPasswdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTChangeTransPasswdViewController.h; sourceTree = "<group>"; };
+		674A68F31DB6197800E9E08C /* RMTChangeTransPasswdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTChangeTransPasswdViewController.m; sourceTree = "<group>"; };
+		674A68F41DB6197800E9E08C /* RMTChangeTransPasswdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTChangeTransPasswdViewController.xib; sourceTree = "<group>"; };
+		674A68F71DB61E5300E9E08C /* RMTTitianViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTTitianViewController.h; sourceTree = "<group>"; };
+		674A68F81DB61E5300E9E08C /* RMTTitianViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTTitianViewController.m; sourceTree = "<group>"; };
+		674A68F91DB61E5300E9E08C /* RMTTitianViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTTitianViewController.xib; sourceTree = "<group>"; };
+		674A68FC1DB632D400E9E08C /* RMTRecordListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTRecordListModel.h; sourceTree = "<group>"; };
+		674A68FD1DB632D400E9E08C /* RMTRecordListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTRecordListModel.m; sourceTree = "<group>"; };
+		674A69001DB639E800E9E08C /* RMTRecordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTRecordDetailViewController.h; sourceTree = "<group>"; };
+		674A69011DB639E800E9E08C /* RMTRecordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTRecordDetailViewController.m; sourceTree = "<group>"; };
+		674A69081DB64ADE00E9E08C /* RMTAddhealthRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTAddhealthRecordViewController.h; sourceTree = "<group>"; };
+		674A69091DB64ADE00E9E08C /* RMTAddhealthRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTAddhealthRecordViewController.m; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -852,6 +879,7 @@
 		6705C0C21DB0BD1F007D42EF /* 三级界面 */ = {
 			isa = PBXGroup;
 			children = (
+				674A68FF1DB639CF00E9E08C /* 档案 */,
 				674A689C1DB46DBF00E9E08C /* 钱包 */,
 				674A689B1DB46DB700E9E08C /* 关于 */,
 				670072EF1DB2061000859D9A /* 人脉 */,
@@ -877,6 +905,7 @@
 		674A689C1DB46DBF00E9E08C /* 钱包 */ = {
 			isa = PBXGroup;
 			children = (
+				674A68EC1DB615CE00E9E08C /* 交易密码 */,
 				674A68DB1DB6076C00E9E08C /* RMTTitianRecordViewController.h */,
 				674A68DC1DB6076C00E9E08C /* RMTTitianRecordViewController.m */,
 				674A68E31DB60B2000E9E08C /* RMTWinRecordViewController.h */,
@@ -896,6 +925,33 @@
 				674A68D61DB5CE1A00E9E08C /* RMTChangeAreaView.xib */,
 			);
 			name = "个人资料";
+			sourceTree = "<group>";
+		};
+		674A68EC1DB615CE00E9E08C /* 交易密码 */ = {
+			isa = PBXGroup;
+			children = (
+				674A68ED1DB6160500E9E08C /* RMTTransPasswordFirstViewController.h */,
+				674A68EE1DB6160500E9E08C /* RMTTransPasswordFirstViewController.m */,
+				674A68EF1DB6160500E9E08C /* RMTTransPasswordFirstViewController.xib */,
+				674A68F21DB6197800E9E08C /* RMTChangeTransPasswdViewController.h */,
+				674A68F31DB6197800E9E08C /* RMTChangeTransPasswdViewController.m */,
+				674A68F41DB6197800E9E08C /* RMTChangeTransPasswdViewController.xib */,
+				674A68F71DB61E5300E9E08C /* RMTTitianViewController.h */,
+				674A68F81DB61E5300E9E08C /* RMTTitianViewController.m */,
+				674A68F91DB61E5300E9E08C /* RMTTitianViewController.xib */,
+			);
+			name = "交易密码";
+			sourceTree = "<group>";
+		};
+		674A68FF1DB639CF00E9E08C /* 档案 */ = {
+			isa = PBXGroup;
+			children = (
+				674A69001DB639E800E9E08C /* RMTRecordDetailViewController.h */,
+				674A69011DB639E800E9E08C /* RMTRecordDetailViewController.m */,
+				674A69081DB64ADE00E9E08C /* RMTAddhealthRecordViewController.h */,
+				674A69091DB64ADE00E9E08C /* RMTAddhealthRecordViewController.m */,
+			);
+			name = "档案";
 			sourceTree = "<group>";
 		};
 		B35E10B051B8F15CAC87B8D3 /* Frameworks */ = {
@@ -1552,6 +1608,10 @@
 				674A68C71DB4F90B00E9E08C /* RMTMoneyModel.m */,
 				674A68D81DB5D0A500E9E08C /* RMTAreaModel.h */,
 				674A68D91DB5D0A500E9E08C /* RMTAreaModel.m */,
+				674A68E91DB60D2500E9E08C /* RMTWinMoneyRecordModel.h */,
+				674A68EA1DB60D2500E9E08C /* RMTWinMoneyRecordModel.m */,
+				674A68FC1DB632D400E9E08C /* RMTRecordListModel.h */,
+				674A68FD1DB632D400E9E08C /* RMTRecordListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1653,6 +1713,7 @@
 				BA8D458D1D619E9900952EB5 /* dropdown_anim__00015@2x.png in Resources */,
 				6700732E1DB2236A00859D9A /* ShareSDK.bundle in Resources */,
 				BA8D45AD1D619E9900952EB5 /* dropdown_anim__00044@2x.png in Resources */,
+				674A68FB1DB61E5300E9E08C /* RMTTitianViewController.xib in Resources */,
 				BA8D45B81D619E9900952EB5 /* dropdown_anim__00054@2x.png in Resources */,
 				BA8D459E1D619E9900952EB5 /* dropdown_anim__00030@2x.png in Resources */,
 				DC4E89541DAF3D7E00E24579 /* RMTForgotPasswdViewController.xib in Resources */,
@@ -1673,6 +1734,7 @@
 				BA8D45921D619E9900952EB5 /* dropdown_anim__0001@2x.png in Resources */,
 				BA8D45891D619E9900952EB5 /* dropdown_anim__00011@2x.png in Resources */,
 				BA8D45931D619E9900952EB5 /* dropdown_anim__00020@2x.png in Resources */,
+				674A68F11DB6160500E9E08C /* RMTTransPasswordFirstViewController.xib in Resources */,
 				BA8D45A31D619E9900952EB5 /* dropdown_anim__00035@2x.png in Resources */,
 				671C5CC31DB1E56600D6CAEC /* RMTMenueCell.xib in Resources */,
 				BA8D459A1D619E9900952EB5 /* dropdown_anim__00027@2x.png in Resources */,
@@ -1723,6 +1785,7 @@
 				BA8D458E1D619E9900952EB5 /* dropdown_anim__00016@2x.png in Resources */,
 				BA699EA81D5C8969002B0DE7 /* Assets.xcassets in Resources */,
 				674A68D71DB5CE1A00E9E08C /* RMTChangeAreaView.xib in Resources */,
+				674A68F61DB6197800E9E08C /* RMTChangeTransPasswdViewController.xib in Resources */,
 				BA8D45A81D619E9900952EB5 /* dropdown_anim__0003@2x.png in Resources */,
 				BA8D459F1D619E9900952EB5 /* dropdown_anim__00031@2x.png in Resources */,
 				BA8D45BF1D619E9900952EB5 /* dropdown_anim__00060@2x.png in Resources */,
@@ -1812,6 +1875,7 @@
 				BAEB05551D5DC0BC001D1E86 /* SGHttpTool.m in Sources */,
 				DCBE944B1DAE1EEF003677AF /* RMTHomePageHealthCarThreeTableViewCell.m in Sources */,
 				DC4E89671DAF720900E24579 /* RMTUserOtherTableViewCell.m in Sources */,
+				674A68FA1DB61E5300E9E08C /* RMTTitianViewController.m in Sources */,
 				671C5CB01DB1C54900D6CAEC /* RMTMessageListTableViewCell.m in Sources */,
 				DC4E89621DAF6D7E00E24579 /* RMTUserInfoTableViewCell.m in Sources */,
 				DC4E897D1DAF8C3700E24579 /* RMTSettingViewController.m in Sources */,
@@ -1820,10 +1884,13 @@
 				DCBE94301DADCF5A003677AF /* RMTUserInfoViewController.m in Sources */,
 				DC4E89C41DAF944600E24579 /* RMTHTMLViewController.m in Sources */,
 				BA699ECD1D5C9317002B0DE7 /* SGBaseViewController.m in Sources */,
+				674A69021DB639E800E9E08C /* RMTRecordDetailViewController.m in Sources */,
 				BAEB058E1D5DD625001D1E86 /* SGShowMesssageTool.m in Sources */,
 				BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */,
 				6705C0D31DB0E286007D42EF /* RMTImageViewCollectionViewCell.m in Sources */,
+				674A68EB1DB60D2500E9E08C /* RMTWinMoneyRecordModel.m in Sources */,
 				6705C0C61DB0BD46007D42EF /* RMTAppAbountViewController.m in Sources */,
+				674A690A1DB64ADE00E9E08C /* RMTAddhealthRecordViewController.m in Sources */,
 				DCBE94481DAE1D19003677AF /* RMTHomePageAdvView.m in Sources */,
 				BA8D45431D619C9F00952EB5 /* MJRefreshConst.m in Sources */,
 				BA8D45D51D61A58500952EB5 /* XGYRefreshGifHeader.m in Sources */,
@@ -1853,6 +1920,7 @@
 				BA699ED91D5C93EA002B0DE7 /* SGNavigationController.m in Sources */,
 				DC4E89531DAF3D7E00E24579 /* RMTForgotPasswdViewController.m in Sources */,
 				674A68CC1DB5B6CE00E9E08C /* UploadImageTool.m in Sources */,
+				674A68F01DB6160500E9E08C /* RMTTransPasswordFirstViewController.m in Sources */,
 				6705C0CA1DB0C865007D42EF /* RMTIdeaFeelbackViewController.m in Sources */,
 				BAEB05471D5D85BB001D1E86 /* SGTabBar.m in Sources */,
 				674A68B21DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m in Sources */,
@@ -1880,6 +1948,7 @@
 				BA14161E1D62CD8000C23C27 /* MBProgressHUD.m in Sources */,
 				670073461DB22F0D00859D9A /* RMTWinMoneyCell.m in Sources */,
 				DCBE942D1DADCF49003677AF /* RMTAccountViewController.m in Sources */,
+				674A68FE1DB632D400E9E08C /* RMTRecordListModel.m in Sources */,
 				670072ED1DB2020000859D9A /* RMTMemberListCell.m in Sources */,
 				BA1415F71D62BDFF00C23C27 /* LoadingHUDView.m in Sources */,
 				BA9458C41D6462660025994F /* UIButton+CustomButton.m in Sources */,
@@ -1905,6 +1974,7 @@
 				BA8D45461D619C9F00952EB5 /* UIScrollView+MJRefresh.m in Sources */,
 				674A68AA1DB484EE00E9E08C /* RMTUserInfoHeadCell.m in Sources */,
 				674A68E11DB607C100E9E08C /* RMTTitianRecordCell.m in Sources */,
+				674A68F51DB6197800E9E08C /* RMTChangeTransPasswdViewController.m in Sources */,
 				BA8D45351D619C9F00952EB5 /* MJRefreshBackFooter.m in Sources */,
 				DC4E894A1DAF34BF00E24579 /* RMTUserInfoModel.m in Sources */,
 				670072F21DB2064400859D9A /* RMTWinMoneyViewController.m in Sources */,

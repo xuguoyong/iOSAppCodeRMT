@@ -271,16 +271,16 @@
 {
    
     if (indexPath.row ==0) {
-        return @{@"成员":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"成员":[UIImage imageNamed:@"member_icon"]};
     }else if (indexPath.row ==1)
     {
-     return @{@"收益":[UIImage imageNamed:@"shareIcon"]};
+     return @{@"收益":[UIImage imageNamed:@"receve_icon"]};
     }else if (indexPath.row ==2)
     {
-     return @{@"说明":[UIImage imageNamed:@"shareIcon"]};
+     return @{@"说明":[UIImage imageNamed:@"shuoming_icon"]};
     }else if (indexPath.row ==3)
     {
-         return @{@"分享":[UIImage imageNamed:@"shareIcon"]};
+         return @{@"分享":[UIImage imageNamed:@"share_icon"]};
     }
     return nil;
 }

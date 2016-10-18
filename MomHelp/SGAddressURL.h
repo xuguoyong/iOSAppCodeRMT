@@ -79,6 +79,18 @@
 #define POST_Change_User_Area @"/user/area"
 /**获取地区*/
 #define GET_Area_List @"/area/china"
+
+/**提现记录*/
+#define GET_Win_Money_Record @"/account/findLogType"
+/**收益记录*/
+#define GET_Receve_Money_Record @"/account/profitLog"
+
+/**档案列表*/
+#define GET_Record_List @"/healthRecord/list"
+/**档案详情*/
+#define GET_Record_Detail @"/healthRecord/details"
+
+
 #endif /* SGAddressURL_h */
 
 

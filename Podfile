@@ -12,5 +12,5 @@ pod 'FMDB', '~> 2.6.2'
 pod 'SVProgressHUD'
 pod 'TZImagePickerController'
 pod 'AliyunOSSiOS', '~> 2.5.3'
-
+pod 'VPImageCropper', '~> 0.0.4'
 end

@@ -16,4 +16,6 @@ typedef void (^getPhotoBlock)(UIImage *);
 @interface RMTUserDetailInfoViewController : SGBaseViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, VPImageCropperDelegate>
 @property (nonatomic,strong) getPhotoBlock originalImageBlock;
 @property (nonatomic,strong) getPhotoBlock eiditImageBlock;
+
+@property (nonatomic,strong) void(^reloadBolock)(id data);
 @end

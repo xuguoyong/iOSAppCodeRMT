@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.title = @"人脉";
-    self.navigationItem.rightBarButtonItem =[UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(rightButtonClick:)];
+    self.navigationItem.rightBarButtonItem =[UIBarButtonItem itemWithImageName:@"menue_icon" highImageName:nil target:self action:@selector(rightButtonClick:)];
     
     self.tableView = [self addTableViewWithDelegate:self style:UITableViewStyleGrouped];
     [self.tableView registerNib:[UINib nibWithNibName:@"RMTReceveDetailCell" bundle:nil] forCellReuseIdentifier:@"receveDetailCell"];
@@ -42,6 +42,7 @@
      [self.tableView registerNib:[UINib nibWithNibName:@"RMTFriendHeaderCell" bundle:nil] forCellReuseIdentifier:@"friendHeaderCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.menueImageView];
+    self.menueImageView.hidden = YES;
     __weak typeof(self)weakself= self;
      [weakself requestDataFromBack];
     [self.tableView addRefreshNormalHeaderWithRefreshBlock:^{
@@ -255,7 +256,7 @@
         RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
         share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         share.view.backgroundColor=[UIColor colorWithWhite:0 alpha:0.7];
-        
+        share.shareURL = [NSString stringWithFormat:@"%@?userId=%@",self.dataModel.share,self.dataModel.userId];
         share.modalPresentationStyle = UIModalPresentationOverFullScreen;
         [self  presentViewController:share animated:YES completion:^(void){
             share.view.superview.backgroundColor = [UIColor clearColor];

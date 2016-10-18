@@ -64,6 +64,8 @@
     NSLog(@"分享按钮");
     
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
+    
+    share.shareURL = [NSString stringWithFormat:@"%@?userId=%@",self.centerModel.share,self.centerModel.userId];
     share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     share.view.backgroundColor=[UIColor colorWithWhite:0 alpha:0.7];
 
@@ -262,9 +264,14 @@
 #pragma mark ===tableView的点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak typeof(self)weakself = self;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         RMTUserDetailInfoViewController *detail = [[RMTUserDetailInfoViewController alloc] init];
+        detail.reloadBolock = ^(id dta)
+        {
+            [weakself.tableView reloadData];
+        };
         [self.navigationController pushViewController:detail animated:YES];
     }else if (indexPath.section == 1)
     {

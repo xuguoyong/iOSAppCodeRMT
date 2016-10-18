@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="S4C-cA-Mkw"/>
                             <constraint firstAttribute="height" constant="21" id="td4-Uh-mid"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

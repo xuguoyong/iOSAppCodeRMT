@@ -10,13 +10,18 @@
 #import "RMTMoneyHeaderCell.h"
 #import "RMTReceveMoneyListCell.h"
 #import "RMTMoneyModel.h"
-
+#import "RMTMenueCell.h"
+#import "RMTTitianRecordViewController.h"
+#import "RMTWinRecordViewController.h"
+#define isMenue tableView == self.menuetableView
 @interface RMTMoneyViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView ;
 @property (nonatomic,strong) NSMutableArray *dataSources;
 @property (nonatomic,strong) RMTMoneyModel *dataModel;
+@property (nonatomic,strong) UITableView *menuetableView;
+@property (nonatomic,strong) UIView *menueBgView;
 
-
+@property (nonatomic,strong) UIImageView *menueImageView;
 @end
 
 @implementation RMTMoneyViewController
@@ -31,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.title = @"钱包";
+     self.navigationItem.rightBarButtonItem =[UIBarButtonItem itemWithImageName:@"menue_icon" highImageName:nil target:self action:@selector(rightButtonClick:)];
     self.tableView  = [self addTableViewWithDelegate:self style:UITableViewStyleGrouped];
     self.tableView.separatorColor = UIColorFromRGB(0xd2d2d2);
     
@@ -41,7 +47,37 @@
         [weakself requestDataFromBack];
     }];
     [self requestDataFromBack];
-    
+    [self.view addSubview:self.menueImageView];
+    self.menueImageView.hidden = YES;
+}
+- (UIImageView *)menueImageView
+{
+    if (!_menueImageView) {
+        _menueImageView = [[UIImageView alloc] initWithFrame:CGRectMake(d_screen_width -10-150, 5, 150,150)];
+        _menueImageView.image = [UIImage imageNamed:@"menueBgImageView"];
+        
+        
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        tableView.frame = CGRectMake(0, 15, _menueImageView.width, _menueImageView.height);
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        
+        [tableView registerNib:[UINib nibWithNibName:@"RMTMenueCell" bundle:nil] forCellReuseIdentifier:@"menueCell"];
+        tableView.bounces = NO;
+        [_menueImageView addSubview:tableView];
+        tableView.backgroundColor = [UIColor clearColor];
+        tableView.separatorColor = [UIColor whiteColor];
+        self.menuetableView = tableView;
+        _menueImageView.userInteractionEnabled = YES;
+    }
+    return _menueImageView;
+}
+
+
+- (void)rightButtonClick:(UIBarButtonItem *)bar
+{
+    self.menueImageView.hidden = !self.menueImageView.hidden;
 }
 - (void)requestDataFromBack
 {
@@ -57,7 +93,7 @@
     
     [RMTDataService getDataWithURL:GET_Money_ResentMoneyList parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
         
-        //        self.dataModel = [RMTMainFriendModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
+      
         [self.dataSources removeAllObjects];
         for (NSDictionary *dic in [responseObj objectForKey:@"data"]) {
             RMTMoneyModel *model = [RMTMoneyModel mj_objectWithKeyValues:dic];
@@ -75,10 +111,16 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (isMenue) {
+        return 1;
+    }
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (isMenue) {
+        return 3;
+    }
     if (section == 0) {
         return 1;
     }
@@ -88,10 +130,14 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    
     return 0.001;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    if (isMenue) {
+        return 0.0001f;
+    }
     if (section == 0) {
         return 0.0001f;
     }
@@ -99,6 +145,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (isMenue) {
+        return 44.0f;
+    }
     if (indexPath.section == 0) {
         return 200.0f;
     }
@@ -109,22 +158,103 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-  
+    
+    if (isMenue) {
+        RMTMenueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"menueCell"];
+        
+        if (indexPath.row ==2) {
+            cell.lineView.hidden = YES;
+        }else
+        {
+            cell.lineView.hidden = NO;
+        }
+        
+        NSDictionary *dic =[self getMenueTitleAndIconWithIndexPath:indexPath];
+        cell.typeLabel.text = [[dic allKeys] firstObject];
+        cell.typeImageView.image = [dic objectForKey:[[dic allKeys] firstObject]];
+        
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+        
+    }
     if (indexPath.section == 0) {
         
       RMTMoneyHeaderCell *headCell = [tableView dequeueReusableCellWithIdentifier:@"headCell"];
         headCell.moneyLabel.text = [NSString stringWithFormat:@"¥ %.2f",[self.dataModel.balance floatValue]];
+        headCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return headCell;
     }
      RMTReceveMoneyListCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
+     listCell.selectionStyle = UITableViewCellSelectionStyleNone;
     RMTMoneyModel *model = self.dataSources[indexPath.row];
-    listCell.tLabel.text = [NSString stringWithFormat:@"%@ %@",model.accountLogType,model.nick];
+    listCell.tLabel.text = [NSString stringWithFormat:@"%@ %@",model.accountLogTypeName,model.nick];
     listCell.timeLabel.text = model.date;
+    listCell.moneyLabel.text = model.money;
+    if ([model.money floatValue] < 0) {
+        listCell.moneyLabel.textColor = [UIColor redColor];
+    }else
+    {
+     listCell.moneyLabel.textColor = MainColor;
+    }
     
     return listCell;
 
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (isMenue) {
+        
+        [self menueListClickActionIndexPath:indexPath];
+        return;
+    }
+    if (!self.menueImageView.hidden) {
+        self.menueImageView.hidden = YES;
+    }
+    
+}
 
+
+
+
+#pragma mark -获取菜单
+
+- (void)menueListClickActionIndexPath:(NSIndexPath *)indexPath
+{
+    if (!self.menueImageView.hidden) {
+        self.menueImageView.hidden = YES;
+    }
+    
+    if (indexPath.row == 0) {
+        RMTTitianRecordViewController *member = [[RMTTitianRecordViewController alloc] init];
+        [self.navigationController pushViewController:member animated:YES];
+    }else if (indexPath.row == 1)
+    {
+        RMTWinRecordViewController *member = [[RMTWinRecordViewController alloc] init];
+        [self.navigationController pushViewController:member animated:YES];
+        
+    }else if (indexPath.row ==2)
+    {
+      
+    }else
+    {
+       
+    }
+    
+}
+- (NSDictionary *)getMenueTitleAndIconWithIndexPath:(NSIndexPath *)indexPath
+{
+ 
+    if (indexPath.row ==0) {
+        return @{@"提现记录":[UIImage imageNamed:@"shareIcon"]};
+    }else if (indexPath.row ==1)
+    {
+        return @{@"收益记录":[UIImage imageNamed:@"shareIcon"]};
+    }else if (indexPath.row ==2)
+    {
+        return @{@"交易密码":[UIImage imageNamed:@"shareIcon"]};
+    }
+    return nil;
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section ==1) {

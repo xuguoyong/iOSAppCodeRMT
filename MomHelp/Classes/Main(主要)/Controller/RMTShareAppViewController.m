@@ -125,7 +125,7 @@
     
     
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
-          [shareParams SSDKSetupShareParamsByText:@"我是" images:[UIImage imageNamed:@"app_icon"] url:[NSURL URLWithString:@"http://www.baidu.com"] title:@"这个是分享的标题" type:SSDKContentTypeAuto];
+          [shareParams SSDKSetupShareParamsByText:@"深度体检，常保健康" images:[UIImage imageNamed:@"app_icon"] url:[NSURL URLWithString:self.shareURL] title:@"深体健康" type:SSDKContentTypeAuto];
     if (type ==SSDKPlatformTypeSinaWeibo ) {
         [shareParams SSDKEnableUseClientShare];
     }

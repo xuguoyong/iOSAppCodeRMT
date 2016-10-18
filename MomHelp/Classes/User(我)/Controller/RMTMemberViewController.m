@@ -61,12 +61,11 @@
 - (void)shareButtonClick:(UIButton *)bar
 {
     NSLog(@"分享按钮");
-    
-    
+ 
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
     share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     share.view.backgroundColor=[UIColor colorWithWhite:0 alpha:0.7];
-    
+    share.shareURL = [NSString stringWithFormat:@"%@?userId=%@",self.dataModel.share,self.dataModel.userId];
     share.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self  presentViewController:share animated:YES completion:^(void){
         share.view.superview.backgroundColor = [UIColor clearColor];

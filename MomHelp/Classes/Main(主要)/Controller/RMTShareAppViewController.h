@@ -9,5 +9,6 @@
 #import "SGBaseViewController.h"
 
 @interface RMTShareAppViewController : SGBaseViewController
-
+//需要分享的地址
+@property (nonatomic,strong) NSString *shareURL;
 @end

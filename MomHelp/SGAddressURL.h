@@ -71,7 +71,8 @@
 #define POST_Change_User_Nick @"/user/nike"
 /**修改生日*/
 #define POST_Change_User_Birthday @"/user/birthday"
-
+/**意见反馈*/
+#define POST_User_Feel_Back @"/feedback/save"
 
 
 /**修改地区*/

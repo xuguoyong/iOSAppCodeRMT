@@ -297,6 +297,9 @@
     
     [RMTUserInfoModel shareInstance].HeadImage = headerImage;
     [self.tableView reloadData];
+    if (self.reloadBolock) {
+        self.reloadBolock(nil);
+    }
     [self obtainHeadPortraitForWebServer:headerImage];
 
     
@@ -307,6 +310,9 @@
 {
     [RMTUserInfoModel shareInstance].nick = newName;
     [self.tableView reloadData];
+    if (self.reloadBolock) {
+        self.reloadBolock(nil);
+    }
     [RMTDataService postDataWithURL:POST_Change_User_Nick parma:@{@"nike":newName} showErrorMessage:YES showHUD:NO logData:NO success:^(NSDictionary *responseObj) {
         [SGShowMesssageTool showMessage:@"修改昵称成功"];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {

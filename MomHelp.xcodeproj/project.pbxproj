@@ -78,6 +78,10 @@
 		674A68D51DB5CE0900E9E08C /* RMTChangeAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68D41DB5CE0900E9E08C /* RMTChangeAreaView.m */; };
 		674A68D71DB5CE1A00E9E08C /* RMTChangeAreaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68D61DB5CE1A00E9E08C /* RMTChangeAreaView.xib */; };
 		674A68DA1DB5D0A500E9E08C /* RMTAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68D91DB5D0A500E9E08C /* RMTAreaModel.m */; };
+		674A68DD1DB6076C00E9E08C /* RMTTitianRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68DC1DB6076C00E9E08C /* RMTTitianRecordViewController.m */; };
+		674A68E11DB607C100E9E08C /* RMTTitianRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68DF1DB607C100E9E08C /* RMTTitianRecordCell.m */; };
+		674A68E21DB607C100E9E08C /* RMTTitianRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A68E01DB607C100E9E08C /* RMTTitianRecordCell.xib */; };
+		674A68E51DB60B2000E9E08C /* RMTWinRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68E41DB60B2000E9E08C /* RMTWinRecordViewController.m */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -360,6 +364,13 @@
 		674A68D61DB5CE1A00E9E08C /* RMTChangeAreaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTChangeAreaView.xib; sourceTree = "<group>"; };
 		674A68D81DB5D0A500E9E08C /* RMTAreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTAreaModel.h; sourceTree = "<group>"; };
 		674A68D91DB5D0A500E9E08C /* RMTAreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTAreaModel.m; sourceTree = "<group>"; };
+		674A68DB1DB6076C00E9E08C /* RMTTitianRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTTitianRecordViewController.h; sourceTree = "<group>"; };
+		674A68DC1DB6076C00E9E08C /* RMTTitianRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTTitianRecordViewController.m; sourceTree = "<group>"; };
+		674A68DE1DB607C100E9E08C /* RMTTitianRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTTitianRecordCell.h; sourceTree = "<group>"; };
+		674A68DF1DB607C100E9E08C /* RMTTitianRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTTitianRecordCell.m; sourceTree = "<group>"; };
+		674A68E01DB607C100E9E08C /* RMTTitianRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTTitianRecordCell.xib; sourceTree = "<group>"; };
+		674A68E31DB60B2000E9E08C /* RMTWinRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTWinRecordViewController.h; sourceTree = "<group>"; };
+		674A68E41DB60B2000E9E08C /* RMTWinRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTWinRecordViewController.m; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -711,6 +722,9 @@
 				674A68A21DB47E4E00E9E08C /* RMTReceveMoneyListCell.h */,
 				674A68A31DB47E4E00E9E08C /* RMTReceveMoneyListCell.m */,
 				674A68A41DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib */,
+				674A68DE1DB607C100E9E08C /* RMTTitianRecordCell.h */,
+				674A68DF1DB607C100E9E08C /* RMTTitianRecordCell.m */,
+				674A68E01DB607C100E9E08C /* RMTTitianRecordCell.xib */,
 			);
 			name = "钱包";
 			sourceTree = "<group>";
@@ -863,6 +877,10 @@
 		674A689C1DB46DBF00E9E08C /* 钱包 */ = {
 			isa = PBXGroup;
 			children = (
+				674A68DB1DB6076C00E9E08C /* RMTTitianRecordViewController.h */,
+				674A68DC1DB6076C00E9E08C /* RMTTitianRecordViewController.m */,
+				674A68E31DB60B2000E9E08C /* RMTWinRecordViewController.h */,
+				674A68E41DB60B2000E9E08C /* RMTWinRecordViewController.m */,
 			);
 			name = "钱包";
 			sourceTree = "<group>";
@@ -1693,6 +1711,7 @@
 				BA8D45C11D619E9900952EB5 /* dropdown_anim__0007@2x.png in Resources */,
 				BA8D45A91D619E9900952EB5 /* dropdown_anim__00040@2x.png in Resources */,
 				BA8D45BD1D619E9900952EB5 /* dropdown_anim__00059@2x.png in Resources */,
+				674A68E21DB607C100E9E08C /* RMTTitianRecordCell.xib in Resources */,
 				BA8D45BE1D619E9900952EB5 /* dropdown_anim__0005@2x.png in Resources */,
 				674A68B31DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.xib in Resources */,
 				BA6C12EE1D672A3300A88D86 /* 1245101.jpg in Resources */,
@@ -1786,6 +1805,7 @@
 				DC4E896E1DAF894600E24579 /* RMTUserDetailInfoViewController.m in Sources */,
 				DCBE94331DADEA60003677AF /* RMTDataService.m in Sources */,
 				674A68A01DB46E3200E9E08C /* RMTMoneyHeaderCell.m in Sources */,
+				674A68DD1DB6076C00E9E08C /* RMTTitianRecordViewController.m in Sources */,
 				BA8D453D1D619C9F00952EB5 /* MJRefreshBackNormalFooter.m in Sources */,
 				BA8D45371D619C9F00952EB5 /* MJRefreshFooter.m in Sources */,
 				674A68B91DB4C6BE00E9E08C /* RMTLevelDetaiListModel.m in Sources */,
@@ -1811,6 +1831,7 @@
 				DC4E89581DAF488D00E24579 /* RMTRegisterCompeleteViewController.m in Sources */,
 				674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */,
 				DC4E896B1DAF88D300E24579 /* RMTRecordViewController.m in Sources */,
+				674A68E51DB60B2000E9E08C /* RMTWinRecordViewController.m in Sources */,
 				BA8D45451D619C9F00952EB5 /* UIScrollView+MJExtension.m in Sources */,
 				674A68C51DB4E86000E9E08C /* AppDelegate+ShareSDk.m in Sources */,
 				670073421DB22A0B00859D9A /* NSDate+HooDatePicker.m in Sources */,
@@ -1883,6 +1904,7 @@
 				BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */,
 				BA8D45461D619C9F00952EB5 /* UIScrollView+MJRefresh.m in Sources */,
 				674A68AA1DB484EE00E9E08C /* RMTUserInfoHeadCell.m in Sources */,
+				674A68E11DB607C100E9E08C /* RMTTitianRecordCell.m in Sources */,
 				BA8D45351D619C9F00952EB5 /* MJRefreshBackFooter.m in Sources */,
 				DC4E894A1DAF34BF00E24579 /* RMTUserInfoModel.m in Sources */,
 				670072F21DB2064400859D9A /* RMTWinMoneyViewController.m in Sources */,

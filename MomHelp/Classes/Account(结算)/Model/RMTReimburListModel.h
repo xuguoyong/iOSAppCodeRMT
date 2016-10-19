@@ -29,4 +29,8 @@
 @property (nonatomic,strong) NSString *type ;// medical;
 @property (nonatomic,strong) NSString *worth ;// "<null>";
 
+//用于判断是否是选中
+@property (nonatomic,assign) BOOL isSelect;
+
+
 @end

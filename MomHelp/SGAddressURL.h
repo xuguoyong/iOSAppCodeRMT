@@ -99,6 +99,11 @@
 #define GET_Reimbursement_List @"/reimbursement/list"
 /**结算详情*/
 #define GET_Reimbursement_Detail @"/reimbursement/detail"
+/**结算的健康档案*/
+#define GET_HealthRecord_UserList @"/healthRecord/usedList"
+/**卡包列表*/
+#define GET_CardPackaget_List @"/cardpackage/list"
+
 
 #endif /* SGAddressURL_h */
 

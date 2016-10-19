@@ -10,4 +10,5 @@
 #import "RMTMoneyModel.h"
 @interface RMTTitianViewController : SGBaseViewController
 @property (nonatomic,strong) RMTMoneyModel *dataModel;
+@property (nonatomic,strong) void(^tixianLater)(id data);
 @end

@@ -8,8 +8,10 @@
 
 #import "RMTRecordDetailViewController.h"
 #import "RMTTextView.h"
+#import "SDPhotoBrowser.h"
 
-@interface RMTRecordDetailViewController ()
+
+@interface RMTRecordDetailViewController ()<SDPhotoBrowserDelegate>
 @property (nonatomic,strong) RMTRecordListModel *dataModel;
 @property (nonatomic,strong) UILabel *recordDateLabel;
 @property (nonatomic,strong) UILabel *remarkLabel;
@@ -17,6 +19,7 @@
 @property (nonatomic,strong) RMTTextView *textView;
 @property (nonatomic,strong) UIButton *editeButton;
 @property (nonatomic,strong) UIView *toobarView;
+@property (nonatomic,strong) UIView *bgImageView;
 
 
 
@@ -85,17 +88,29 @@
     line.backgroundColor = UIColorFromRGB(0xd2d2d2);
     [self.view addSubview:line];
     
+    
+    
+    
     CGFloat itemW = (d_screen_width -45)/4.0f;
-    UIImageView *lastImageView = nil;
+    
+    self.bgImageView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(line.frame) +10, d_screen_width, itemW)];
+    self.bgImageView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.bgImageView];
+    
     for (NSInteger i =0; i < 4; i ++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + i*(itemW +5), CGRectGetMaxY(line.frame) +10, itemW, itemW)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15 + i*(itemW +5),0, itemW, itemW)];
         imageView.backgroundColor = [UIColor clearColor];
-        [self.view addSubview:imageView];
+        [self.bgImageView addSubview:imageView];
         imageView.tag = 100 +i;
-        lastImageView = imageView;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImageAciton:)];
+        [imageView addGestureRecognizer:tap];
+        imageView.userInteractionEnabled = NO;
+        
     }
     
-    UILabel *remarktLabel = [[UILabel alloc] initWithFrame:CGRectMake(15,  CGRectGetMaxY(lastImageView.frame) +15, d_screen_width -30, 30)];
+
+    
+    UILabel *remarktLabel = [[UILabel alloc] initWithFrame:CGRectMake(15,  CGRectGetMaxY(self.bgImageView.frame) +15, d_screen_width -30, 30)];
     remarktLabel.textColor =UIColorFromRGB(0x868686);
     remarktLabel.text = @"备注";
     remarktLabel.font = [UIFont systemFontOfSize:15.0f];
@@ -173,14 +188,49 @@
     self.dateLabel.text = self.dataModel.recordDate;
     
     
+    for (NSInteger i = 0; i < 4; i ++) {
+        UIImageView *imgView = [self.view viewWithTag:100 +i];
+         imgView.userInteractionEnabled = NO;
+    }
+    
     for (NSInteger i = 0; i < self.dataModel.covers.count; i ++) {
         UIImageView *imgView = [self.view viewWithTag:100 +i];
-    
+        imgView.userInteractionEnabled = YES;
         NSString *img =[NSString stringWithFormat:@"%@/%@",ImagePerfix,self.dataModel.covers[i]];
         [imgView sd_setImageWithURL:[NSURL URLWithString:img] placeholderImage:nil];
     }
     
     
+}
+
+- (void)clickImageAciton:(UITapGestureRecognizer *)tap
+{
+    SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+    
+    browser.sourceImagesContainerView =self.bgImageView;
+    
+    browser.imageCount =self.dataModel.covers.count;
+    
+    browser.currentImageIndex = tap.view.tag - 100;
+    
+    browser.delegate = self;
+    
+    [browser show]; // 展示图片浏览器
+    
+}
+
+// 返回临时占位图片（即原来的小图）
+
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
+    return nil;
+}
+// 返回高质量图片的url
+
+-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+    
+       NSString *img =[NSString stringWithFormat:@"%@/%@",ImagePerfix,self.dataModel.covers[index]];
+        return [NSURL URLWithString:img];
+  
 }
 -(void)requestDataFromBack
 {

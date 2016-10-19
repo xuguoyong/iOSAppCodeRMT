@@ -16,7 +16,7 @@
 #import "RMTTransPasswordFirstViewController.h"
 #import "RMTChangeTransPasswdViewController.h"
 #import "RMTTitianViewController.h"
-
+#import "RMTBankCarViewController.h"
 #define isMenue tableView == self.menuetableView
 @interface RMTMoneyViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView ;
@@ -232,12 +232,20 @@
 - (void)bankButtonClick:(UIButton *)sender
 {
 
+    RMTBankCarViewController *bank = [[RMTBankCarViewController alloc] init];
+    [self.navigationController pushViewController:bank animated:YES];
+
 }
 #pragma mark===提现按钮的点击事件
 - (void)tixianButtonClick:(UIButton *)sender
 {
     RMTTitianViewController *tixian = [[RMTTitianViewController alloc] initWithNibName:@"RMTTitianViewController" bundle:nil];
     tixian.dataModel = self.dataModel;
+    __weak typeof(self)weakself =self;
+    tixian.tixianLater = ^(id dta)
+    {
+        [weakself requestDataFromBack];
+    };
     [self.navigationController pushViewController:tixian animated:YES];
 }
 

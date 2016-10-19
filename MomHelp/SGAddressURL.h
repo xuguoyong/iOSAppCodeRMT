@@ -14,7 +14,7 @@
 #define VersionType @""
 
 
-////测试库
+//测试库
 //#define MainURL  @"http://192.168.1.197:7777"
 //#define VersionType @"beta"
 
@@ -93,6 +93,12 @@
 #define POST_Add_Remark_Record @"/healthRecord/addRemark"
 /**添加档案*/
 #define POST_Add_Record @"/healthRecord/save"
+/**申请提现*/
+#define POST_Extract_Money @"/extract/create"
+/**结算首页*/
+#define GET_Reimbursement_List @"/reimbursement/list"
+/**结算详情*/
+#define GET_Reimbursement_Detail @"/reimbursement/detail"
 
 #endif /* SGAddressURL_h */
 

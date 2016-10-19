@@ -24,6 +24,7 @@
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong)  RMTUserInfoModel *userModel;
 @property (nonatomic,strong)  RMTUserCenterModel *centerModel;
+@property (nonatomic,assign) BOOL shouldPopToHomepage;
 @end
 
 @implementation RMTUserInfoViewController
@@ -52,6 +53,24 @@
     [self requestDataFromBack];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationChangeTarBarItemWithNoti:) name:NotificationChangeTabbarItem object:nil];
+    self.shouldPopToHomepage = NO;
+}
+
+
+-(void)notificationChangeTarBarItemWithNoti:(NSNotification *)not
+{
+    NSDictionary *user= not.userInfo;
+    self.shouldPopToHomepage = YES;
+ 
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.shouldPopToHomepage) {
+      [self.tabBarController setSelectedIndex:0];
+        self.shouldPopToHomepage = NO;
+    }
 }
 
 /**
@@ -74,8 +93,7 @@
         share.view.superview.backgroundColor = [UIColor clearColor];
        
     }];
-    
-    
+   
     
 }
 /**
@@ -108,11 +126,6 @@
         
     }];
 
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 

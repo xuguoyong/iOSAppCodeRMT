@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"意见反馈";
     self.bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, d_screen_width, 150 +itemW + 10 +31)];
     self.bgView .backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.bgView];
@@ -116,7 +117,7 @@
 {
     
     RMTImageViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+     cell.backgroundColor = UIColorFromRGB(0xebebeb);
     
     
     if (indexPath.row >= self.selectPhoto.count) {

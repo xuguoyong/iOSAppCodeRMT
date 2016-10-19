@@ -117,7 +117,7 @@
     self.remarkLabel.font = [UIFont systemFontOfSize:12.0f];
     self.remarkLabel.numberOfLines = 0;
     [view addSubview:self.remarkLabel];
-    self.remarkLabel.sd_layout.topSpaceToView(view,10).leftEqualToView(view).offset(10).rightSpaceToView(view,10).autoHeightRatio(0).maxHeightIs(view.height - 30);
+    self.remarkLabel.sd_layout.topSpaceToView(view,5).leftEqualToView(view).offset(5).rightSpaceToView(view,5).autoHeightRatio(0).maxHeightIs(view.height - 20);
     
     
     self.dateLabel = [[UILabel alloc] init];
@@ -127,7 +127,7 @@
     self.dateLabel.numberOfLines = 0;
     self.dateLabel.textAlignment = NSTextAlignmentRight;
     [view addSubview:self.dateLabel];
-    self.dateLabel.sd_layout.bottomEqualToView(view).offset(-10).leftEqualToView(view).offset(10).rightSpaceToView(view,10).heightIs(21);
+    self.dateLabel.sd_layout.bottomEqualToView(view).offset(-5).leftEqualToView(view).offset(5).rightSpaceToView(view,5).heightIs(21);
     
     
     
@@ -154,6 +154,15 @@
 - (void)addRemarkButtonClick:(UIButton *)sender
 {
 
+    [self.view endEditing:YES];
+    [RMTDataService postDataWithURL:POST_Add_Remark_Record parma:@{@"healthRecordId":self.dataModel.healthRecordId,@"remark":self.textView.text} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+        [self requestDataFromBack];
+        [SGShowMesssageTool showMessage:@"添加备注成功"];
+        self.textView.text  =@"";
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+    
     
 }
 - (void)reloadAllDataToUI
@@ -186,5 +195,8 @@
     }];
 
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 @end

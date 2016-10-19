@@ -89,7 +89,10 @@
 #define GET_Record_List @"/healthRecord/list"
 /**档案详情*/
 #define GET_Record_Detail @"/healthRecord/details"
-
+/**档案添加备注*/
+#define POST_Add_Remark_Record @"/healthRecord/addRemark"
+/**添加档案*/
+#define POST_Add_Record @"/healthRecord/save"
 
 #endif /* SGAddressURL_h */
 

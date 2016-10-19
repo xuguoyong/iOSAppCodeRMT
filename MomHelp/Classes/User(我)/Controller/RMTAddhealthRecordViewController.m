@@ -14,7 +14,7 @@
 #import "RMTTextView.h"
 #define itemW  ((d_screen_width-45)/4.0f)
 
-@interface RMTAddhealthRecordViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TZImagePickerControllerDelegate>
+@interface RMTAddhealthRecordViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TZImagePickerControllerDelegate,UIScrollViewDelegate>
 {
     OSSClient *_client;
 }
@@ -109,14 +109,9 @@
         self.commitButton = [UIButton setMainButtonWithTitle:@"提交" clickThingTarget:self action:@selector(commitBUttonClick:)];
         self.commitButton.frame = CGRectMake(15, CGRectGetMaxY(bigBgView.frame) + 10, d_screen_width - 30, 45);
         [_bgScrollView addSubview:self.commitButton];
-        
+        _bgScrollView.delegate =self;
     }
     return _bgScrollView;
-}
-
-- (void)commitBUttonClick:(UIButton *)sender
-{
-    
 }
 
 
@@ -173,7 +168,7 @@
 {
     
     RMTImageViewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = UIColorFromRGB(0xebebeb);
     
     
     if (indexPath.row >= self.selectPhoto.count) {
@@ -217,5 +212,147 @@
     [self presentViewController:imagePickerVc animated:YES completion:nil];
     
 }
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+//提交按钮的点击事件
+- (void)commitBUttonClick:(UIButton *)sender
+{
+    if (self.selectPhoto.count <=0) {
+        [SGShowMesssageTool showMessage:@"请至少上传一张图片"];
+    }else
+    {
+        [self requestPramaFromBackFont:self.imageArr];
+    }
+    
+}
+#pragma mark -- 1 请求后台将要上传数据
+- (void)requestPramaFromBackFont:(NSArray *)imageArr
+{
+    
+    
+    [RMTDataService getDataWithURL:GET_Aliyun_SDKPamark parma:nil showErrorMessage:YES showHUD:NO logData:NO success:^(NSDictionary *responseObj) {
+        
+        NSDictionary *parmar = [responseObj objectForKey:@"data"];
+        id<OSSCredentialProvider> credential2 = [[OSSFederationCredentialProvider alloc] initWithFederationTokenGetter:^OSSFederationToken * {
+            OSSFederationToken * token = [OSSFederationToken new];
+            token.tAccessKey = [parmar objectForKey:@"accessKeyId"];
+            token.tSecretKey = [parmar objectForKey:@"accessKeySecret"];
+            token.tToken = [parmar objectForKey:@"securityToken"];
+            token.expirationTimeInGMTFormat = [parmar objectForKey:@"expiration"];
+            NSLog(@"get token: %@", token);
+            return token;
+        }];
+        
+        OSSClientConfiguration * conf = [OSSClientConfiguration new];
+        conf.maxRetryCount = 2;
+        conf.timeoutIntervalForRequest = 30;
+        conf.timeoutIntervalForResource = 24 * 60 * 60;
+        
+        
+        
+        _client  = [[OSSClient alloc] initWithEndpoint:[NSString stringWithFormat:@"http://%@",[parmar objectForKey:@"endpoint"]] credentialProvider:credential2 clientConfiguration:conf];
+        [self uploadPhotoWithImageArray:imageArr oSSClient:_client parga:parmar];
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        [SGShowMesssageTool showMessage:@"添加档案失败"];
+    }];
+    
+    
+}
+- (NSMutableArray *)tips
+{
+    if (!_tips) {
+        _tips =[[NSMutableArray alloc] init];
+    }
+    return _tips;
+}
+
+- (void)uploadPhotoWithImageArray:(NSArray *)imageArr oSSClient:(OSSClient *)client parga:(NSDictionary *)parmar
+{
+    NSLog(@"%@",imageArr);
+    
+    [self.tips removeAllObjects];
+    for (NSInteger i = 0; i < imageArr.count; i ++) {
+        UIImage *image = [imageArr objectAtIndex:i];
+        NSData *data =  UIImageJPEGRepresentation(image, 0.7);
+        [self.tips addObject:@"noSuccess"];
+        [self uploadOneImage:data oSSClient:client currentIndex:i parga:parmar];
+    }
+    
+    
+}
+
+- (void)uploadOneImage:(NSData *)imageData oSSClient:(OSSClient *)client currentIndex:(NSInteger)index parga:(NSDictionary *)parmar
+{
+    OSSPutObjectRequest * put = [OSSPutObjectRequest new];
+    
+    put.bucketName =[parmar  objectForKey:@"bucket"];
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval timeStamp =[dat timeIntervalSince1970]*1000;
+    NSString *objectKey  = [NSString stringWithFormat:@"%@%ld.png",[parmar objectForKey:@"userDir"],(long)timeStamp + index];
+    
+    put.objectKey =objectKey;
+    
+    put.uploadingData = imageData; // 直接上传NSData
+    
+    OSSTask * putTask = [_client putObject:put];
+    
+    // 上传阿里云
+    [putTask continueWithBlock:^id(OSSTask *task) {
+        if (!task.error) {
+            NSLog(@"upload object success!");
+            [self.tips replaceObjectAtIndex:index withObject:objectKey];
+            if (![self.tips containsObject:@"noSuccess"]) {
+                [self didFinishUploadAllPhotoWithAllObjectKey:self.tips];
+            }
+            
+        } else {
+            
+            NSLog(@"upload object failed, error: %@" , task.error);
+            [SGShowMesssageTool showLoadingHUDWithErrorMessage:@"添加档案失败，请稍后重试"];
+        }
+        return nil;
+    }];
+    
+}
+
+#pragma mark ===图片全部上传成功后会调用的方法
+//objectArray 是的到的所有的图片文件名字 该文件名需要直接上传到后台
+- (void)didFinishUploadAllPhotoWithAllObjectKey:(NSArray *)objectArray
+{
+    
+    NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
+    
+    parmeters[@"type"] = @"caseFile";
+    parmeters[@"recordDate"] = [NSDate getCurrentStandarTimeWithFormatter:@"yyyy-MM-dd"];
+    
+    parmeters[@"remark"] = self.textView.text.length<=0?@"":self.textView.text;
+    parmeters[@"covers"]=@"";
+    if (objectArray) {
+        parmeters[@"covers"] = [objectArray componentsJoinedByString:@","];
+    }
+    
+    [RMTDataService postDataWithURL:POST_Add_Record parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SGShowMesssageTool showMessage:@"添加档案成功"];
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+        
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        [SGShowMesssageTool showLoadingHUDWithErrorMessage:@"添加档案失败，请稍后重试"];
+    }];
+    
+}
+
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+
 
 @end

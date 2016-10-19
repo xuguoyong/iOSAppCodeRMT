@@ -21,10 +21,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"已经运行到这里了");
         self.imageView = [[UIImageView alloc] initWithFrame:self.bounds];
         [self addSubview:self.imageView];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+       
         self.imageView.layer.masksToBounds = YES;
     }
     return self;
@@ -35,9 +34,11 @@
 {
     if (!image) {
         self.imageView.image = [UIImage imageNamed:@"add_icon_white"];
+      self.imageView.contentMode = UIViewContentModeCenter;
     }else
     {
        self.imageView.image = image;
+         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         
     }
 }

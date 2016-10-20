@@ -44,6 +44,31 @@
 }
 
 /**
+ *  在沙盒中创建一个文件
+ *
+ *  @param documentName 文件夹的名称
+ *
+ *  @return 返回文件夹路径
+ */
++ (NSString *)createDocumentWithfileName:(NSString *)fileName
+{
+
+    NSString *createPath = [NSString stringWithFormat:@"%@/%@", [self getHomeDocumentPath],fileName];
+    
+    BOOL result = NO;
+    // 判断文件夹是否存在，如果不存在，则创建
+    if (![[NSFileManager defaultManager] fileExistsAtPath:createPath]) {
+        
+        result =   [[NSFileManager defaultManager] createFileAtPath:createPath contents:nil attributes:nil];
+    }else
+    {
+        result = YES;//已经存在
+    }
+    return result?createPath:nil;
+}
+
+
+/**
  *  获取离线缓存的数据的存放路径
  */
 + (NSString *)getOfflineCacheSqlitePath

@@ -52,7 +52,7 @@
  */
 + (UIButton *)setMainButtonWithTitle:(NSString *)buttonTitle clickThingTarget:(id)target action:(SEL)action
 {
-    UIButton *btn = [UIButton custombuttonNormalStateWithTitile:buttonTitle titleFont:textFont32 titleColor:[UIColor whiteColor] butttonImage:nil backgroundImage:nil backgroundColor:MainColor clickThingTarget:self action:action];
+    UIButton *btn = [UIButton custombuttonNormalStateWithTitile:buttonTitle titleFont:textFont32 titleColor:[UIColor whiteColor] butttonImage:nil backgroundImage:nil backgroundColor:MainColor clickThingTarget:target action:action];
     btn.layer.cornerRadius = 5.0f;
     btn.layer.masksToBounds = YES;
     return btn;

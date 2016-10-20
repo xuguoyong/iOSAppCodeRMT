@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RMTcontrListModel.h"
 @interface RMTWinMoneyCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userHeadImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (nonatomic,strong) RMTcontrListModel *model;
 
 @end

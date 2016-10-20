@@ -10,6 +10,7 @@
 #import "SGTabBarController.h"
 #import "SGControllerTool.h"
 #import "AppDelegate+NetWorking.h"
+#import "AppDelegate+ShareSDk.h"
 #import "SGShowMesssageTool.h"
 @interface AppDelegate ()
 
@@ -25,6 +26,8 @@
     [self.window makeKeyAndVisible];
     //    开启网络监听
     [self openNetWorkingMonitor];
+    //初始化shareSDK
+    [self initShareSdk];
 //    选择根控制器
    // [SGControllerTool chooseRootViewController];
     self.window.rootViewController = [[SGTabBarController alloc] init];

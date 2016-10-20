@@ -56,7 +56,7 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoZ-iz-DrB">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QoZ-iz-DrB">
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="MdF-bP-UPC"/>
                         </constraints>
@@ -64,7 +64,7 @@
                         <color key="textColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10位" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ht-7M-XR3">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0位" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ht-7M-XR3">
                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                         <color key="textColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="frenidNumber" destination="N9E-MW-FjH" id="L3J-Nc-VH3"/>
+                <outlet property="frenidNumber" destination="7Ht-7M-XR3" id="6qb-Zh-hwy"/>
                 <outlet property="receveMoney" destination="QoZ-iz-DrB" id="NUo-X0-c1I"/>
                 <outlet property="userHeadImageView" destination="SnU-D3-CBl" id="nUi-wS-COY"/>
                 <outlet property="userNameLabel" destination="dA4-wC-de2" id="l88-2k-w5C"/>

@@ -8,6 +8,20 @@
 
 #import "RMTShareAppViewController.h"
 #define itemW ((d_screen_width - 50)/5.0f)
+
+//＝＝＝＝＝＝＝＝＝＝ShareSDK头文件＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+
+//微信SDK头文件
+#import "WXApi.h"
+
+//新浪微博SDK头文件
+#import "WeiboSDK.h"
+
 @interface RMTShareAppViewController ()
 
 @property (nonatomic,strong) UIView *bgView;
@@ -54,6 +68,7 @@
             [_bgView addSubview:label1];
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(5 + i *(itemW + 10), CGRectGetMaxY(label.frame) + 20, itemW, itemW)];
             [_bgView addSubview:imageView];
+            imageView.tag = 1000 +i;
             imageView.image = [UIImage imageNamed:imageNameArr[i]];
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(shareImageViewTouchAction:)];
             [imageView addGestureRecognizer:tap];
@@ -68,7 +83,88 @@
 
 - (void)shareImageViewTouchAction:(UITapGestureRecognizer *)tap
 {
-
+    [SGShowMesssageTool showLoadingHUD];
+    UIView *view = tap.view;
+    
+    SSDKPlatformType type = 100;
+    switch (view.tag -1000) {
+        case 0://微信
+        {
+            type = SSDKPlatformSubTypeWechatSession;
+        }
+            break;
+        case 1://朋友圈
+        {
+            type = SSDKPlatformSubTypeWechatTimeline;
+            
+        }
+            break;
+        case 2://QQ
+        {
+            type = SSDKPlatformSubTypeQQFriend;
+     
+        }
+            break;
+        case 3://空间
+        {
+            type = SSDKPlatformSubTypeQZone;
+            
+        }
+            break;
+        case 4://微博
+        {
+            type = SSDKPlatformTypeSinaWeibo;
+        
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+          [shareParams SSDKSetupShareParamsByText:@"深度体检，常保健康" images:[UIImage imageNamed:@"app_icon"] url:[NSURL URLWithString:self.shareURL] title:@"深体健康" type:SSDKContentTypeAuto];
+    if (type ==SSDKPlatformTypeSinaWeibo ) {
+        [shareParams SSDKEnableUseClientShare];
+    }
+    [ShareSDK share:type parameters:shareParams onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
+        NSLog(@"%@",userData);
+        
+        switch (state) {
+            case SSDKResponseStateBegin:
+            {
+                
+               
+            }
+                break;
+            case SSDKResponseStateSuccess:
+            {
+                [SGShowMesssageTool hideLoadingHUD];
+                [SGShowMesssageTool showMessage:@"分享成功"];
+                
+            }
+                break;
+            case SSDKResponseStateCancel:
+            {
+                [SGShowMesssageTool hideLoadingHUD];
+               [SGShowMesssageTool showMessage:@"分享取消"];
+            }
+                break;
+            case SSDKResponseStateFail:
+            {
+                [SGShowMesssageTool hideLoadingHUD];
+                [SGShowMesssageTool showMessage:@"分享失败，请检查网络连接~"];
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+    }];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

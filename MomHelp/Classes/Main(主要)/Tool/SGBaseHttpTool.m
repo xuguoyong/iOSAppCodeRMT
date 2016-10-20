@@ -32,7 +32,10 @@
     // 显示状态栏上面的菊花
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [SGShowMesssageTool showLoadingHUD];
+        if (showHud) {
+           [SGShowMesssageTool showLoadingHUD];
+        }
+       
     });
     
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
@@ -97,7 +100,9 @@
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [SGShowMesssageTool showLoadingHUD];
+        if (showHud) {
+            [SGShowMesssageTool showLoadingHUD];
+        }
     });
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
     [SGHttpTool post:allURL params:parma success:^(id responseObj) {
@@ -109,7 +114,8 @@
             }else//请求失败
             {
                 if (showError && responseObj[@"message"]/*如果需要显示失败信息，就显示*/) {
-                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@：%@",responseObj[@"message"],responseObj[@"statusCode"]]];
+                  
+                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@：%@",responseObj[@"message"],responseObj[@"statusCode"]] showTime:2.0f];
                 }
                 if (failure) {
                     failure(nil,responseObj[@"statusCode"],responseObj[@"message"]);

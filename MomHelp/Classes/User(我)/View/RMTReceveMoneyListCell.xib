@@ -21,7 +21,7 @@
                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="S4C-cA-Mkw"/>
                             <constraint firstAttribute="height" constant="21" id="td4-Uh-mid"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.058823529409999999" green="0.76470588240000004" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -52,6 +52,11 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="moneyLabel" destination="8dY-fv-Vxt" id="lse-ju-2QO"/>
+                <outlet property="tLabel" destination="vTM-vo-9hc" id="1kT-az-l5z"/>
+                <outlet property="timeLabel" destination="zgZ-UK-dUH" id="Tfn-iI-2Pa"/>
+            </connections>
             <point key="canvasLocation" x="25" y="63.5"/>
         </tableViewCell>
     </objects>

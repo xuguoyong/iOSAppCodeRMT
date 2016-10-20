@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RMTFriendListModel.h"
 @interface RMTMemberHeaderTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userHeadImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
-
+@property (nonatomic,strong) RMTFriendListModel *model;
 @end

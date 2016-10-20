@@ -15,10 +15,21 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(RMTmyNewPeopListModel *)model
+{
+    if ([model.levelIndex intValue] ==1) {
+        self.typeImageView.image = [UIImage imageNamed:@"one_friend"];
+    }else if ([model.levelIndex intValue] ==2)
+    {
+         self.typeImageView.image = [UIImage imageNamed:@"tow_friend"];
+    }else
+    {
+     self.typeImageView.image = [UIImage imageNamed:@"three_friend"];
+        
+    }
+    [self.userHeaderImageView sd_setImageWithURL:[NSURL URLWithString:model.headUrl] placeholderImage:[UIImage imageNamed:defultHeadName]];
+    self.userNameLabel.text = model.nick;
+    self.timeLabel.text = model.date;
+    
 }
-
 @end

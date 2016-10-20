@@ -18,8 +18,8 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defult_banner" translatesAutoresizingMaskIntoConstraints="NO" id="ZYL-wr-RtJ">
                         <constraints>
-                            <constraint firstAttribute="height" constant="15" id="OWE-oz-sPr"/>
-                            <constraint firstAttribute="width" constant="15" id="X0X-Hy-l6n"/>
+                            <constraint firstAttribute="height" constant="20" id="OWE-oz-sPr"/>
+                            <constraint firstAttribute="width" constant="20" id="X0X-Hy-l6n"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="成员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3C2-H3-0cq">

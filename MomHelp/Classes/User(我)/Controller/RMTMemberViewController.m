@@ -11,8 +11,11 @@
 #import "RMTMemberHeaderTableViewCell.h"
 #import "RMTFriendDistributingCell.h"
 #import "RMTShareAppViewController.h"
+#import "RMTFriendListModel.h"
 @interface RMTMemberViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
+
+@property (nonatomic,strong) RMTFriendListModel *dataModel;
 
 @end
 
@@ -30,8 +33,25 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
+    [self requestDataFromBack];
+    __weak typeof(self)weakself = self;
+    [self.tableView addRefreshNormalHeaderWithRefreshBlock:^{
+        [weakself requestDataFromBack];
+    }];
 }
-
+- (void)requestDataFromBack
+{
+    
+    [RMTDataService getDataWithURL:GET_Friend_MemberList parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+        
+       self.dataModel = [RMTFriendListModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
+        [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+    
+}
 
 /**
  分享按钮的点击事件
@@ -41,12 +61,11 @@
 - (void)shareButtonClick:(UIButton *)bar
 {
     NSLog(@"分享按钮");
-    
-    
+ 
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
     share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     share.view.backgroundColor=[UIColor colorWithWhite:0 alpha:0.7];
-    
+    share.shareURL = [NSString stringWithFormat:@"%@?userId=%@",self.dataModel.share,self.dataModel.userId];
     share.modalPresentationStyle = UIModalPresentationOverFullScreen;
     [self  presentViewController:share animated:YES completion:^(void){
         share.view.superview.backgroundColor = [UIColor clearColor];
@@ -67,7 +86,7 @@
     if (section == 1 || section == 0) {
         return 1;
     }
-    return 10.0f;
+    return self.dataModel.myNewPeopList.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,18 +120,21 @@
     
     if (indexPath.section == 0) {
        RMTMemberHeaderTableViewCell *userheadCell = [tableView dequeueReusableCellWithIdentifier:@"userheadCell"];
+        userheadCell.model = self.dataModel;
         
         return userheadCell;
     }else if (indexPath.section ==1)
         {
      RMTFriendDistributingCell *friendHeaderCell = [tableView dequeueReusableCellWithIdentifier:@"friendHeaderCell"];
+            friendHeaderCell.model = self.dataModel;
             
             return friendHeaderCell;
     }
     
-    
-    
+
     RMTMemberListCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
+    listCell.model = self.dataModel.myNewPeopList[indexPath.row];
+    
     return listCell;
     
 }

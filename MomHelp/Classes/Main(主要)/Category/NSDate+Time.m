@@ -49,7 +49,7 @@
 }
 
 /**
- nsdata类型转换成时间字符串
+    nsdata类型转换成时间字符串
  format:yyyy年MM月dd日  或者 yyyy-MM-dd HH:mm:ss.SSS 等
  */
 +(NSString*)dateToString:(NSString *)format byDate:(NSDate *)date
@@ -98,7 +98,25 @@
     return dateStr;
 
 }
-
+/**
+ *  时间戳转换为时间的方法
+ *
+ *  @param timestamp 时间戳
+ *
+ *  @return  matter 标准时间字符串
+ */
++ (NSString *)timestampChangesStandarTime:(NSString *)timestamp withFormatter:(NSString *)matter
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:matter];
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
+    
+    NSString* dateString = [formatter stringFromDate:date];
+    return dateString;
+    
+}
 
 
 @end

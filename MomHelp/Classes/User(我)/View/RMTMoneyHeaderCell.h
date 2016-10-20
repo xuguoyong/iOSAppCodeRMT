@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RMTMoneyHeaderCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
+@property (nonatomic,strong) void(^bankCarButtonClick)(id data);
+@property (nonatomic,strong) void(^tixianButtonClick)(id data);
 @end

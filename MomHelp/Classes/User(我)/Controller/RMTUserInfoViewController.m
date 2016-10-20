@@ -24,6 +24,7 @@
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong)  RMTUserInfoModel *userModel;
 @property (nonatomic,strong)  RMTUserCenterModel *centerModel;
+@property (nonatomic,assign) BOOL shouldPopToHomepage;
 @end
 
 @implementation RMTUserInfoViewController
@@ -48,10 +49,33 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RMTUserInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"userInfo"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RMTUserOtherTableViewCell" bundle:nil] forCellReuseIdentifier:@"other"];
+    __weak typeof(self)weakself = self;
+    [self.tableView addRefreshNormalHeaderWithRefreshBlock:^{
+        [weakself requestUserInfoFromBack];
+        [weakself requestDataFromBack];
+    }];
+   
     [self requestUserInfoFromBack];
     [self requestDataFromBack];
-    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationChangeTarBarItemWithNoti:) name:NotificationChangeTabbarItem object:nil];
+    self.shouldPopToHomepage = NO;
+}
+
+
+-(void)notificationChangeTarBarItemWithNoti:(NSNotification *)not
+{
+    NSDictionary *user= not.userInfo;
+    self.shouldPopToHomepage = YES;
+ 
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.shouldPopToHomepage) {
+      [self.tabBarController setSelectedIndex:0];
+        self.shouldPopToHomepage = NO;
+    }
 }
 
 /**
@@ -64,6 +88,8 @@
     NSLog(@"分享按钮");
     
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
+    
+    share.shareURL = [NSString stringWithFormat:@"%@?userId=%@",self.centerModel.share,self.centerModel.userId];
     share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     share.view.backgroundColor=[UIColor colorWithWhite:0 alpha:0.7];
 
@@ -72,8 +98,7 @@
         share.view.superview.backgroundColor = [UIColor clearColor];
        
     }];
-    
-    
+   
     
 }
 /**
@@ -85,7 +110,7 @@
         NSLog(@"%@",responseObj);
         self.centerModel = [RMTUserCenterModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
         [self.tableView reloadData];
-       
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];
@@ -98,17 +123,15 @@
 {
     [RMTDataService getDataWithURL:POST_GetUserInfo parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
         NSLog(@"%@",responseObj);
-        self.userModel = [RMTUserInfoModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
+        
+        self.userModel = [RMTUserInfoModel shareInstance];
+        [self.userModel setValuesForKeysWithDictionary:[responseObj objectForKey:@"data"]];
         [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];
 
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 
@@ -127,7 +150,13 @@
 {
     if (indexPath.section == 0) {
         RMTUserInfoTableViewCell *user = [tableView dequeueReusableCellWithIdentifier:@"userInfo"];
-        [user.userHeader sd_setImageWithURL:[NSURL URLWithString:self.userModel.headPortrait] placeholderImage:nil];
+        
+        if ([RMTUserInfoModel shareInstance].HeadImage) {
+            user.userHeader.image = [RMTUserInfoModel shareInstance].HeadImage;
+        }else
+        {
+            [user.userHeader sd_setImageWithURL:[NSURL URLWithString:self.userModel.headPortrait] placeholderImage:nil];
+        }
         user.userNikeNameLabel.text = self.userModel.nick;
         user.userMobileLabel.text = self.userModel.mobile;
         user.detailRLabel.text = [self.userModel.whetherCertification  intValue] == 1?@"已认证":@"未实名认证";
@@ -254,9 +283,14 @@
 #pragma mark ===tableView的点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak typeof(self)weakself = self;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
         RMTUserDetailInfoViewController *detail = [[RMTUserDetailInfoViewController alloc] init];
+        detail.reloadBolock = ^(id dta)
+        {
+            [weakself.tableView reloadData];
+        };
         [self.navigationController pushViewController:detail animated:YES];
     }else if (indexPath.section == 1)
     {

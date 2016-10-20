@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface RMTReceveMoneyListCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *tLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end

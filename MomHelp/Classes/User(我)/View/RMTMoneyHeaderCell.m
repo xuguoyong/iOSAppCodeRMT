@@ -14,11 +14,17 @@
     [super awakeFromNib];
     // Initialization code
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (IBAction)bankCarButttonClick:(id)sender {
+    if (self.bankCarButtonClick) {
+        self.bankCarButtonClick(sender);
+    }
 }
+
+- (IBAction)tixianButtonClick:(id)sender {
+    if (self.tixianButtonClick) {
+        self.tixianButtonClick(sender);
+    }
+}
+
 
 @end

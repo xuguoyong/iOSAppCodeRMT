@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.view.backgroundColor = viewAndTableViewBackgroundColor;
+     self.view.backgroundColor = [UIColor whiteColor];
 
 }
 
@@ -55,8 +55,14 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 5.0f;
+    return 0.00001f;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.00001f;
+
+}
+
 
 
 @end

@@ -19,7 +19,7 @@
 {
     _model = model;
     
-    [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:model.headUrl] placeholderImage:[UIImage imageNamed:@"defultHeadName"]];
+    [self.userHeadImageView sd_setImageWithURL:[NSURL URLWithString:model.headUrl] placeholderImage:[UIImage imageNamed:defultHeadName]];
     self.userNameLabel.text = model.nick;
     
     self.receveMoney.text = [NSString stringWithFormat:@"¥ %.2f",[model.sumProfit floatValue]];

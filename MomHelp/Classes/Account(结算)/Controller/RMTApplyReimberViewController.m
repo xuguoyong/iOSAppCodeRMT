@@ -23,7 +23,6 @@
 @property (nonatomic,strong) NSMutableArray *reproDataSource;
 @property (nonatomic,strong) NSMutableArray *carDateSurce;
 
-
 @property (nonatomic,assign) int reportPage;
 @property (nonatomic,assign) int carPage;
 
@@ -136,8 +135,9 @@
      __weak typeof(self)weakself =self;
     [RMTDataService getDataWithURL:GET_CardPackaget_List parma:@{@"page":[NSString stringWithFormat:@"%d",self.reportPage]} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
         NSDictionary *data = [[[responseObj objectForKey:@"data"] objectForKey:@"cardPackageResponseBasePageable"] objectForKey:@"list"];
-        self.carDateSurce = [RMTCarPackageModel mj_objectArrayWithKeyValuesArray:data];
-        NSLog(@"%@",responseObj);
+        NSMutableArray *arr =  [RMTCarPackageModel mj_objectArrayWithKeyValuesArray:data];
+        [self.carDateSurce addObjectsFromArray:arr];
+        
         [weakself.tableView reloadData];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
@@ -240,12 +240,7 @@
         
         if (indexPath.row == self.carDateSurce.count) {
             RMTAddMoreCell *addCell = [tableView dequeueReusableCellWithIdentifier:@"addCell"];
-            if (self.carDateSurce.count > 0) {
-              addCell.tipsLabel.text = @"收起";
-            }else
-            {
-                addCell.tipsLabel.text = @"健康卡支付";
-            }
+            addCell.tipsLabel.text = @"健康卡支付";
             
             return addCell;
         }else
@@ -346,10 +341,12 @@
     {
         
         if (indexPath.row == self.carDateSurce.count && self.carDateSurce.count == 0) {
+            self.carPage = 1;
             [self selectPayType];
         }else if (indexPath.row == self.carDateSurce.count)
         {
-            [self.carDateSurce removeAllObjects];
+            self.carPage ++;
+            [self selectPayType];
         }
         else
         {

@@ -13,7 +13,6 @@
 {
 
     
-    id<OSSCredentialProvider> credential = [[OSSPlainTextAKSKPairCredentialProvider alloc] initWithPlainTextAccessKey:[parmar objectForKey:@"accessKeyId"] secretKey:[parmar objectForKey:@"accessKeySecret"]];
   
     id<OSSCredentialProvider> credential2 = [[OSSFederationCredentialProvider alloc] initWithFederationTokenGetter:^OSSFederationToken * {
         OSSFederationToken * token = [OSSFederationToken new];
@@ -36,9 +35,12 @@
     OSSPutObjectRequest * put = [OSSPutObjectRequest new];
     
     put.bucketName =[parmar objectForKey:@"bucket"];
+    
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval timeStamp =[dat timeIntervalSince1970]*1000;
+    
     NSString *objectKey  = [NSString stringWithFormat:@"%@%ld.png",[parmar objectForKey:@"userDir"],(long)timeStamp];
+    
     put.objectKey =objectKey;
    
     put.uploadingData = imageData; // 直接上传NSData

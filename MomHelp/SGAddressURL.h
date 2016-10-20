@@ -9,14 +9,18 @@
 #ifndef SGAddressURL_h
 #define SGAddressURL_h
 
-//正式库
-#define MainURL  @"https://api.91stjk.com"
-#define VersionType @""
+////正式库
+//#define MainURL  @"https://api.91stjk.com"
+//#define VersionType @""
 
 
-//测试库
+////测试库 liuying
 //#define MainURL  @"http://192.168.1.197:7777"
 //#define VersionType @"beta"
+
+//测试库 liyong
+#define MainURL  @"http://192.168.1.167:7777"
+#define VersionType @"beta"
 
 
 #define ImagePerfix @"https://img.91stjk.com"
@@ -103,6 +107,15 @@
 #define GET_HealthRecord_UserList @"/healthRecord/usedList"
 /**卡包列表*/
 #define GET_CardPackaget_List @"/cardpackage/list"
+/**直购列表*/
+#define GET_Product_List @"/product/list"
+/**转让列表*/
+#define GET_Transfer_List @"/cardpackage/transferList"
+/**是否可以转让*/
+#define GET_Product_Usable @"/product/usable"
+/**转让*/
+#define POST_Cardpackage_Transfer @"/cardpackage/transfer"
+
 
 
 #endif /* SGAddressURL_h */

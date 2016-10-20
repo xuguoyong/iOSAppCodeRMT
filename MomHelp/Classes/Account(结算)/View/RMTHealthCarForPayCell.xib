@@ -86,7 +86,6 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhA-Qp-guH">
                         <constraints>
-                            <constraint firstAttribute="width" constant="46" id="FtM-Ti-6fp"/>
                             <constraint firstAttribute="height" constant="20" id="mJG-aX-hag"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -105,9 +104,10 @@
                     <constraint firstItem="hhA-3m-TkN" firstAttribute="centerY" secondItem="CSc-kX-bgI" secondAttribute="centerY" id="FDi-up-NY6"/>
                     <constraint firstItem="mhe-yv-vId" firstAttribute="leading" secondItem="5Q3-0m-C9v" secondAttribute="trailing" constant="2" id="FdK-dT-P5l"/>
                     <constraint firstItem="mhe-yv-vId" firstAttribute="centerY" secondItem="5Q3-0m-C9v" secondAttribute="centerY" id="Gtw-AD-kk2"/>
-                    <constraint firstItem="DhA-Qp-guH" firstAttribute="leading" secondItem="zts-cz-uH4" secondAttribute="trailing" constant="5" id="HpD-0l-3A3"/>
+                    <constraint firstItem="DhA-Qp-guH" firstAttribute="leading" secondItem="zts-cz-uH4" secondAttribute="trailing" id="HpD-0l-3A3"/>
                     <constraint firstItem="mhe-yv-vId" firstAttribute="height" secondItem="5Q3-0m-C9v" secondAttribute="height" id="Jt9-7k-Nxg"/>
                     <constraint firstItem="d90-9I-k8D" firstAttribute="leading" secondItem="M1U-m0-LvF" secondAttribute="leading" id="KGC-sT-nly"/>
+                    <constraint firstItem="DhA-Qp-guH" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="LI7-4y-nAT"/>
                     <constraint firstItem="5Q3-0m-C9v" firstAttribute="top" secondItem="d90-9I-k8D" secondAttribute="bottom" constant="8" id="OkQ-1T-ifp"/>
                     <constraint firstItem="zts-cz-uH4" firstAttribute="leading" secondItem="hhA-3m-TkN" secondAttribute="trailing" id="RRj-si-gM5"/>
                     <constraint firstItem="M1U-m0-LvF" firstAttribute="leading" secondItem="iux-b3-szK" secondAttribute="trailing" constant="11" id="Yev-K7-4Vb"/>

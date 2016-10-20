@@ -10,11 +10,11 @@
 
 @interface RMTCarPackageModel : NSObject
 
-
+@property (nonatomic,strong) NSString *totalWorth;
 @property (nonatomic,strong) NSString *buyByMonth ;// 1;
 @property (nonatomic,strong) NSString *buyByWeek ;// 0;
 @property (nonatomic,strong) NSMutableArray *canResaleDate ;//                     (
-
+@property (nonatomic,strong) NSString *canTransferDate;
 @property (nonatomic,strong) NSString *cardNo ;// 8101475904992013;
 @property (nonatomic,strong) NSString *cardPackageDetail ;// "http://m.91stjk.com/detail/cardbar_detail.html?cardPackageId;//";
 @property (nonatomic,strong) NSString *cardPackageId ;// 2c918084577a62cf0157a2caf30d2f5a;
@@ -31,7 +31,7 @@
 @property (nonatomic,strong) NSString *dayIncrement ;// 0;
 @property (nonatomic,strong) NSString *dayIncrementPercen ;// "0.006666666666666667";
 @property (nonatomic,strong) NSString *details ;// "<null>";
-@property (nonatomic,strong) NSString *vincrementValue ;// 0;
+@property (nonatomic,strong) NSString *incrementValue ;// 0;
 @property (nonatomic,strong) NSString *incrementValueTotal ;// 0;
 @property (nonatomic,strong) NSString *level ;// 0;
 @property (nonatomic,strong) NSString *monthIncrement ;// "0.2";
@@ -49,7 +49,7 @@
 @property (nonatomic,strong) NSString *userId ;// 2c918082574ccdbf01574d4faf4a0018;
 @property (nonatomic,strong) NSString *weekIncrement ;// "0.05";
 @property (nonatomic,strong) NSString *worth ;// "0.1";
-
+@property (nonatomic,strong) NSString *cashCoupon;
 
 //判断是否是选中
 @property (nonatomic,assign) BOOL isSelect;

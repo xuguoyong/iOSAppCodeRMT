@@ -49,9 +49,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RMTUserInfoTableViewCell" bundle:nil] forCellReuseIdentifier:@"userInfo"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"RMTUserOtherTableViewCell" bundle:nil] forCellReuseIdentifier:@"other"];
+    __weak typeof(self)weakself = self;
+    [self.tableView addRefreshNormalHeaderWithRefreshBlock:^{
+        [weakself requestUserInfoFromBack];
+        [weakself requestDataFromBack];
+    }];
+   
     [self requestUserInfoFromBack];
     [self requestDataFromBack];
-    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationChangeTarBarItemWithNoti:) name:NotificationChangeTabbarItem object:nil];
     self.shouldPopToHomepage = NO;
@@ -105,7 +110,7 @@
         NSLog(@"%@",responseObj);
         self.centerModel = [RMTUserCenterModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
         [self.tableView reloadData];
-       
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];
@@ -122,6 +127,7 @@
         self.userModel = [RMTUserInfoModel shareInstance];
         [self.userModel setValuesForKeysWithDictionary:[responseObj objectForKey:@"data"]];
         [self.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];

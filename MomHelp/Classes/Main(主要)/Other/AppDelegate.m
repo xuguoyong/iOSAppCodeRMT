@@ -12,6 +12,8 @@
 #import "AppDelegate+NetWorking.h"
 #import "AppDelegate+ShareSDk.h"
 #import "SGShowMesssageTool.h"
+#import "UPPaymentControl.h"
+
 @interface AppDelegate ()
 
 @end
@@ -35,7 +37,27 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+        
+        //结果code为成功时，先校验签名，校验成功后做后续处理
+        if([code isEqualToString:@"success"]) {
+            
+           //交易成功
+        }
+        else if([code isEqualToString:@"fail"]) {
+            //交易失败
+        }
+        else if([code isEqualToString:@"cancel"]) {
+            //交易取消
+        }
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUionPayStaues object:nil userInfo:@{@"stautes":code}];
+    }];
+    
+    return YES;
 
+}
 
 
 

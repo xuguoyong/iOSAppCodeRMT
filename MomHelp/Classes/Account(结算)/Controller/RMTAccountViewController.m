@@ -53,6 +53,7 @@
         weakself.totalReimbursementWorth = [data objectForKey:@"totalReimbursementWorth"];
         weakself.dataSources = [RMTReimburListModel mj_objectArrayWithKeyValuesArray:[data objectForKey:@"reimbursementResponses"]];
         [weakself.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];

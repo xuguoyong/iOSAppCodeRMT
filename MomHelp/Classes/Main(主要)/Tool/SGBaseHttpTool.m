@@ -50,7 +50,7 @@
             }else//请求失败
             {
                if (showError && responseObj[@"message"]/*如果需要显示失败信息，就显示*/) {
-                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@：%@",responseObj[@"message"],responseObj[@"statusCode"]]];
+                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@",responseObj[@"message"]]];
                 }
                 if (failure) {
                     failure(nil,responseObj[@"statusCode"],responseObj[@"message"]);
@@ -115,7 +115,7 @@
             {
                 if (showError && responseObj[@"message"]/*如果需要显示失败信息，就显示*/) {
                   
-                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@：%@",responseObj[@"message"],responseObj[@"statusCode"]] showTime:2.0f];
+                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@",responseObj[@"message"]] showTime:2.0f];
                 }
                 if (failure) {
                     failure(nil,responseObj[@"statusCode"],responseObj[@"message"]);

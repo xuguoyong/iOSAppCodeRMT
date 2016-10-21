@@ -12,16 +12,17 @@
 ////正式库
 //#define MainURL  @"https://api.91stjk.com"
 //#define VersionType @""
-
+//#define UionPayModel @"01"
 
 ////测试库 liuying
-//#define MainURL  @"http://192.168.1.197:7777"
-//#define VersionType @"beta"
+#define MainURL  @"http://192.168.1.197:7777"
+#define VersionType @"beta_liuying"
+#define UionPayModel @"00"
 
 //测试库 liyong
-#define MainURL  @"http://192.168.1.167:7777"
-#define VersionType @"beta"
-
+//#define MainURL  @"http://192.168.1.167:7777"
+//#define VersionType @"beta_liyong"
+//#define UionPayModel @"00"
 
 #define ImagePerfix @"https://img.91stjk.com"
 
@@ -115,7 +116,10 @@
 #define GET_Product_Usable @"/product/usable"
 /**转让*/
 #define POST_Cardpackage_Transfer @"/cardpackage/transfer"
-
+/**购买直购商品*/
+#define GET_Product_Buy @"/product/buy"
+/**购买转让卡商品*/
+#define GET_CardPackage_Buy @"/cardpackage/buy"
 
 
 #endif /* SGAddressURL_h */

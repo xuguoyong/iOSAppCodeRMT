@@ -44,17 +44,30 @@
 				<string>wb1588373443</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>MomHelp</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		
+        <string>uppaysdk</string>
+        <string>uppaywallet</string>
+        <string>uppayx1</string>
+        <string>uppayx2</string>
+        <string>uppayx3</string>
+
 		<string>mqzoneopensdk</string>
-        <string>mqzoneopensdkapi</string>
-        <string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdkapi19</string>
 		<string>mqzoneopensdkapiV2</string>
-        <string>mqqOpensdkSSoLogin</string>
+		<string>mqqOpensdkSSoLogin</string>
 		<string>mqqopensdkapiV2</string>
 		<string>mqqopensdkapiV3</string>
 		<string>wtloginmqq2</string>
@@ -63,21 +76,17 @@
 		<string>mqzone</string>
 		<string>mqq</string>
 		<string>mqqopensdkapiV4</string>
-        <string>mqqopenbrowser</string>
-         <string>mqqopenbrowser</string>
+		<string>mqqopenbrowser</string>
+		<string>mqqopenbrowser</string>
 		<string>sinaweibo</string>
 		<string>sinaweibohd</string>
 		<string>sinaweibosso</string>
 		<string>sinaweibohdsso</string>
-        
 		<string>weibosdk</string>
 		<string>weibosdk2.5</string>
-        
 		<string>weixin</string>
 		<string>wechat</string>
-        <string>wtloginmqq2</string>
-       
-        
+		<string>wtloginmqq2</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

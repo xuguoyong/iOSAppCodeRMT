@@ -56,6 +56,9 @@
 		671C5CBE1DB1CFBD00D6CAEC /* RMTReceveDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CBC1DB1CFBD00D6CAEC /* RMTReceveDetailCell.xib */; };
 		671C5CC21DB1E56600D6CAEC /* RMTMenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C5CC01DB1E56600D6CAEC /* RMTMenueCell.m */; };
 		671C5CC31DB1E56600D6CAEC /* RMTMenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CC11DB1E56600D6CAEC /* RMTMenueCell.xib */; };
+		67291A371DB9B031007B2AFD /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A361DB9B031007B2AFD /* libPaymentControl.a */; };
+		67291A391DB9B079007B2AFD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A381DB9B079007B2AFD /* CFNetwork.framework */; };
+		67291A3B1DB9B086007B2AFD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A3A1DB9B086007B2AFD /* SystemConfiguration.framework */; };
 		674A68A01DB46E3200E9E08C /* RMTMoneyHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */; };
 		674A68A11DB46E3200E9E08C /* RMTMoneyHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */; };
 		674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68A31DB47E4E00E9E08C /* RMTReceveMoneyListCell.m */; };
@@ -384,6 +387,10 @@
 		671C5CBF1DB1E56600D6CAEC /* RMTMenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMenueCell.h; sourceTree = "<group>"; };
 		671C5CC01DB1E56600D6CAEC /* RMTMenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMenueCell.m; sourceTree = "<group>"; };
 		671C5CC11DB1E56600D6CAEC /* RMTMenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMenueCell.xib; sourceTree = "<group>"; };
+		67291A341DB9B031007B2AFD /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		67291A361DB9B031007B2AFD /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		67291A381DB9B079007B2AFD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		67291A3A1DB9B086007B2AFD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		674A689D1DB46E3200E9E08C /* RMTMoneyHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMoneyHeaderCell.h; sourceTree = "<group>"; };
 		674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMoneyHeaderCell.m; sourceTree = "<group>"; };
 		674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMoneyHeaderCell.xib; sourceTree = "<group>"; };
@@ -776,14 +783,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				670073331DB223B100859D9A /* libz.tbd in Frameworks */,
+				67291A3B1DB9B086007B2AFD /* SystemConfiguration.framework in Frameworks */,
+				67291A391DB9B079007B2AFD /* CFNetwork.framework in Frameworks */,
 				6700733B1DB223E000859D9A /* libsqlite3.tbd in Frameworks */,
 				670073391DB223D900859D9A /* ImageIO.framework in Frameworks */,
 				670073371DB223C500859D9A /* JavaScriptCore.framework in Frameworks */,
 				670073351DB223BC00859D9A /* libstdc++.tbd in Frameworks */,
-				670073331DB223B100859D9A /* libz.tbd in Frameworks */,
 				670073311DB223A600859D9A /* libicucore.tbd in Frameworks */,
 				6700732D1DB2236A00859D9A /* MOBFoundation.framework in Frameworks */,
 				6700732A1DB2236A00859D9A /* libWeChatSDK.a in Frameworks */,
+				67291A371DB9B031007B2AFD /* libPaymentControl.a in Frameworks */,
 				670073261DB2236A00859D9A /* TencentOpenAPI.framework in Frameworks */,
 				670073281DB2236A00859D9A /* libWeiboSDK.a in Frameworks */,
 				172E94BDD6B75ADF8E2FE56D /* libPods-MomHelp.a in Frameworks */,
@@ -1031,6 +1041,31 @@
 			name = "三级界面";
 			sourceTree = "<group>";
 		};
+		67291A321DB9B031007B2AFD /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				67291A331DB9B031007B2AFD /* inc */,
+				67291A351DB9B031007B2AFD /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		67291A331DB9B031007B2AFD /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				67291A341DB9B031007B2AFD /* UPPaymentControl.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		67291A351DB9B031007B2AFD /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				67291A361DB9B031007B2AFD /* libPaymentControl.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 		674A689B1DB46DB700E9E08C /* 关于 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1120,6 +1155,8 @@
 		B35E10B051B8F15CAC87B8D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67291A3A1DB9B086007B2AFD /* SystemConfiguration.framework */,
+				67291A381DB9B079007B2AFD /* CFNetwork.framework */,
 				6700733A1DB223E000859D9A /* libsqlite3.tbd */,
 				670073381DB223D900859D9A /* ImageIO.framework */,
 				670073361DB223C500859D9A /* JavaScriptCore.framework */,
@@ -1536,6 +1573,7 @@
 		BAEB05521D5DBC66001D1E86 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				67291A321DB9B031007B2AFD /* paymentcontrol */,
 				674A690B1DB708C700E9E08C /* SDPhotoBrowser */,
 				6700733C1DB22A0B00859D9A /* HooDatePicker */,
 				670072FE1DB2236A00859D9A /* ShareSDK */,
@@ -2384,6 +2422,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/paymentcontrol/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.shentijiankang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2415,6 +2454,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/paymentcontrol/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.shentijiankang;
 				PRODUCT_NAME = "$(TARGET_NAME)";

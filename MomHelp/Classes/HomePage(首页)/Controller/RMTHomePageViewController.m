@@ -123,7 +123,7 @@
         [weakself.tableView reloadData];
         [weakself.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+       [weakself.tableView.mj_header endRefreshing];
     }];
 }
 

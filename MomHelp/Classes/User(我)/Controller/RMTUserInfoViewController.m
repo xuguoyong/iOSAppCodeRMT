@@ -112,7 +112,7 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+         [self.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -129,7 +129,7 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+         [self.tableView.mj_header endRefreshing];
     }];
 
 }

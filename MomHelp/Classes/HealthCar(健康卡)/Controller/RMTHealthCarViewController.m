@@ -324,7 +324,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
        [self.drectBuyTableView reloadData];
         [self.drectBuyTableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+         [self.drectBuyTableView.mj_header endRefreshing];
     }];
 
    
@@ -343,13 +343,13 @@ typedef NS_ENUM (NSInteger,ProductType) {
         [self.changeTableView reloadData];
         [self.changeTableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+         [self.changeTableView.mj_header endRefreshing];
     }];
     [RMTDataService getDataWithURL:GET_Product_Usable parma:nil showErrorMessage:YES showHUD:NO logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
         self.tipsButton.hidden = ![[responseObj objectForKey:@"data"] boolValue];
+        [self.changeTableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+        [self.changeTableView.mj_header endRefreshing];
     }];
     
 }
@@ -377,6 +377,8 @@ typedef NS_ENUM (NSInteger,ProductType) {
         [self.carTableView.mj_footer endRefreshing];
         
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        [self.carTableView.mj_header endRefreshing];
+        [self.carTableView.mj_footer endRefreshing];
         
     }];
   
@@ -402,6 +404,9 @@ typedef NS_ENUM (NSInteger,ProductType) {
 {
     if (tableView == self.drectBuyTableView) {
         if (section == 1) {
+            return self.productListArray.count>0?1:0;
+        }else if (section ==2)
+        {
             return self.productListArray.count>0?1:0;
         }
     }else if (tableView == self.changeTableView)
@@ -698,6 +703,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
         
         }
         pay.productID =self.willBuyModel.productId;
+        pay.buyType = BuyCarType_direct_buy;
        
         [self.navigationController pushViewController:pay animated:YES];
     }

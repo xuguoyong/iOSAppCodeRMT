@@ -8,7 +8,17 @@
 
 #import "SGBaseViewController.h"
 
+typedef NS_ENUM(NSUInteger,BuyCarType) {
+    BuyCarType_trasfer = 100,//转让卡
+    BuyCarType_direct_buy//直购
+};
+
 @interface RMTPayPageViewController : SGBaseViewController
 @property (nonatomic,strong) NSString *numberCar;
 @property (nonatomic,strong) NSString *productID;
+@property (nonatomic,strong) NSString *trabsferMoney;
+@property (nonatomic,strong) NSString *payPassword;
+
+
+@property (nonatomic,assign) BuyCarType buyType;
 @end

@@ -11,5 +11,5 @@
 
 
 #define NotificationChangeTabbarItem @"NotificationChangeTabbarItem"
-
+#define NotificationUionPayStaues @"NotificationUionPayStaues"
 #endif /* NotificationName_h */

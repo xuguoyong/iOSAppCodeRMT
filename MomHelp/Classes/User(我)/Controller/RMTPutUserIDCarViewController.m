@@ -48,7 +48,14 @@
     [manager GET:allURL parameters:@{@"identityCard":self.IDCartextField.text} progress:^(NSProgress * _Nonnull downloadProgress) {
         // 这里可以获取到目前数据请求的进度
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
+        NSString *object = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
+        if ([object isEqualToString:@"true"]) {
+            RMTTransPasswordFirstViewController *pas =[[RMTTransPasswordFirstViewController alloc] initWithNibName:@"RMTTransPasswordFirstViewController" bundle:nil];
+            [self.navigationController pushViewController:pas animated:YES];
+        }else
+        {
+            [SGShowMesssageTool showMessage:@"身份证验证失败，请重新输入~"];
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        

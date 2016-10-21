@@ -18,6 +18,8 @@ typedef NS_ENUM(NSUInteger,BuyCarType) {
 @property (nonatomic,strong) NSString *productID;
 @property (nonatomic,strong) NSString *trabsferMoney;
 @property (nonatomic,strong) NSString *payPassword;
+@property (nonatomic,strong) void (^buySccessBlock)(id data);
+
 
 
 @property (nonatomic,assign) BuyCarType buyType;

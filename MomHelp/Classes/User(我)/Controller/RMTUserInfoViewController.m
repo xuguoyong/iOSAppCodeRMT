@@ -59,10 +59,17 @@
     [self requestDataFromBack];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationChangeTarBarItemWithNoti:) name:NotificationChangeTabbarItem object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginSuccess) name:NotificationUserLoginSuccess object:nil];
+  
     self.shouldPopToHomepage = NO;
 }
 
+- (void)userLoginSuccess
+{
+    [self requestDataFromBack];
+    [self requestUserInfoFromBack];
 
+}
 -(void)notificationChangeTarBarItemWithNoti:(NSNotification *)not
 {
 

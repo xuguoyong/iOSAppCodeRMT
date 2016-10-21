@@ -28,7 +28,8 @@ typedef NS_ENUM(NSInteger, RMTControllerType) {
 
 /**
  跳转至登录控制器
+ loginSuccess 登陆成功之后会走的回调
  */
-+ (void)popToLoginControllerTarget:(UIViewController *)target;
++ (void)popToLoginControllerTarget:(UIViewController *)target loginSuccessBlock:(void(^)(id data))loginSuccess;
 
 @end

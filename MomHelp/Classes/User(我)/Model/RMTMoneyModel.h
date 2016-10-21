@@ -39,4 +39,9 @@
 @property (nonatomic,strong) NSString *poundage;// = "0.008";
 @property (nonatomic,strong) NSString *tradePassword;// = "";
 
+@property (nonatomic,strong) NSString *whetherBankCard;// = 1;是否绑定银行卡
+@property (nonatomic,strong) NSString *whetherCertification;// = 1;是否实名认证
+@property (nonatomic,strong) NSString *whetherTransactionPassword;// = 1;是否设置密码
+
+
 @end

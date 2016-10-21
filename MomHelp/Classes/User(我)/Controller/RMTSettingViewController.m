@@ -15,7 +15,7 @@
 #import "RMTIdeaFeelbackViewController.h"
 
 
-@interface RMTSettingViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface RMTSettingViewController ()<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate>
 @property (nonatomic,strong) NSMutableArray *dataSource;
 @property (nonatomic,strong) UITableView *tableView;
 
@@ -173,11 +173,23 @@
 //退出登录按钮的点击事件
 - (void)loginOutBurttonClick:(UIButton *)btn
 {
-    [RMTUserInfoModel clearAccountToken];
-    [self.navigationController popViewControllerAnimated:YES];
-    [SGControllerTool popToLoginControllerTarget:self.tabBarController];
-   
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"是否确认退出" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"退出登录" otherButtonTitles: nil];
+    [sheet showInView:self.view];
+    
 
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex ==0) {
+        [RMTUserInfoModel clearAccountToken];
+        [self.navigationController popViewControllerAnimated:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationChangeTabbarItem object:nil];
+        [SGControllerTool popToLoginControllerTarget:self.tabBarController loginSuccessBlock:^(id data) {
+            
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

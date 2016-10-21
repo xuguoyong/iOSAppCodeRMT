@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RMTTextView.h"
-@interface RMTCurrentMoneyDataCell : UITableViewCell
+@interface RMTCurrentMoneyDataCell : UITableViewCell  <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *healthAccountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectCarLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalMoneyLabel;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (nonatomic,strong) RMTTextView *textView;
+@property (nonatomic,strong) void (^getText)(NSString *remark);
 
 @end

@@ -9,5 +9,7 @@
 #import "SGBaseViewController.h"
 
 @interface RMTLoginViewController : SGBaseViewController
+//用户登陆成功之后会调用的回调
+@property (nonatomic,strong) void (^userLoginSuccessBlock)(id data);
 
 @end

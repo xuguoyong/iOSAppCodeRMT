@@ -23,6 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = UIColorFromRGB(0xebebeb);
     self.title = @"提现";
     // 键盘即将弹出, 就会发出UIKeyboardWillShowNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];

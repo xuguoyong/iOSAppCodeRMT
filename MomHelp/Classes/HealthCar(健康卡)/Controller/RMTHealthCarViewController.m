@@ -18,6 +18,8 @@
 #import "RMTMoneyPackageCarCell.h"
 #import "RMTCarPackageModel.h"
 #import "RMTPutPasswrdView.h"
+#import "UserInfoModel.h"
+#import "SGControllerTool.h"
 /**
  *  每个产品的大小
  */
@@ -227,8 +229,9 @@ typedef NS_ENUM (NSInteger,ProductType) {
         [_toobarView addSubview:self.moneyTextField];
         self.moneyTextField.borderStyle = UITextBorderStyleNone;
         self.moneyTextField.keyboardType = UIKeyboardTypeNumberPad;
-        self.moneyTextField.font = [UIFont systemFontOfSize:30.0f];
+        self.moneyTextField.font = [UIFont systemFontOfSize:25.0f];
         self.moneyTextField.delegate = self;
+        self.moneyTextField.placeholder = @"输入金额";
         _moneyTextField.sd_layout.leftSpaceToView(label,0).rightSpaceToView(self.buyButton,0).topEqualToView(_toobarView).bottomEqualToView(_toobarView);
         
          self.tipsButton = [UIButton custombuttonNormalStateWithTitile:@"前往直购卡购买" titleFont:[UIFont systemFontOfSize:18.0f] titleColor:[UIColor whiteColor] butttonImage:nil backgroundImage:nil backgroundColor:MainColor clickThingTarget:self action:@selector(buyButtonClick:)];
@@ -252,6 +255,13 @@ typedef NS_ENUM (NSInteger,ProductType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.incrementValue = @"";
+    self.totalCount = @"";
+    self.totalValue = @"";
+    self.incrementValue = @"";
+  
+    
+    
     self.navigationItem.titleView = self.bgView;
     [self.view addSubview:self.bgScrollView];
  
@@ -516,20 +526,24 @@ typedef NS_ENUM (NSInteger,ProductType) {
       alivingCell.selectionStyle = UITableViewCellSelectionStyleNone;
         RMTtransferListModel *model = self.transferDataSource[indexPath.row];
         alivingCell.car_numberLabel.text = model.cardNo;
-        alivingCell.zhukaLabel.text = [NSString stringWithFormat:@"主卡 ¥ %@",model.worth];
+        
+        
         alivingCell.timeLabel.text = model.transferTime;
         if ([model.status isEqualToString:@"transfer"]/*转让中*/) {
             alivingCell.stautesImageView.hidden = YES;
             alivingCell.productImageView .image =[UIImage imageNamed:@"direct_buy_healthCar"];
             alivingCell.car_numberLabel.textColor = UIColorFromRGB(0x000000);
             alivingCell.zhukaLabel.textColor = UIColorFromRGB(0x000000);
+            alivingCell.zhukaLabel.text = [NSString stringWithFormat:@"主卡 ¥ %@",model.currentValueAndServiceChargeTotal];
+           
         }else
         {
             alivingCell.stautesImageView.hidden = NO;
             alivingCell.productImageView .image =[UIImage imageNamed:@"already_transfer_image"];
             alivingCell.car_numberLabel.textColor = UIColorFromRGB(0x868686);
             alivingCell.zhukaLabel.textColor = UIColorFromRGB(0x868686);
-
+            alivingCell.zhukaLabel.text = [NSString stringWithFormat:@"主卡 ¥ %@",model.surplusValue];
+            
         }
         
         return alivingCell;
@@ -658,6 +672,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
         [SGShowMesssageTool showMessage:@"转让成功"];
         carModel.status =@"transfer";
         [self.carTableView reloadData];
+        [self requestpackCarListDataFromBack];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];
@@ -668,6 +683,15 @@ typedef NS_ENUM (NSInteger,ProductType) {
 #pragma mark ====购买按钮的点击事件
 - (void)buyButtonClick:(UIButton *)sender
 {
+    
+    if (![RMTUserInfoModel isUserLogin]) {
+        [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
+            
+        }];
+        return;
+    }
+    
+    [self.view endEditing:YES];
     
     if (sender == self.tipsButton/*前往直购厅购买*/) {
         [self.bgScrollView setContentOffset:CGPointMake(0,0) animated:YES];
@@ -682,31 +706,63 @@ typedef NS_ENUM (NSInteger,ProductType) {
         }
     }else
     {
-        if (!self.willBuyModel) {
-            [SGShowMesssageTool showMessage:@"请选择要购买的直购卡" showTime:1.5f];
-            return;
-        }
-        if ( [self.willBuyModel.worth intValue]%100 !=0) {
-            [SGShowMesssageTool showMessage:@"输入的金额必须为100的整数倍" showTime:1.5f];
-            return;
-        }
-        
-       
-        
-        RMTPayPageViewController *pay = [[RMTPayPageViewController alloc] init];
-        if ([self.willBuyModel.userId isEqualToString:@"-10086"]) {
+        if (sender == self.buyButton/*转让大厅的购买，输入金额的*/) {
+            if ( ![RMTTool checkOneHundredNumberWithString:self.moneyTextField.text]) {
+                [SGShowMesssageTool showMessage:RMTPutNotRightMoneyCountText showTime:1.5f];
+                return;
+            }
             
-             pay.numberCar = [NSString stringWithFormat:@"%d",[self.willBuyModel.worth intValue]/100];
-        }else
-        {
-         pay.numberCar = self.willBuyModel.quantityList;
+            RMTPayPageViewController *pay = [[RMTPayPageViewController alloc] init];
+            pay.trabsferMoney =self.moneyTextField.text;
+            
+            __weak typeof(self)weakself =self;
+            pay.buySccessBlock = ^(id dta)
+            {
+                [weakself.bgScrollView setContentOffset:CGPointMake(d_screen_width*2, 0)];
+                [weakself.carTableView.mj_header beginRefreshing];
+            };
+            pay.buyType = BuyCarType_trasfer;
+            
+            [self.navigationController pushViewController:pay animated:YES];
+       
+        }else{/*直购的购买*/
+       
+            if (!self.willBuyModel) {
+                    [SGShowMesssageTool showMessage:@"请选择要购买的直购卡" showTime:1.5f];
+                    return;
+                }
+            
+                if (![RMTTool checkOneHundredNumberWithString:self.willBuyModel.worth]) {
+                    [SGShowMesssageTool showMessage:RMTPutNotRightMoneyCountText showTime:1.5f];
+                    return;
+                }
+                
+                
+                
+                RMTPayPageViewController *pay = [[RMTPayPageViewController alloc] init];
+                if ([self.willBuyModel.userId isEqualToString:@"-10086"]) {
+                    
+                    pay.numberCar = [NSString stringWithFormat:@"%d",[self.willBuyModel.worth intValue]/100];
+                }else
+                {
+                    pay.numberCar = self.willBuyModel.quantityList;
+                    
+                }
+                
+                __weak typeof(self)weakself =self;
+                pay.buySccessBlock = ^(id dta)
+                {
+                    [weakself.bgScrollView setContentOffset:CGPointMake(d_screen_width*2, 0)];
+                    [weakself.carTableView.mj_header beginRefreshing];
+                };
+                pay.productID =self.willBuyModel.productId;
+                pay.buyType = BuyCarType_direct_buy;
+                
+                [self.navigationController pushViewController:pay animated:YES];
+            }
         
         }
-        pay.productID =self.willBuyModel.productId;
-        pay.buyType = BuyCarType_direct_buy;
-       
-        [self.navigationController pushViewController:pay animated:YES];
-    }
+      
 
    
     
@@ -719,7 +775,15 @@ typedef NS_ENUM (NSInteger,ProductType) {
 {
     NSLog(@"%ld",seg.selectedSegmentIndex);
     
-    [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *seg.selectedSegmentIndex,0) animated:YES];
+    if (seg.selectedSegmentIndex == 2 && ![RMTUserInfoModel isUserLogin]) {
+        seg.selectedSegmentIndex = 1;
+        [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
+            [self.carTableView.mj_header beginRefreshing];
+        }];
+        return;
+    }
+    
+    [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *seg.selectedSegmentIndex,0) animated:NO];
     if (self.segControl.selectedSegmentIndex == 1) {
         [self.tabBarController.tabBar setHidden:YES];
         self.toobarView.hidden =NO;

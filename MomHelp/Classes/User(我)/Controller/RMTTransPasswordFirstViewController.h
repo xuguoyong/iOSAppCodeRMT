@@ -9,5 +9,5 @@
 #import "SGBaseViewController.h"
 
 @interface RMTTransPasswordFirstViewController : SGBaseViewController
-
+@property (nonatomic,strong) NSString *carNumber;
 @end

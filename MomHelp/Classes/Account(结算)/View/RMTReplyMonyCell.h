@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RMTReplyMonyCell : UITableViewCell
+@interface RMTReplyMonyCell : UITableViewCell <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *moneyTextFied;
-
+@property (nonatomic,strong) void (^getHowmuchMoney)(NSString *money);
 @end

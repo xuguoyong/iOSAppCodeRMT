@@ -80,6 +80,10 @@
         NSString *token = [[responseObj objectForKey:@"data"] objectForKey:@"access_token"];
         [RMTUserInfoModel  saveAccessToken:token];
         [self loginVCleftButtonClickToback];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUserLoginSuccess object:nil];
+        if (self.userLoginSuccessBlock) {
+            self.userLoginSuccessBlock(nil);
+        }
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         NSLog(@"%@",error);
     }];

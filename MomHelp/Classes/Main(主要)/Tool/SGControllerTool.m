@@ -72,9 +72,16 @@
 
 
 
-+ (void)popToLoginControllerTarget:(UIViewController *)target
++ (void)popToLoginControllerTarget:(UIViewController *)target loginSuccessBlock:(void(^)(id data))loginSuccess
 {
     RMTLoginViewController *login = [[RMTLoginViewController alloc] initWithNibName:@"RMTLoginViewController" bundle:nil];
+    login.userLoginSuccessBlock = ^(id data)
+    {
+        if (loginSuccess) {
+            loginSuccess(data);
+        }
+        
+    };
     SGNavigationController *nav = [[SGNavigationController alloc] initWithRootViewController:login];
     [target presentViewController:nav animated:YES completion:nil];
 }

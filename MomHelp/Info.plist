@@ -49,7 +49,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>MomHelp</string>
+				<string>com.91stjk.shentijiankang</string>
 			</array>
 		</dict>
 	</array>
@@ -57,12 +57,11 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <string>uppaysdk</string>
-        <string>uppaywallet</string>
-        <string>uppayx1</string>
-        <string>uppayx2</string>
-        <string>uppayx3</string>
-
+		<string>uppaysdk</string>
+		<string>uppaywallet</string>
+		<string>uppayx1</string>
+		<string>uppayx2</string>
+		<string>uppayx3</string>
 		<string>mqzoneopensdk</string>
 		<string>mqzoneopensdkapi</string>
 		<string>mqzoneopensdkapi19</string>

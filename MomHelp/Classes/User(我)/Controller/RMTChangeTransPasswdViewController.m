@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor =UIColorFromRGB(0xebebeb);
     self.title = @"修改交易密码";
     self.leftTime = leftTimeLong;
    
@@ -30,7 +31,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self addTime];
+    
 }
 
 - (void)addTime
@@ -77,6 +78,10 @@
     [self removeTime];
 }
 - (IBAction)timeButtonClick:(id)sender {
+    
+    
+    
+    
 }
 
 - (IBAction)completeButtonClick:(id)sender {

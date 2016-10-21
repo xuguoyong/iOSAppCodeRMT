@@ -64,6 +64,11 @@
 {
     
     RMTApplyReimberViewController *apply = [[RMTApplyReimberViewController alloc] init];
+    apply.accountMoney =self.balance;
+    apply.aplyjisuanSuccess = ^(id sata)
+    {
+        [self requestDataFromBack];
+    };
     [self.navigationController pushViewController:apply animated:YES];
     
 }

@@ -9,7 +9,13 @@
 #ifndef NotificationName_h
 #define NotificationName_h
 
-
+//通知切换tabbr的选中item
 #define NotificationChangeTabbarItem @"NotificationChangeTabbarItem"
+//通知回调银联的支付结果
 #define NotificationUionPayStaues @"NotificationUionPayStaues"
+//通知回调支付宝的支付结果
+#define NotificationAlipayPayStaues @"NotificationAlipayPayStaues"
+//通知用户刚刚登陆成功
+#define NotificationUserLoginSuccess @"NotificationUserLoginSuccess"
+
 #endif /* NotificationName_h */

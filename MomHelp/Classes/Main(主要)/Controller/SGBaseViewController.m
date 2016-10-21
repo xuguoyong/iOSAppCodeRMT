@@ -7,6 +7,12 @@
 //
 
 #import "SGBaseViewController.h"
+#import "RMTHomePageViewController.h"
+#import "RMTHealthCarViewController.h"
+#import "RMTAccountViewController.h"
+#import "RMTUserInfoViewController.h"
+
+
 @interface SGBaseViewController ()
 
 @end
@@ -18,9 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.view.backgroundColor = [UIColor whiteColor];
+    
+    if (![self isKindOfClass:[RMTHomePageViewController class]]&&![self isKindOfClass:[RMTHealthCarViewController class]] &&![self isKindOfClass:[RMTHealthCarViewController class]] &&![self isKindOfClass:[RMTAccountViewController class]] &&![self isKindOfClass:[RMTUserInfoViewController class]] ) {
+        // 设置导航栏按钮
+        self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"view_leftAndBack_white_icon" highImageName:@"view_leftAndBack_white_icon" target:self action:@selector(leftButtonClickToback:)];
+    }
+    
+   
 
 }
-
+- (void)leftButtonClickToback:(UIBarButtonItem *)bar
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 #pragma mark ==如果需要添加tableView 直接调用一下方法即可

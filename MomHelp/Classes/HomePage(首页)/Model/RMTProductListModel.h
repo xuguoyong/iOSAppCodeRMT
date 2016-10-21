@@ -22,4 +22,6 @@
 @property (nonatomic,strong) NSString *title ;// "\U5168\U4fdd\U5065\U5eb7\U5361100\U5143";
 @property (nonatomic,strong) NSString *userId ;// "<null>";
 @property (nonatomic,strong) NSString *worth ;// 100;
+
+@property (nonatomic,strong) NSString *currentValueAndServiceChargeTotal;
 @end

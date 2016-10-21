@@ -96,16 +96,12 @@
 {
     if (self.viewControllers.count > 0) { // 如果现在push的不是栈底控制器(最先push进来的那个控制器)
         viewController.hidesBottomBarWhenPushed = YES;
-        // 设置导航栏按钮
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"view_leftAndBack_white_icon" highImageName:@"view_leftAndBack_white_icon" target:self action:@selector(leftButtonClickToback:)];
+        
     }
     [super pushViewController:viewController animated:animated];
 }
 
-- (void)leftButtonClickToback:(UIBarButtonItem *)bar
-{
-    [self popViewControllerAnimated:YES];
-}
+
 
 
 

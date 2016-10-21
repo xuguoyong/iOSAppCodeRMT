@@ -65,7 +65,7 @@
 
 -(void)notificationChangeTarBarItemWithNoti:(NSNotification *)not
 {
-    NSDictionary *user= not.userInfo;
+
     self.shouldPopToHomepage = YES;
  
 }

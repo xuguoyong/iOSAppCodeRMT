@@ -81,7 +81,7 @@
     if (indexPath.section == 0) {
         RMTPayPageHeadCell *headCell = [tableView dequeueReusableCellWithIdentifier:@"headCell"];
         headCell.timeLabel.text = [NSDate getCurrentStandarTimeWithFormatter:@"M月d日HH时mm分"];
-        headCell.moneyLabel.text =@"主卡 ¥100";
+        headCell.moneyLabel.text =[NSString stringWithFormat:@"主卡 ¥%d",[self.numberCar intValue]*100];
         return headCell;
     }else if (indexPath.section ==1&&indexPath.row !=0 )
     {

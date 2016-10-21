@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "RMTDirctBuyProductModel.h"
 @interface RMTDirctProductListCell : UITableViewCell
 @property (nonatomic,strong) NSMutableArray *productList;
+@property (nonatomic,strong) void (^didSelectWillBuyCarModel)(RMTDirctBuyProductModel *productModel);
 @end

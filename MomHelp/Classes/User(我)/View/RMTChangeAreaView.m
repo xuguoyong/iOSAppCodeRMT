@@ -207,7 +207,7 @@
     UILabel* pickerLabel = (UILabel*)view;
     if (!pickerLabel){
         pickerLabel = [[UILabel alloc] init];
-        pickerLabel. minimumFontSize = 10.0f;
+        pickerLabel. minimumScaleFactor = 10.0f;
         
         pickerLabel.adjustsFontSizeToFitWidth = YES;
         [pickerLabel setTextAlignment:NSTextAlignmentCenter];

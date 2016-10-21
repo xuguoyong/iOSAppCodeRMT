@@ -42,6 +42,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
 //直购
 @property (nonatomic,strong) NSMutableArray *productListArray;
 @property (nonatomic,strong) UITableView *drectBuyTableView;
+@property (nonatomic,strong) RMTDirctBuyProductModel *willBuyModel;
 
 //转让
 @property (nonatomic,strong) UITableView *changeTableView;
@@ -313,8 +314,12 @@ typedef NS_ENUM (NSInteger,ProductType) {
     [RMTDataService getDataWithURL:GET_Product_List parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
        
       self.productListArray = [RMTDirctBuyProductModel mj_objectArrayWithKeyValuesArray:[responseObj objectForKey:@"data"]];
+        RMTDirctBuyProductModel *first = [self.productListArray firstObject];
         RMTDirctBuyProductModel *model = [[RMTDirctBuyProductModel alloc] init];
-        model.worth = @"-10086";
+        model.worth = @"10086";
+        model.userId = @"-10086";
+        model.productId = first.productId;
+        
         [self.productListArray addObject:model];
        [self.drectBuyTableView reloadData];
         [self.drectBuyTableView.mj_header endRefreshing];
@@ -483,6 +488,10 @@ typedef NS_ENUM (NSInteger,ProductType) {
             RMTDirctProductListCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
             listCell.productList = self.productListArray;
             listCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            listCell.didSelectWillBuyCarModel = ^(RMTDirctBuyProductModel *model)
+            {
+                weaself.willBuyModel = model;
+            };
             return listCell;
         }else if (indexPath.section == 2)
         {
@@ -668,9 +677,28 @@ typedef NS_ENUM (NSInteger,ProductType) {
         }
     }else
     {
-        NSLog(@"点击购买");
+        if (!self.willBuyModel) {
+            [SGShowMesssageTool showMessage:@"请选择要购买的直购卡" showTime:1.5f];
+            return;
+        }
+        if ( [self.willBuyModel.worth intValue]%100 !=0) {
+            [SGShowMesssageTool showMessage:@"输入的金额必须为100的整数倍" showTime:1.5f];
+            return;
+        }
+        
+       
         
         RMTPayPageViewController *pay = [[RMTPayPageViewController alloc] init];
+        if ([self.willBuyModel.userId isEqualToString:@"-10086"]) {
+            
+             pay.numberCar = [NSString stringWithFormat:@"%d",[self.willBuyModel.worth intValue]/100];
+        }else
+        {
+         pay.numberCar = self.willBuyModel.quantityList;
+        
+        }
+        pay.productID =self.willBuyModel.productId;
+       
         [self.navigationController pushViewController:pay animated:YES];
     }
 

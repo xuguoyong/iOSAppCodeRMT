@@ -9,5 +9,6 @@
 #import "SGBaseViewController.h"
 
 @interface RMTPayPageViewController : SGBaseViewController
-
+@property (nonatomic,strong) NSString *numberCar;
+@property (nonatomic,strong) NSString *productID;
 @end

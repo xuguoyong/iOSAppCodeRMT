@@ -21,5 +21,5 @@
 @property (nonatomic,strong) NSString *title ;// "\U5168\U4fdd\U5065\U5eb7\U5361100\U5143";
 @property (nonatomic,strong) NSString *worth ;// 10000;
 @property (nonatomic,strong) NSString *transferTime;//"2016-10-09 09:50:06";
-
+@property (nonatomic,strong) NSString *currentValueAndServiceChargeTotal;
 @end

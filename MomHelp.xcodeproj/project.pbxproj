@@ -56,6 +56,26 @@
 		671C5CBE1DB1CFBD00D6CAEC /* RMTReceveDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CBC1DB1CFBD00D6CAEC /* RMTReceveDetailCell.xib */; };
 		671C5CC21DB1E56600D6CAEC /* RMTMenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 671C5CC01DB1E56600D6CAEC /* RMTMenueCell.m */; };
 		671C5CC31DB1E56600D6CAEC /* RMTMenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671C5CC11DB1E56600D6CAEC /* RMTMenueCell.xib */; };
+		67291A371DB9B031007B2AFD /* libPaymentControl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A361DB9B031007B2AFD /* libPaymentControl.a */; };
+		67291A391DB9B079007B2AFD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A381DB9B079007B2AFD /* CFNetwork.framework */; };
+		67291A3B1DB9B086007B2AFD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A3A1DB9B086007B2AFD /* SystemConfiguration.framework */; };
+		67291A3F1DB9C764007B2AFD /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 67291A3D1DB9C764007B2AFD /* AlipaySDK.bundle */; };
+		67291A401DB9C764007B2AFD /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A3E1DB9C764007B2AFD /* AlipaySDK.framework */; };
+		67291A421DB9C78B007B2AFD /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A411DB9C78B007B2AFD /* CoreMotion.framework */; };
+		67291A441DB9C79E007B2AFD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A431DB9C79E007B2AFD /* Foundation.framework */; };
+		67291A461DB9C7A8007B2AFD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A451DB9C7A8007B2AFD /* UIKit.framework */; };
+		67291A481DB9C7C1007B2AFD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A471DB9C7C1007B2AFD /* CoreGraphics.framework */; };
+		67291A4A1DB9C7CD007B2AFD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A491DB9C7CD007B2AFD /* CoreText.framework */; };
+		67291A4C1DB9C7D9007B2AFD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A4B1DB9C7D9007B2AFD /* QuartzCore.framework */; };
+		67291A4E1DB9C7E5007B2AFD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A4D1DB9C7E5007B2AFD /* CoreTelephony.framework */; };
+		67291A501DB9C803007B2AFD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 67291A4F1DB9C803007B2AFD /* libc++.tbd */; };
+		67291A531DB9D76E007B2AFD /* RMTYEEBaopayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67291A521DB9D76E007B2AFD /* RMTYEEBaopayViewController.m */; };
+		67291A571DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67291A551DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.m */; };
+		67291A581DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67291A561DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.xib */; };
+		67291A5C1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67291A5A1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.m */; };
+		67291A5D1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67291A5B1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.xib */; };
+		67291A611DBA191B007B2AFD /* RMTPutUserIDCarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67291A5F1DBA191B007B2AFD /* RMTPutUserIDCarViewController.m */; };
+		67291A621DBA191B007B2AFD /* RMTPutUserIDCarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67291A601DBA191B007B2AFD /* RMTPutUserIDCarViewController.xib */; };
 		674A68A01DB46E3200E9E08C /* RMTMoneyHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */; };
 		674A68A11DB46E3200E9E08C /* RMTMoneyHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */; };
 		674A68A51DB47E4E00E9E08C /* RMTReceveMoneyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A68A31DB47E4E00E9E08C /* RMTReceveMoneyListCell.m */; };
@@ -297,7 +317,6 @@
 		DCBE94481DAE1D19003677AF /* RMTHomePageAdvView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBE94471DAE1D19003677AF /* RMTHomePageAdvView.m */; };
 		DCBE944B1DAE1EEF003677AF /* RMTHomePageHealthCarThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBE944A1DAE1EEF003677AF /* RMTHomePageHealthCarThreeTableViewCell.m */; };
 		DCBE944E1DAE2236003677AF /* RMTHomePageHealthCarOneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBE944D1DAE2236003677AF /* RMTHomePageHealthCarOneTableViewCell.m */; };
-		DCF29AD51DAE629F006BA10C /* RMTProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF29AD41DAE629F006BA10C /* RMTProductDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -384,6 +403,31 @@
 		671C5CBF1DB1E56600D6CAEC /* RMTMenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMenueCell.h; sourceTree = "<group>"; };
 		671C5CC01DB1E56600D6CAEC /* RMTMenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMenueCell.m; sourceTree = "<group>"; };
 		671C5CC11DB1E56600D6CAEC /* RMTMenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMenueCell.xib; sourceTree = "<group>"; };
+		67291A341DB9B031007B2AFD /* UPPaymentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UPPaymentControl.h; sourceTree = "<group>"; };
+		67291A361DB9B031007B2AFD /* libPaymentControl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPaymentControl.a; sourceTree = "<group>"; };
+		67291A381DB9B079007B2AFD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		67291A3A1DB9B086007B2AFD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		67291A3D1DB9C764007B2AFD /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		67291A3E1DB9C764007B2AFD /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		67291A411DB9C78B007B2AFD /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		67291A431DB9C79E007B2AFD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		67291A451DB9C7A8007B2AFD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		67291A471DB9C7C1007B2AFD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		67291A491DB9C7CD007B2AFD /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		67291A4B1DB9C7D9007B2AFD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		67291A4D1DB9C7E5007B2AFD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		67291A4F1DB9C803007B2AFD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		67291A511DB9D76E007B2AFD /* RMTYEEBaopayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMTYEEBaopayViewController.h; path = "../../Account(结算)/Controller/RMTYEEBaopayViewController.h"; sourceTree = "<group>"; };
+		67291A521DB9D76E007B2AFD /* RMTYEEBaopayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMTYEEBaopayViewController.m; path = "../../Account(结算)/Controller/RMTYEEBaopayViewController.m"; sourceTree = "<group>"; };
+		67291A541DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTBuyProdecuOrCarSuccessViewController.h; sourceTree = "<group>"; };
+		67291A551DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTBuyProdecuOrCarSuccessViewController.m; sourceTree = "<group>"; };
+		67291A561DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTBuyProdecuOrCarSuccessViewController.xib; sourceTree = "<group>"; };
+		67291A591DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTReplyBaoxiaoSuccessViewController.h; sourceTree = "<group>"; };
+		67291A5A1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTReplyBaoxiaoSuccessViewController.m; sourceTree = "<group>"; };
+		67291A5B1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTReplyBaoxiaoSuccessViewController.xib; sourceTree = "<group>"; };
+		67291A5E1DBA191B007B2AFD /* RMTPutUserIDCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTPutUserIDCarViewController.h; sourceTree = "<group>"; };
+		67291A5F1DBA191B007B2AFD /* RMTPutUserIDCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTPutUserIDCarViewController.m; sourceTree = "<group>"; };
+		67291A601DBA191B007B2AFD /* RMTPutUserIDCarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTPutUserIDCarViewController.xib; sourceTree = "<group>"; };
 		674A689D1DB46E3200E9E08C /* RMTMoneyHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMoneyHeaderCell.h; sourceTree = "<group>"; };
 		674A689E1DB46E3200E9E08C /* RMTMoneyHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMoneyHeaderCell.m; sourceTree = "<group>"; };
 		674A689F1DB46E3200E9E08C /* RMTMoneyHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMoneyHeaderCell.xib; sourceTree = "<group>"; };
@@ -767,8 +811,6 @@
 		DCBE944A1DAE1EEF003677AF /* RMTHomePageHealthCarThreeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTHomePageHealthCarThreeTableViewCell.m; sourceTree = "<group>"; };
 		DCBE944C1DAE2236003677AF /* RMTHomePageHealthCarOneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTHomePageHealthCarOneTableViewCell.h; sourceTree = "<group>"; };
 		DCBE944D1DAE2236003677AF /* RMTHomePageHealthCarOneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTHomePageHealthCarOneTableViewCell.m; sourceTree = "<group>"; };
-		DCF29AD31DAE629F006BA10C /* RMTProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTProductDetailViewController.h; sourceTree = "<group>"; };
-		DCF29AD41DAE629F006BA10C /* RMTProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTProductDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -776,14 +818,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67291A501DB9C803007B2AFD /* libc++.tbd in Frameworks */,
+				67291A4E1DB9C7E5007B2AFD /* CoreTelephony.framework in Frameworks */,
+				67291A4C1DB9C7D9007B2AFD /* QuartzCore.framework in Frameworks */,
+				67291A4A1DB9C7CD007B2AFD /* CoreText.framework in Frameworks */,
+				67291A481DB9C7C1007B2AFD /* CoreGraphics.framework in Frameworks */,
+				67291A461DB9C7A8007B2AFD /* UIKit.framework in Frameworks */,
+				67291A441DB9C79E007B2AFD /* Foundation.framework in Frameworks */,
+				67291A421DB9C78B007B2AFD /* CoreMotion.framework in Frameworks */,
+				670073331DB223B100859D9A /* libz.tbd in Frameworks */,
+				67291A3B1DB9B086007B2AFD /* SystemConfiguration.framework in Frameworks */,
+				67291A401DB9C764007B2AFD /* AlipaySDK.framework in Frameworks */,
+				67291A391DB9B079007B2AFD /* CFNetwork.framework in Frameworks */,
 				6700733B1DB223E000859D9A /* libsqlite3.tbd in Frameworks */,
 				670073391DB223D900859D9A /* ImageIO.framework in Frameworks */,
 				670073371DB223C500859D9A /* JavaScriptCore.framework in Frameworks */,
 				670073351DB223BC00859D9A /* libstdc++.tbd in Frameworks */,
-				670073331DB223B100859D9A /* libz.tbd in Frameworks */,
 				670073311DB223A600859D9A /* libicucore.tbd in Frameworks */,
 				6700732D1DB2236A00859D9A /* MOBFoundation.framework in Frameworks */,
 				6700732A1DB2236A00859D9A /* libWeChatSDK.a in Frameworks */,
+				67291A371DB9B031007B2AFD /* libPaymentControl.a in Frameworks */,
 				670073261DB2236A00859D9A /* TencentOpenAPI.framework in Frameworks */,
 				670073281DB2236A00859D9A /* libWeiboSDK.a in Frameworks */,
 				172E94BDD6B75ADF8E2FE56D /* libPods-MomHelp.a in Frameworks */,
@@ -1031,6 +1085,40 @@
 			name = "三级界面";
 			sourceTree = "<group>";
 		};
+		67291A321DB9B031007B2AFD /* paymentcontrol */ = {
+			isa = PBXGroup;
+			children = (
+				67291A331DB9B031007B2AFD /* inc */,
+				67291A351DB9B031007B2AFD /* libs */,
+			);
+			path = paymentcontrol;
+			sourceTree = "<group>";
+		};
+		67291A331DB9B031007B2AFD /* inc */ = {
+			isa = PBXGroup;
+			children = (
+				67291A341DB9B031007B2AFD /* UPPaymentControl.h */,
+			);
+			path = inc;
+			sourceTree = "<group>";
+		};
+		67291A351DB9B031007B2AFD /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				67291A361DB9B031007B2AFD /* libPaymentControl.a */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		67291A3C1DB9C764007B2AFD /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				67291A3D1DB9C764007B2AFD /* AlipaySDK.bundle */,
+				67291A3E1DB9C764007B2AFD /* AlipaySDK.framework */,
+			);
+			path = Alipay;
+			sourceTree = "<group>";
+		};
 		674A689B1DB46DB700E9E08C /* 关于 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,6 +1155,9 @@
 		674A68EC1DB615CE00E9E08C /* 交易密码 */ = {
 			isa = PBXGroup;
 			children = (
+				67291A5E1DBA191B007B2AFD /* RMTPutUserIDCarViewController.h */,
+				67291A5F1DBA191B007B2AFD /* RMTPutUserIDCarViewController.m */,
+				67291A601DBA191B007B2AFD /* RMTPutUserIDCarViewController.xib */,
 				674A68ED1DB6160500E9E08C /* RMTTransPasswordFirstViewController.h */,
 				674A68EE1DB6160500E9E08C /* RMTTransPasswordFirstViewController.m */,
 				674A68EF1DB6160500E9E08C /* RMTTransPasswordFirstViewController.xib */,
@@ -1120,6 +1211,16 @@
 		B35E10B051B8F15CAC87B8D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				67291A4F1DB9C803007B2AFD /* libc++.tbd */,
+				67291A4D1DB9C7E5007B2AFD /* CoreTelephony.framework */,
+				67291A4B1DB9C7D9007B2AFD /* QuartzCore.framework */,
+				67291A491DB9C7CD007B2AFD /* CoreText.framework */,
+				67291A471DB9C7C1007B2AFD /* CoreGraphics.framework */,
+				67291A451DB9C7A8007B2AFD /* UIKit.framework */,
+				67291A431DB9C79E007B2AFD /* Foundation.framework */,
+				67291A411DB9C78B007B2AFD /* CoreMotion.framework */,
+				67291A3A1DB9B086007B2AFD /* SystemConfiguration.framework */,
+				67291A381DB9B079007B2AFD /* CFNetwork.framework */,
 				6700733A1DB223E000859D9A /* libsqlite3.tbd */,
 				670073381DB223D900859D9A /* ImageIO.framework */,
 				670073361DB223C500859D9A /* JavaScriptCore.framework */,
@@ -1536,6 +1637,8 @@
 		BAEB05521D5DBC66001D1E86 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				67291A3C1DB9C764007B2AFD /* Alipay */,
+				67291A321DB9B031007B2AFD /* paymentcontrol */,
 				674A690B1DB708C700E9E08C /* SDPhotoBrowser */,
 				6700733C1DB22A0B00859D9A /* HooDatePicker */,
 				670072FE1DB2236A00859D9A /* ShareSDK */,
@@ -1620,6 +1723,9 @@
 				674A693A1DB75C8B00E9E08C /* RMTReplyDetailViewController.m */,
 				674A69361DB75B0400E9E08C /* RMTApplyReimberViewController.h */,
 				674A69371DB75B0400E9E08C /* RMTApplyReimberViewController.m */,
+				67291A591DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.h */,
+				67291A5A1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.m */,
+				67291A5B1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1683,6 +1789,11 @@
 				DCBE94291DADCF3C003677AF /* RMTHealthCarViewController.m */,
 				674A69801DB877B800E9E08C /* RMTPayPageViewController.h */,
 				674A69811DB877B800E9E08C /* RMTPayPageViewController.m */,
+				67291A511DB9D76E007B2AFD /* RMTYEEBaopayViewController.h */,
+				67291A521DB9D76E007B2AFD /* RMTYEEBaopayViewController.m */,
+				67291A541DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.h */,
+				67291A551DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.m */,
+				67291A561DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1745,8 +1856,6 @@
 			children = (
 				DCBE94251DADCF27003677AF /* RMTHomePageViewController.h */,
 				DCBE94261DADCF27003677AF /* RMTHomePageViewController.m */,
-				DCF29AD31DAE629F006BA10C /* RMTProductDetailViewController.h */,
-				DCF29AD41DAE629F006BA10C /* RMTProductDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1952,6 +2061,7 @@
 				674A68AB1DB484EE00E9E08C /* RMTUserInfoHeadCell.xib in Resources */,
 				BA1416281D62EF1100C23C27 /* test.gif in Resources */,
 				BA8D45981D619E9900952EB5 /* dropdown_anim__00025@2x.png in Resources */,
+				67291A5D1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.xib in Resources */,
 				BA8D459D1D619E9900952EB5 /* dropdown_anim__0002@2x.png in Resources */,
 				674A69351DB7520C00E9E08C /* RMTReiListCell.xib in Resources */,
 				BA8D45B91D619E9900952EB5 /* dropdown_anim__00055@2x.png in Resources */,
@@ -1965,6 +2075,7 @@
 				BA8D45881D619E9900952EB5 /* dropdown_anim__00010@2x.png in Resources */,
 				674A68A61DB47E4E00E9E08C /* RMTReceveMoneyListCell.xib in Resources */,
 				BA8D45991D619E9900952EB5 /* dropdown_anim__00026@2x.png in Resources */,
+				67291A581DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.xib in Resources */,
 				BA14163C1D62FBFC00C23C27 /* small.gif in Resources */,
 				BA8D45921D619E9900952EB5 /* dropdown_anim__0001@2x.png in Resources */,
 				BA8D45891D619E9900952EB5 /* dropdown_anim__00011@2x.png in Resources */,
@@ -2008,6 +2119,7 @@
 				BA8D458C1D619E9900952EB5 /* dropdown_anim__00014@2x.png in Resources */,
 				BA8D45A01D619E9900952EB5 /* dropdown_anim__00032@2x.png in Resources */,
 				BA8D45A21D619E9900952EB5 /* dropdown_anim__00034@2x.png in Resources */,
+				67291A621DBA191B007B2AFD /* RMTPutUserIDCarViewController.xib in Resources */,
 				BA8D45B01D619E9900952EB5 /* dropdown_anim__00047@2x.png in Resources */,
 				BA8D45C11D619E9900952EB5 /* dropdown_anim__0007@2x.png in Resources */,
 				BA8D45A91D619E9900952EB5 /* dropdown_anim__00040@2x.png in Resources */,
@@ -2033,6 +2145,7 @@
 				BA8D45BF1D619E9900952EB5 /* dropdown_anim__00060@2x.png in Resources */,
 				BA699EAB1D5C8969002B0DE7 /* LaunchScreen.storyboard in Resources */,
 				BA8D45961D619E9900952EB5 /* dropdown_anim__00023@2x.png in Resources */,
+				67291A3F1DB9C764007B2AFD /* AlipaySDK.bundle in Resources */,
 				BA8D45BA1D619E9900952EB5 /* dropdown_anim__00056@2x.png in Resources */,
 				671C5CB11DB1C54900D6CAEC /* RMTMessageListTableViewCell.xib in Resources */,
 				BA8D45C21D619E9900952EB5 /* dropdown_anim__0008@2x.png in Resources */,
@@ -2117,6 +2230,7 @@
 				674A68A01DB46E3200E9E08C /* RMTMoneyHeaderCell.m in Sources */,
 				674A68DD1DB6076C00E9E08C /* RMTTitianRecordViewController.m in Sources */,
 				BA8D453D1D619C9F00952EB5 /* MJRefreshBackNormalFooter.m in Sources */,
+				67291A611DBA191B007B2AFD /* RMTPutUserIDCarViewController.m in Sources */,
 				674A69141DB708C700E9E08C /* SDPhotoBrowser.m in Sources */,
 				674A69151DB708C700E9E08C /* SDWaitingView.m in Sources */,
 				BA8D45371D619C9F00952EB5 /* MJRefreshFooter.m in Sources */,
@@ -2171,7 +2285,6 @@
 				DC4E89741DAF8C0200E24579 /* RMTMoneyViewController.m in Sources */,
 				674A69381DB75B0400E9E08C /* RMTApplyReimberViewController.m in Sources */,
 				674A69771DB85A9100E9E08C /* RMTDirctProductListCell.m in Sources */,
-				DCF29AD51DAE629F006BA10C /* RMTProductDetailViewController.m in Sources */,
 				DCBE94451DAE1944003677AF /* RMTHomePageAdCell.m in Sources */,
 				BA8D45391D619C9F00952EB5 /* MJRefreshAutoGifFooter.m in Sources */,
 				BA8D453B1D619C9F00952EB5 /* MJRefreshAutoStateFooter.m in Sources */,
@@ -2189,10 +2302,12 @@
 				BAEB05471D5D85BB001D1E86 /* SGTabBar.m in Sources */,
 				674A68B21DB4A6E400E9E08C /* RMTRMTMessageDetailViewController.m in Sources */,
 				674A69901DB8A0A800E9E08C /* RMTTransferAlivingCell.m in Sources */,
+				67291A5C1DBA0A8D007B2AFD /* RMTReplyBaoxiaoSuccessViewController.m in Sources */,
 				BA8D45D81D61A5BA00952EB5 /* XGYRefreshBackGifFooter.m in Sources */,
 				671C5CC21DB1E56600D6CAEC /* RMTMenueCell.m in Sources */,
 				DC4E89C01DAF909800E24579 /* RMTSettingTableViewCell.m in Sources */,
 				674A68D51DB5CE0900E9E08C /* RMTChangeAreaView.m in Sources */,
+				67291A571DB9E3C2007B2AFD /* RMTBuyProdecuOrCarSuccessViewController.m in Sources */,
 				670073411DB22A0B00859D9A /* HooDatePicker.m in Sources */,
 				674A696D1DB851E400E9E08C /* RMTDirectBuyHeaderCell.m in Sources */,
 				DCBE94361DAE0E96003677AF /* RMTBaseModel.m in Sources */,
@@ -2228,6 +2343,7 @@
 				674A69471DB765FE00E9E08C /* RMTApprovalProcessCell.m in Sources */,
 				DC4E897A1DAF8C2800E24579 /* RMTMessageViewController.m in Sources */,
 				BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */,
+				67291A531DB9D76E007B2AFD /* RMTYEEBaopayViewController.m in Sources */,
 				6705C0D01DB0DFDD007D42EF /* RMTTextView.m in Sources */,
 				674A68B61DB4C64700E9E08C /* RMTFriendListModel.m in Sources */,
 				BA8D45361D619C9F00952EB5 /* MJRefreshComponent.m in Sources */,
@@ -2315,7 +2431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2354,7 +2470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2375,6 +2491,7 @@
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/Alipay",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MomHelp/SGPrefixHeader.pch";
 				INFOPLIST_FILE = MomHelp/Info.plist;
@@ -2384,6 +2501,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/paymentcontrol/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.shentijiankang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2406,6 +2524,7 @@
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/Optional",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/QQSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/Alipay",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MomHelp/SGPrefixHeader.pch";
 				INFOPLIST_FILE = MomHelp/Info.plist;
@@ -2415,6 +2534,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/paymentcontrol/libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.91stjk.shentijiankang;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -17,6 +17,8 @@
 #import "RMTChangeTransPasswdViewController.h"
 #import "RMTTitianViewController.h"
 #import "RMTBankCarViewController.h"
+#import "RMTPutUserIDCarViewController.h"
+
 #define isMenue tableView == self.menuetableView
 @interface RMTMoneyViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tableView ;
@@ -231,7 +233,8 @@
 #pragma mark ===银行卡按钮的点击事件
 - (void)bankButtonClick:(UIButton *)sender
 {
-
+    
+    
     RMTBankCarViewController *bank = [[RMTBankCarViewController alloc] init];
     [self.navigationController pushViewController:bank animated:YES];
 
@@ -239,6 +242,11 @@
 #pragma mark===提现按钮的点击事件
 - (void)tixianButtonClick:(UIButton *)sender
 {
+    if ([self.dataModel.whetherBankCard intValue] ==0) {
+        [SGShowMesssageTool showMessage:@"请先绑定银行卡~"];
+        return;
+    }
+    
     RMTTitianViewController *tixian = [[RMTTitianViewController alloc] initWithNibName:@"RMTTitianViewController" bundle:nil];
     tixian.dataModel = self.dataModel;
     __weak typeof(self)weakself =self;
@@ -257,7 +265,6 @@
     if (!self.menueImageView.hidden) {
         self.menueImageView.hidden = YES;
     }
-    
     if (indexPath.row == 0) {
         RMTTitianRecordViewController *member = [[RMTTitianRecordViewController alloc] init];
         
@@ -266,18 +273,23 @@
     {
         RMTWinRecordViewController *member = [[RMTWinRecordViewController alloc] init];
         [self.navigationController pushViewController:member animated:YES];
-        
     }else if (indexPath.row ==2)
     {
-//        RMTTransPasswordFirstViewController *pass = [[RMTTransPasswordFirstViewController alloc] initWithNibName:@"RMTTransPasswordFirstViewController" bundle:nil];
-//        [self.navigationController pushViewController:pass animated:YES];
+        if ([self.dataModel.whetherBankCard intValue] ==0) {
+            [SGShowMesssageTool showMessage:@"请先绑定银行卡~"];
+            return;
+        }
         
+        if ([self.dataModel.whetherTransactionPassword intValue] ==0) {
             RMTChangeTransPasswdViewController *pass = [[RMTChangeTransPasswdViewController alloc] initWithNibName:@"RMTChangeTransPasswdViewController" bundle:nil];
-               [self.navigationController pushViewController:pass animated:YES];
-        
-    }else
-    {
-       
+            [self.navigationController pushViewController:pass animated:YES];
+        }else
+        {
+            RMTPutUserIDCarViewController *pass = [[RMTPutUserIDCarViewController alloc] initWithNibName:@"RMTPutUserIDCarViewController" bundle:nil];
+            [self.navigationController pushViewController:pass animated:YES];
+            
+        }
+      
     }
     
 }
@@ -285,13 +297,13 @@
 {
  
     if (indexPath.row ==0) {
-        return @{@"提现记录":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"提现记录":[UIImage imageNamed:@"menue_tixian_record"]};
     }else if (indexPath.row ==1)
     {
-        return @{@"收益记录":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"收益记录":[UIImage imageNamed:@"menue_receve_record"]};
     }else if (indexPath.row ==2)
     {
-        return @{@"交易密码":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"交易密码":[UIImage imageNamed:@"menue_passwd"]};
     }
     return nil;
 }

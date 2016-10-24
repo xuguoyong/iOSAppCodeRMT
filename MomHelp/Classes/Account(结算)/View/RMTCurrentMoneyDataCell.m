@@ -22,14 +22,21 @@
     self.textView = [[RMTTextView alloc] init];
     self.textView.backgroundColor =[UIColor clearColor];
     self.textView.placehoder = @"备注";
+    self.textView.delegate = self;
     [self.bgView addSubview:self.textView];
     self.textView.sd_layout.topSpaceToView(self.bgView,5).leftEqualToView(self.bgView).offset(5).rightSpaceToView(self.bgView,5).bottomSpaceToView(self.bgView,20);
 }
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if (self.getText) {
+        self.getText(self.textView.text);
+    }
 
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+
 }
 
 @end

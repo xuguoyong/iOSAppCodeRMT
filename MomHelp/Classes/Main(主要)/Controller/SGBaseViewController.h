@@ -16,6 +16,11 @@
  *  @return 返回一个tableView
  */
 - (UITableView *)addTableViewWithDelegate:(id <UITableViewDelegate,UITableViewDataSource>)delegate style:(UITableViewStyle)style;
-
+/**
+ *  右边按钮的点击事件
+ *
+ *  @param bar
+ */
+- (void)leftButtonClickToback:(UIBarButtonItem *)bar;
 
 @end

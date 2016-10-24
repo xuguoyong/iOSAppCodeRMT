@@ -59,7 +59,7 @@ static XGYLabel *showMessageLabel_;
         showMessageLabel_.textInsets = UIEdgeInsetsMake(5, 10, 5, 10);
         showMessageLabel_.textAlignment  = NSTextAlignmentCenter;
         showMessageLabel_.font = [UIFont systemFontOfSize:14.0f];
-        showMessageLabel_.width =d_screen_width-10.0f*2;
+        showMessageLabel_.width =d_screen_width;//-10.0f*2;
   }
     showMessageLabel_.text = message;
   

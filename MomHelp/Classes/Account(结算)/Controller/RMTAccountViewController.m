@@ -40,6 +40,15 @@
        [weakself requestDataFromBack];
     }];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginSuccess) name:NotificationUserLoginSuccess object:nil];
+    
+  
+}
+
+- (void)userLoginSuccess
+{
+    [self requestDataFromBack];
+  
 }
 
 - (void)requestDataFromBack
@@ -53,6 +62,7 @@
         weakself.totalReimbursementWorth = [data objectForKey:@"totalReimbursementWorth"];
         weakself.dataSources = [RMTReimburListModel mj_objectArrayWithKeyValuesArray:[data objectForKey:@"reimbursementResponses"]];
         [weakself.tableView reloadData];
+        [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];
@@ -63,6 +73,11 @@
 {
     
     RMTApplyReimberViewController *apply = [[RMTApplyReimberViewController alloc] init];
+    apply.accountMoney =self.balance;
+    apply.aplyjisuanSuccess = ^(id sata)
+    {
+        [self requestDataFromBack];
+    };
     [self.navigationController pushViewController:apply animated:YES];
     
 }
@@ -159,5 +174,8 @@
     detail.detailModel = model;
     [self.navigationController pushViewController:detail animated:YES];
 }
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificationUserLoginSuccess object:nil];
+}
 @end

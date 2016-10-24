@@ -63,7 +63,7 @@
 {
     
     if (self.touchImageViewAction) {
-        self.touchImageViewAction(tap.view.tag - 100,[self.model.productList objectAtIndex:tap.view.tag - 100 ]);
+        self.touchImageViewAction(0,nil);
     }
     
 }

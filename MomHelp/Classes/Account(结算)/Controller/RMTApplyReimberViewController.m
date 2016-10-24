@@ -15,16 +15,21 @@
 #import "RMTCarPackageModel.h"
 #import "RMTReplyMonyCell.h"
 #import "RMTCurrentMoneyDataCell.h"
-@interface RMTApplyReimberViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+#import "RMTPutPasswrdView.h"
+#import "RMTReplyBaoxiaoSuccessViewController.h"
+
+@interface RMTApplyReimberViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIView *toolBarView;
 @property (nonatomic,strong) UILabel *toobarLabel;
 @property (nonatomic,strong) NSMutableArray *dataSources;
 @property (nonatomic,strong) NSMutableArray *reproDataSource;
 @property (nonatomic,strong) NSMutableArray *carDateSurce;
-
+@property (nonatomic,strong) NSString *remark;
 @property (nonatomic,assign) int reportPage;
 @property (nonatomic,assign) int carPage;
+@property (nonatomic,strong) NSString *putValue;
+
 
 
 @end
@@ -78,10 +83,10 @@
         btn.frame = CGRectMake(_toolBarView.width - 120, 0, 120, _toolBarView.height);
         [_toolBarView addSubview:btn];
         self.toobarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _toolBarView.width - 120, _toolBarView.height)];
-        self.toobarLabel.text = @"申请结算¥ 00 治疗费用";
+        self.toobarLabel.text = @"申请结算¥00.00 治疗费用";
         self.toobarLabel.textColor = UIColorFromRGB(0x000000);
         self.toobarLabel.textAlignment = NSTextAlignmentCenter;
-        self.toobarLabel.font = [UIFont systemFontOfSize:17.0f];
+        self.toobarLabel.font = [UIFont systemFontOfSize:16.0f];
         [_toolBarView addSubview:self.toobarLabel];
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, d_screen_width, 0.5)];
         view.backgroundColor = UIColorFromRGB(0xd2d2d2);
@@ -268,12 +273,25 @@
     {
         if (indexPath.row ==0) {
             RMTReplyMonyCell *moneyCell = [tableView dequeueReusableCellWithIdentifier:@"moneyCell"];
+           moneyCell.getHowmuchMoney = ^(NSString *money)
+            {
+              self.toobarLabel.text = [NSString stringWithFormat:@"申请结算¥%.2f治疗费用",[money floatValue]];
+                self.putValue = money;
+            };
             return moneyCell;
             
         }else if (indexPath.row == 1)
         {
         
             RMTCurrentMoneyDataCell *accountCell = [tableView dequeueReusableCellWithIdentifier:@"accountCell"];
+            accountCell.healthAccountLabel.text = [NSString stringWithFormat:@"¥ %.2f",[self.accountMoney floatValue]];
+            accountCell.selectCarLabel.text = [NSString stringWithFormat:@"¥ %.2f",[self.healthCarMoney floatValue]];
+            accountCell.totalMoneyLabel.text = [NSString stringWithFormat:@"¥ %.2f",[self.accountMoney floatValue]+ [self.healthCarMoney floatValue]];
+            __weak typeof(self)weakself =self;
+            accountCell.getText = ^(NSString *remark)
+            {
+                weakself.remark = remark;
+            };
             return accountCell;
 
         }
@@ -353,6 +371,15 @@
             RMTCarPackageModel *carModel =self.carDateSurce [indexPath.row];
             
             carModel.isSelect = !carModel.isSelect;
+            CGFloat total = 0;
+            for (NSInteger i = 0; i <self.carDateSurce.count ; i ++) {
+                
+                RMTCarPackageModel *carModelTongji =self.carDateSurce [i];
+                if (carModelTongji.isSelect) {
+                    total = total + [carModelTongji.currentValue floatValue];
+                }
+            }
+            self.healthCarMoney = [NSString stringWithFormat:@"%.2f",total];
             
         }
             [self.tableView reloadData];
@@ -361,11 +388,99 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
 }
+
+
 #pragma mark ===申请按钮的点击事件
 -(void)aplyButtonClick:(UIButton *)sender
 {
 
+    if ([self.putValue floatValue] > [self.accountMoney floatValue]+ [self.healthCarMoney floatValue]) {
+        [SGShowMesssageTool showMessage:@"输入结算金额不能大于可申请结算金额"];
+        return;
+    }
+    
+    RMTReimburListModel *selectModel = nil;
+    for (RMTReimburListModel *model in self.reproDataSource) {
+        if (model.isSelect) {
+             selectModel = model;
+            break;
+        }
+    }
+    
+    if (!selectModel) {
+        [SGShowMesssageTool showMessage:@"请选择健康档案"];
+        return;
+    }
+    
+    NSMutableArray *allCarModel = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i <self.carDateSurce.count ; i ++) {
+        
+        RMTCarPackageModel *carModelTongji =self.carDateSurce [i];
+        if (carModelTongji.isSelect) {
+            [allCarModel addObject:carModelTongji.cardPackageId];
+        }
+    }
+    if (allCarModel.count <=0) {
+        [SGShowMesssageTool showMessage:@"请至少选择一张健康卡"];
+        return;
+    }
+   
+    [self userPutPasswordWithBlock:^(NSString *pass) {
+        //
+        
+        NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
+        
+        parmeters[@"type"] = @"medical";
+        parmeters[@"healthRecordId"] = selectModel.healthRecordId;
+        parmeters[@"cardPackageIds"] = [allCarModel componentsJoinedByString:@","];
+        parmeters[@"reimbursementWorth"] = self.putValue;
+        parmeters[@"remark"] = self.remark;
+        parmeters[@"tradePassword"] = pass;
+        
+        [RMTDataService postDataWithURL:POST_Reimbursement_Save parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+            if (self.aplyjisuanSuccess) {
+                self.aplyjisuanSuccess(nil);
+            }
+            RMTReplyBaoxiaoSuccessViewController *success = [[RMTReplyBaoxiaoSuccessViewController alloc] initWithNibName:@"RMTReplyBaoxiaoSuccessViewController" bundle:nil];
+            [self.navigationController pushViewController:success animated:YES];
+            
+        } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+            
+        }];
+  
+    }];
+    
+    
+    
+    
 }
+
+- (void)userPutPasswordWithBlock:(void(^)(NSString *pass))passwdBlock
+{
+    
+    RMTPutPasswrdView *view = [[[NSBundle mainBundle] loadNibNamed:@"RMTPutPasswrdView" owner:nil options:nil]firstObject];
+    __weak typeof(view)weakView = view;
+    view.userHasPutPassWord = ^(NSString *passwd)
+    {
+        NSLog(@"用户密码为 %@",passwd);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            passwdBlock(passwd);
+        });
+        
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            weakView.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            [weakView removeFromSuperview];
+        }];
+        
+        
+    };
+    [view showInWindow];
+
+
+}
+
 
 
 @end

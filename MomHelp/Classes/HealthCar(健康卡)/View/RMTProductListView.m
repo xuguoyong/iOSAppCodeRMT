@@ -7,7 +7,7 @@
 //
 
 #import "RMTProductListView.h"
-#import "RMTDirctBuyProductModel.h"
+
 /**
  *  每个产品的大小
  */
@@ -52,7 +52,7 @@
     for (int i = 0; i < 30; i++) {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn addTarget:self action:@selector(productButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-            btn.tag = i;
+            btn.tag = i + 100;
         btn.layer.cornerRadius = 3.0f;
         btn.layer.borderWidth = 0.5f;
         btn.layer.borderColor = UIColorFromRGB(0x979797).CGColor;
@@ -123,9 +123,17 @@
          btn.layer.borderColor = UIColorFromRGB(0xE1E1E1).CGColor;
         btn.selected = NO;
     }
+ 
     self.putTextField.layer.borderColor = UIColorFromRGB(0xE1E1E1).CGColor;
     sender.selected = YES;
      sender.layer.borderColor = MainColor.CGColor;
+    
+    RMTDirctBuyProductModel *model = [_productList objectAtIndex:sender.tag - 100];
+    if (self.didSelectWillBuyCarModel) {
+        self.didSelectWillBuyCarModel(model);
+    }
+    
+    
 
 }
 
@@ -137,6 +145,8 @@
         btn.selected = NO;
     }
      self.putTextField.layer.borderColor = MainColor.CGColor;
+   
+    
     return YES;
 }
 
@@ -145,8 +155,21 @@
     if (![RMTTool isNumberRegex:string]) {
         return NO;
     }
+    
+   
+    
     return YES;
 }
 
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+
+    RMTDirctBuyProductModel *model = [_productList lastObject];
+    model.worth = textField.text;
+    if (self.didSelectWillBuyCarModel) {
+        self.didSelectWillBuyCarModel(model);
+    }
+}
 
 @end

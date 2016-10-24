@@ -11,7 +11,6 @@
 #import "RMTHomePageAdCell.h"
 #import "RMTHomePageHealthCarThreeTableViewCell.h"
 #import "RMTHomePageHealthCarOneTableViewCell.h"
-#import "RMTProductDetailViewController.h"
 
 @interface RMTHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
 //数据模型
@@ -85,7 +84,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 2) {
-        [self clickToDetailWithProductModel: [self.homePageModel.productList objectAtIndex:indexPath.row +3]];
+        [self clickToDetailWithProductModel:nil];
     }
 }
 
@@ -123,7 +122,7 @@
         [weakself.tableView reloadData];
         [weakself.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+       [weakself.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -131,10 +130,8 @@
 - (void)clickToDetailWithProductModel:(RMTProductListModel *)model
 {
     NSLog(@"%@",model);
-    RMTProductDetailViewController *detail = [[RMTProductDetailViewController alloc] init];
-    detail.detailModel = model;
-    [self.navigationController pushViewController:detail animated:YES];
-    
+
+    self.tabBarController.selectedIndex = 1;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];

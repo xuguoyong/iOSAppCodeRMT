@@ -9,10 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SGNavigationController : UINavigationController
-/**
- *  右边按钮的点击事件
- *
- *  @param bar
- */
-- (void)leftButtonClickToback:(UIBarButtonItem *)bar;
+
 @end

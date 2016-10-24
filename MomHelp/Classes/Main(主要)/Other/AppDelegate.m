@@ -12,6 +12,8 @@
 #import "AppDelegate+NetWorking.h"
 #import "AppDelegate+ShareSDk.h"
 #import "SGShowMesssageTool.h"
+#import "UPPaymentControl.h"
+#import <AlipaySDK/AlipaySDK.h>
 @interface AppDelegate ()
 
 @end
@@ -35,8 +37,69 @@
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if ([url.host isEqualToString:@"safepay"]) {
+        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+            
+             [[NSNotificationCenter defaultCenter] postNotificationName:NotificationAlipayPayStaues object:nil userInfo:@{@"stautes":resultDic}];
+        }];
+    }else if ([url.host isEqualToString:@"uppayresult"])
+    {
+        [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+            
+            //结果code为成功时，先校验签名，校验成功后做后续处理
+            if([code isEqualToString:@"success"]) {
+                
+                //交易成功
+            }
+            else if([code isEqualToString:@"fail"]) {
+                //交易失败
+            }
+            else if([code isEqualToString:@"cancel"]) {
+                //交易取消
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUionPayStaues object:nil userInfo:@{@"stautes":code}];
+        }];
+    }
+    
+    
+  
+    
+    return YES;
 
-
+}
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    if ([url.host isEqualToString:@"safepay"]) {
+        // 支付跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+             [[NSNotificationCenter defaultCenter] postNotificationName:NotificationAlipayPayStaues object:nil userInfo:@{@"resultCode":resultDic}];
+        }];
+        
+       
+    }else if ([url.host isEqualToString:@"uppayresult"])
+    {
+        [[UPPaymentControl defaultControl] handlePaymentResult:url completeBlock:^(NSString *code, NSDictionary *data) {
+            
+            //结果code为成功时，先校验签名，校验成功后做后续处理
+            if([code isEqualToString:@"success"]) {
+                
+                //交易成功
+            }
+            else if([code isEqualToString:@"fail"]) {
+                //交易失败
+            }
+            else if([code isEqualToString:@"cancel"]) {
+                //交易取消
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUionPayStaues object:nil userInfo:@{@"stautes":code}];
+        }];
+    }
+    return YES;
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

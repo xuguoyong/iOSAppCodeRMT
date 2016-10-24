@@ -59,13 +59,20 @@
     [self requestDataFromBack];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"shareIcon" highImageName:nil target:self action:@selector(shareButtonClick:)];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationChangeTarBarItemWithNoti:) name:NotificationChangeTabbarItem object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginSuccess) name:NotificationUserLoginSuccess object:nil];
+  
     self.shouldPopToHomepage = NO;
 }
 
+- (void)userLoginSuccess
+{
+    [self requestDataFromBack];
+    [self requestUserInfoFromBack];
 
+}
 -(void)notificationChangeTarBarItemWithNoti:(NSNotification *)not
 {
-    NSDictionary *user= not.userInfo;
+
     self.shouldPopToHomepage = YES;
  
 }
@@ -112,7 +119,7 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+         [self.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -129,7 +136,7 @@
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+         [self.tableView.mj_header endRefreshing];
     }];
 
 }
@@ -317,4 +324,10 @@
         [self.navigationController pushViewController:detail animated:YES];
     }
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificationUserLoginSuccess object:nil];
+}
+
 @end

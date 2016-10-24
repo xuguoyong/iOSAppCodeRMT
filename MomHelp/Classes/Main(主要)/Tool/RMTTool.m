@@ -84,6 +84,15 @@
     
     return [checkBit isEqualToString:[[value substringWithRange:NSMakeRange(17,1)] uppercaseString]];
 }
+#pragma 判断是不是100的整数倍
++ (BOOL)checkOneHundredNumberWithString:(NSString *)number
+{
+    int idex = [number intValue];
+    if (idex >0 && idex%100 ==0) {
+        return YES;
+    }
+    return NO;
 
+}
 
 @end

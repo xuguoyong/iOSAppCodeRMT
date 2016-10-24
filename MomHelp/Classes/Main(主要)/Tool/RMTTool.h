@@ -21,4 +21,6 @@
 
 #pragma mark - 验证是否是数字
 + (BOOL)isNumberRegex:(NSString *)number;
+#pragma 判断是不是100的整数倍
++ (BOOL)checkOneHundredNumberWithString:(NSString *)number;
 @end

@@ -30,8 +30,16 @@
  */
 - (void)createUI
 {
+    __weak typeof(self)weakslef=self;
     self.listView = [[RMTProductListView alloc] init];
     [self.contentView addSubview:self.listView];
+        self.listView.didSelectWillBuyCarModel =^ (id data)
+    {
+        if (weakslef.didSelectWillBuyCarModel) {
+            weakslef.didSelectWillBuyCarModel(data);
+        }
+    };
+
     self.listView.sd_layout.topEqualToView(self.contentView).offset(15).leftEqualToView(self.contentView).offset(15);
     
 }

@@ -132,7 +132,9 @@
     NSLog(@"%ld",tabBarController.selectedIndex);
     if ((tabBarController.selectedIndex == 2 || tabBarController.selectedIndex == 3) && ![RMTUserInfoModel isUserLogin]) {
         [self setSelectedIndex:self.lastSelectIndex];
-        [SGControllerTool popToLoginControllerTarget:self];
+        [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
+            
+        }];
     }
     NSLog(@"%@",NSStringFromSelector(_cmd));
     NSLog(@"%@",NSStringFromClass([viewController class]));

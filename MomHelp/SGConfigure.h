@@ -26,6 +26,10 @@
 #define SGNavigationTitleFont [UIFont systemFontOfSize:21.0f]
 //没有网络的时候的提示语
 #define SGNotNetWorkingTips @"世界上最遥远的距离就是没有网络~"
+//没有网络的时候的提示语
+#define RMTPutNotRightMoneyCountText @"输入的金额必须是100的整数倍~"
+
+
 
 //界面的背景颜色
 #define viewAndTableViewBackgroundColor UIColorFromRGB(0xEBEBEB)

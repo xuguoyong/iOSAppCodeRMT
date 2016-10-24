@@ -176,13 +176,39 @@
         for (NSString *string in self.contentData) {
             NSLog(@"%@",string);
         }
+       
+        NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
+        
+        parmeters[@"name"] = name;
+        parmeters[@"identityCard"] = carID;
+        
+        
+        NSMutableDictionary *parmetersTT = [NSMutableDictionary dictionary];
+        parmetersTT[@"cardholder"] = name;
+        parmetersTT[@"cardNo"] = carNumber;
+        parmetersTT[@"cardName"] = [NSString stringWithFormat:@"%@%@",bankName,kaihuhang];
+        
+        [RMTDataService postDataWithURL:POST_Certification_save parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+            [self bangdingyinhangka:parmetersTT];
+        } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+            
+        }];
+      
     
     }
+  
+}
+- (void)bangdingyinhangka:(NSDictionary *)parmeters
+{
     
+    [RMTDataService postDataWithURL:POST_Bankcard_save parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+        [SGShowMesssageTool showMessage:@"银行卡绑定成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
     
 
-    
-    
 }
 
 

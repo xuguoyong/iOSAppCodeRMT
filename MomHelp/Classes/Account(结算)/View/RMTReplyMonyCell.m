@@ -12,9 +12,25 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.moneyTextFied.delegate = self;
 }
 
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (self.getHowmuchMoney) {
+        self.getHowmuchMoney(self.moneyTextFied.text);
+    }
+    
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (![RMTTool isNumberRegex:string]) {
+        return NO;
+    }
+    return YES;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

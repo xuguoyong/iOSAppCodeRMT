@@ -45,12 +45,24 @@
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
            NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
+            
+            //首先判断是否是需要重新登录
+            if ([code intValue] ==6/*需要重新登录*/) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUserNeedLogin object:nil];
+                // 隐藏状态栏上面的菊花
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                    [SGShowMesssageTool hideLoadingHUD];
+                });
+                return ;
+            }
+            
             if ([code intValue] == 0) {
                 success(responseObj);//请求成功
             }else//请求失败
             {
                if (showError && responseObj[@"message"]/*如果需要显示失败信息，就显示*/) {
-                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@：%@",responseObj[@"message"],responseObj[@"statusCode"]]];
+                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@",responseObj[@"message"]]];
                 }
                 if (failure) {
                     failure(nil,responseObj[@"statusCode"],responseObj[@"message"]);
@@ -109,13 +121,26 @@
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
             NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
+            //首先判断是否是需要重新登录
+            if ([code intValue] ==6/*需要重新登录*/) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUserNeedLogin object:nil];
+                // 隐藏状态栏上面的菊花
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                    [SGShowMesssageTool hideLoadingHUD];
+                    
+                });
+                return ;
+               
+            }
+            
             if ([code intValue] ==0) {
                 success(responseObj);//请求成功
             }else//请求失败
             {
                 if (showError && responseObj[@"message"]/*如果需要显示失败信息，就显示*/) {
                   
-                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@：%@",responseObj[@"message"],responseObj[@"statusCode"]] showTime:2.0f];
+                    [SGShowMesssageTool showMessage:[NSString stringWithFormat:@"%@",responseObj[@"message"]] showTime:2.0f];
                 }
                 if (failure) {
                     failure(nil,responseObj[@"statusCode"],responseObj[@"message"]);

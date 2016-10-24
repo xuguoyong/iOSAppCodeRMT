@@ -45,6 +45,18 @@
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
            NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
+            
+            //首先判断是否是需要重新登录
+            if ([code intValue] ==6/*需要重新登录*/) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUserNeedLogin object:nil];
+                // 隐藏状态栏上面的菊花
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                    [SGShowMesssageTool hideLoadingHUD];
+                });
+                return ;
+            }
+            
             if ([code intValue] == 0) {
                 success(responseObj);//请求成功
             }else//请求失败
@@ -109,6 +121,19 @@
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
             NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
+            //首先判断是否是需要重新登录
+            if ([code intValue] ==6/*需要重新登录*/) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:NotificationUserNeedLogin object:nil];
+                // 隐藏状态栏上面的菊花
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                    [SGShowMesssageTool hideLoadingHUD];
+                    
+                });
+                return ;
+               
+            }
+            
             if ([code intValue] ==0) {
                 success(responseObj);//请求成功
             }else//请求失败

@@ -51,6 +51,7 @@
         NSString *object = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
         if ([object isEqualToString:@"true"]) {
             RMTTransPasswordFirstViewController *pas =[[RMTTransPasswordFirstViewController alloc] initWithNibName:@"RMTTransPasswordFirstViewController" bundle:nil];
+            pas.carNumber = self.IDCartextField.text;
             [self.navigationController pushViewController:pas animated:YES];
         }else
         {

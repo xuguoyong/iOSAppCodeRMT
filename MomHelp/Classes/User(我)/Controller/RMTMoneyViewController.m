@@ -265,7 +265,6 @@
     if (!self.menueImageView.hidden) {
         self.menueImageView.hidden = YES;
     }
-    
     if (indexPath.row == 0) {
         RMTTitianRecordViewController *member = [[RMTTitianRecordViewController alloc] init];
         
@@ -274,11 +273,8 @@
     {
         RMTWinRecordViewController *member = [[RMTWinRecordViewController alloc] init];
         [self.navigationController pushViewController:member animated:YES];
-        
     }else if (indexPath.row ==2)
     {
-        
-//
         if ([self.dataModel.whetherBankCard intValue] ==0) {
             [SGShowMesssageTool showMessage:@"请先绑定银行卡~"];
             return;
@@ -292,18 +288,8 @@
             RMTPutUserIDCarViewController *pass = [[RMTPutUserIDCarViewController alloc] initWithNibName:@"RMTPutUserIDCarViewController" bundle:nil];
             [self.navigationController pushViewController:pass animated:YES];
             
-            
         }
-        
-        
-        
-        
-        
-        
-        
-    }else
-    {
-       
+      
     }
     
 }
@@ -311,13 +297,13 @@
 {
  
     if (indexPath.row ==0) {
-        return @{@"提现记录":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"提现记录":[UIImage imageNamed:@"menue_tixian_record"]};
     }else if (indexPath.row ==1)
     {
-        return @{@"收益记录":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"收益记录":[UIImage imageNamed:@"menue_receve_record"]};
     }else if (indexPath.row ==2)
     {
-        return @{@"交易密码":[UIImage imageNamed:@"shareIcon"]};
+        return @{@"交易密码":[UIImage imageNamed:@"menue_passwd"]};
     }
     return nil;
 }

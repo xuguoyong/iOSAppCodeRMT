@@ -25,17 +25,22 @@
     self.view.backgroundColor =UIColorFromRGB(0xebebeb);
     self.title = @"修改交易密码";
     self.leftTime = leftTimeLong;
+    
    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.timeButton.enabled = YES;
+    self
+    .timeButton.userInteractionEnabled = YES;
     
 }
 
 - (void)addTime
 {
+    [self removeTime];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(uploadTimeButtonTitle) userInfo:nil repeats:YES];
     [self.timer fire];
     
@@ -78,13 +83,35 @@
     [self removeTime];
 }
 - (IBAction)timeButtonClick:(id)sender {
-    
-    
-    
-    
+    [self addTime];
+    [RMTDataService postDataWithURL:POST_Message_For_TradePassword parma:nil showErrorMessage:YES showHUD:NO logData:NO success:^(NSDictionary *responseObj) {
+        [SGShowMesssageTool showMessage:@"验证码获取成功~"];
+        
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+
 }
 
 - (IBAction)completeButtonClick:(id)sender {
+   
+    if (![self.passwdTextField.text isEqualToString:self.surePasswdTextField.text]) {
+        [SGShowMesssageTool showMessage:@"两次输入的密码不一致，请重新输入"];
+        return;
+    }
+    NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
+    
+    parmeters[@"captcha"] = self.messageCodeTextField.text;
+    parmeters[@"tradePassword"] = self.passwdTextField.text;
+    
+    [RMTDataService postDataWithURL:POST_Change_TradePassword parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+        [SGShowMesssageTool showMessage:@"修改密码成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+    
+    
 }
 
 @end

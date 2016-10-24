@@ -15,7 +15,12 @@
 #define NotificationUionPayStaues @"NotificationUionPayStaues"
 //通知回调支付宝的支付结果
 #define NotificationAlipayPayStaues @"NotificationAlipayPayStaues"
+
 //通知用户刚刚登陆成功
 #define NotificationUserLoginSuccess @"NotificationUserLoginSuccess"
+//通知用户需要重新登录
+#define NotificationUserNeedLogin @"NotificationUserNeedLogin"
+
+
 
 #endif /* NotificationName_h */

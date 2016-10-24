@@ -41,6 +41,9 @@ typedef NS_ENUM (NSInteger,ProductType) {
 @property (nonatomic,strong) UISegmentedControl *segControl;
 @property (nonatomic,strong) UIView *bgView;
 @property (nonatomic,strong) UIScrollView *bgScrollView;
+@property (nonatomic,assign) NSInteger oldSelectIndex;
+
+
 //直购
 @property (nonatomic,strong) NSMutableArray *productListArray;
 @property (nonatomic,strong) UITableView *drectBuyTableView;
@@ -100,6 +103,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
         _segControl.frame = CGRectMake(0, 0,_bgView.width-100, 35);
         _segControl.center = _bgView.center;
         _segControl.selectedSegmentIndex = 0;
+        self.oldSelectIndex = 0;
         [_bgView addSubview:_segControl];
 
         
@@ -683,15 +687,15 @@ typedef NS_ENUM (NSInteger,ProductType) {
 #pragma mark ====购买按钮的点击事件
 - (void)buyButtonClick:(UIButton *)sender
 {
-    
-    if (![RMTUserInfoModel isUserLogin]) {
+     [self.view endEditing:YES];
+    if (![RMTUserInfoModel isUserLogin] && sender != self.tipsButton/*前往直购厅购买*/) {
         [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
             
         }];
         return;
     }
     
-    [self.view endEditing:YES];
+  
     
     if (sender == self.tipsButton/*前往直购厅购买*/) {
         [self.bgScrollView setContentOffset:CGPointMake(0,0) animated:YES];
@@ -775,13 +779,19 @@ typedef NS_ENUM (NSInteger,ProductType) {
 {
     NSLog(@"%ld",seg.selectedSegmentIndex);
     
+    
+    
     if (seg.selectedSegmentIndex == 2 && ![RMTUserInfoModel isUserLogin]) {
-        seg.selectedSegmentIndex = 1;
+        seg.selectedSegmentIndex = self.oldSelectIndex;
+        
         [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
             [self.carTableView.mj_header beginRefreshing];
         }];
         return;
     }
+    
+    self.oldSelectIndex =seg.selectedSegmentIndex;
+    
     
     [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *seg.selectedSegmentIndex,0) animated:NO];
     if (self.segControl.selectedSegmentIndex == 1) {

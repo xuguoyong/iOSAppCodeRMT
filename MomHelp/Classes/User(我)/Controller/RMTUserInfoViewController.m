@@ -324,4 +324,10 @@
         [self.navigationController pushViewController:detail animated:YES];
     }
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificationUserLoginSuccess object:nil];
+}
+
 @end

@@ -11,8 +11,8 @@
 #import "RMTHealthCarViewController.h"
 #import "RMTAccountViewController.h"
 #import "RMTUserInfoViewController.h"
-
-
+#import "SGControllerTool.h"
+#import "RMTLoginViewController.h"
 @interface SGBaseViewController ()
 
 @end
@@ -29,10 +29,36 @@
         // 设置导航栏按钮
         self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"view_leftAndBack_white_icon" highImageName:@"view_leftAndBack_white_icon" target:self action:@selector(leftButtonClickToback:)];
     }
-    
    
+ 
 
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (![self isKindOfClass:[RMTLoginViewController class]] ) {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callBackWhenUserNeedLoginWithNotification:) name:NotificationUserNeedLogin object:nil];
+    }
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificationUserNeedLogin object:nil];
+}
+
+
+//当用户需要重新登录时，会回调这个方法
+- (void)callBackWhenUserNeedLoginWithNotification:(NSNotification *)not
+{
+    [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
+        
+    }];
+    
+}
+
 - (void)leftButtonClickToback:(UIBarButtonItem *)bar
 {
     [self.navigationController popViewControllerAnimated:YES];

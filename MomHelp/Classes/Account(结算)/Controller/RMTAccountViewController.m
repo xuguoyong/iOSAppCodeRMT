@@ -40,6 +40,15 @@
        [weakself requestDataFromBack];
     }];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginSuccess) name:NotificationUserLoginSuccess object:nil];
+    
+  
+}
+
+- (void)userLoginSuccess
+{
+    [self requestDataFromBack];
+  
 }
 
 - (void)requestDataFromBack
@@ -165,5 +174,8 @@
     detail.detailModel = model;
     [self.navigationController pushViewController:detail animated:YES];
 }
-
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NotificationUserLoginSuccess object:nil];
+}
 @end

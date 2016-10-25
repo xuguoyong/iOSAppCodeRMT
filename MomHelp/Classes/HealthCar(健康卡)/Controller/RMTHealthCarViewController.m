@@ -665,13 +665,12 @@ typedef NS_ENUM (NSInteger,ProductType) {
 }
 - (void)transferHeathCarAfterPutPasswdWithModel:(RMTCarPackageModel *)carModel andPasswd:(NSString *)passwd
 {
-    NSLog(@"用户密码为 %@",passwd);
+  
     NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
     parmeters[@"cardPackageId"] = carModel.cardPackageId;
-    
     parmeters[@"tradePassword"] = passwd;
-    
     parmeters[@"number"] = carModel.number;
+    
     [RMTDataService postDataWithURL:POST_Cardpackage_Transfer parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
         [SGShowMesssageTool showMessage:@"转让成功"];
         carModel.status =@"transfer";

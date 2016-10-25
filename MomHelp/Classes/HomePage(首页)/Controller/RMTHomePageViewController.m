@@ -26,7 +26,7 @@
     [super viewDidLoad];
     self.tableView = [self addTableViewWithDelegate:self style:UITableViewStyleGrouped];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);//直接顶到状态栏
     [self.tableView registerClass:[RMTHomePageAdCell class] forCellReuseIdentifier:@"advCell"];
     [self.tableView registerClass:[RMTHomePageHealthCarThreeTableViewCell class] forCellReuseIdentifier:@"threeCell"];
      [self.tableView registerClass:[RMTHomePageHealthCarOneTableViewCell class] forCellReuseIdentifier:@"oneCell"];

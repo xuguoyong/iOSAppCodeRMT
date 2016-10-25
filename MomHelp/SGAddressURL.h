@@ -10,14 +10,14 @@
 #define SGAddressURL_h
 
 ////正式库
-//#define MainURL  @"https://api.91stjk.com"
-//#define VersionType @""
-//#define UionPayModel @"01"
+#define MainURL  @"https://api.91stjk.com"
+#define VersionType @""
+#define UionPayModel @"01"
 
 //测试库 liuying
-#define MainURL  @"http://192.168.1.197:7777"
-#define VersionType @"beta_liuying"
-#define UionPayModel @"00"
+//#define MainURL  @"http://192.168.1.197:7777"
+//#define VersionType @"beta_liuying"
+//#define UionPayModel @"00"
 
 //测试库 liyong
 //#define MainURL  @"http://192.168.1.167:7777"
@@ -25,7 +25,6 @@
 //#define UionPayModel @"00"
 
 #define ImagePerfix @"https://img.91stjk.com"
-
 
 /** 首页数据接口*/
 #define GET_HomePageDataURL @"/product/index"

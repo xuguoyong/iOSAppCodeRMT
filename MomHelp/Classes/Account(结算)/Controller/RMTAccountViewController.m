@@ -124,7 +124,7 @@
     RMTReimburListModel *model = self.dataSources[indexPath.row];
     RMTReiListCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
     listCell.timeLabel.text = model.date;
-    listCell.tLbabel.text  =[NSString stringWithFormat:@"%@病例报告",model.recordDate];
+    listCell.tLbabel.text  =[NSString stringWithFormat:@"%@病历报告",model.recordDate];
     listCell.remarkLabel.text = model.remark;
     listCell.moneyLabel.text = [NSString stringWithFormat:@"¥ %.2f",[model.reimbursementWorth floatValue]];
     NSString *mType= nil;

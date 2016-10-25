@@ -28,8 +28,7 @@
     self.moneyButton.layer.masksToBounds = YES;
     
      self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"view_leftAndBack_white_icon" highImageName:@"view_leftAndBack_white_icon" target:self action:@selector(leftButtonClickTobackSuccess:)];
-    
-    
+
     
 }
 - (IBAction)buttonClick:(UIButton *)sender {

@@ -183,7 +183,7 @@
 - (void)reloadAllDataToUI
 {
     
-    self.recordDateLabel.text= [NSString stringWithFormat:@"病例日期 %@",self.dataModel.recordDate];
+    self.recordDateLabel.text= [NSString stringWithFormat:@"病历日期 %@",self.dataModel.recordDate];
     self.remarkLabel.text = [self.dataModel.remark componentsJoinedByString:@","];
     self.dateLabel.text = self.dataModel.recordDate;
     

@@ -33,6 +33,11 @@
     self.tableView = [self addTableViewWithDelegate:self style:UITableViewStyleGrouped];
      self.navigationItem.rightBarButtonItem =[UIBarButtonItem itemWithImageName:@"add_icon_white" highImageName:nil target:self action:@selector(rightButtonClick:)];
     [self requeestData];
+    __weak typeof(self)weakself =self;
+    [self.tableView addRefreshNormalHeaderWithRefreshBlock:^{
+       [weakself requeestData];
+    }];
+    
 }
 
 - (void)requeestData
@@ -43,9 +48,10 @@
         [self.dataSource removeAllObjects];
         self.dataSource = [RMTRecordListModel mj_objectArrayWithKeyValuesArray:[responseObj objectForKey:@"data"]];
         [weakself.tableView reloadData];
+        [weakself.tableView.mj_header endRefreshing];
        
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        
+        [weakself.tableView.mj_header endRefreshing];
     }];
 
 }
@@ -77,7 +83,15 @@
     
     RMTRecordListModel *model =self.dataSource[indexPath.row];
     NSString *tameStame =[model.createdAt substringToIndex:10];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@病例档案",[NSDate  timestampChangesStandarTime:tameStame withFormatter:@"yyyy年M月d日"]];
+    if (model.recordDate) {
+        NSArray *arr = [model.recordDate componentsSeparatedByString:@"-"];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@年%@月%@日病历档案",[arr objectAtIndex:0],[arr objectAtIndex:1],[arr objectAtIndex:2]];
+    }else
+    {
+    cell.textLabel.text = [NSString stringWithFormat:@"%@病历档案",[NSDate  timestampChangesStandarTime:tameStame withFormatter:@"yyyy年M月d日"]];
+    }
+    
     return cell;
 
 }

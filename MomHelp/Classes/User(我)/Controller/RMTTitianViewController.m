@@ -25,6 +25,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColorFromRGB(0xebebeb);
     self.title = @"提现";
+    
     // 键盘即将弹出, 就会发出UIKeyboardWillShowNotification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     // 键盘即将隐藏, 就会发出UIKeyboardWillHideNotification
@@ -100,6 +101,7 @@
     RMTPutPasswrdView *view = [[[NSBundle mainBundle] loadNibNamed:@"RMTPutPasswrdView" owner:nil options:nil]firstObject];
     __weak typeof(view)weakView = view;
     __weak typeof(self)weakself =self;
+        [view showInWindow];
     view.userHasPutPassWord = ^(NSString *passwd)
     {
         NSLog(@"用户密码为 %@",passwd);
@@ -116,7 +118,7 @@
         
         
     };
-    [view showInWindow];
+
 
     
     
@@ -163,4 +165,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+
+
 @end

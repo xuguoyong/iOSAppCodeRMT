@@ -173,7 +173,7 @@
     {
         cell.detailTextLabel.hidden = YES;
         cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
-        cell.textLabel.textColor = UIColorFromRGB(0x000000); cell.textLabel.text  =[NSString stringWithFormat:@"%@病例报告",self.detailModel.recordDate];
+        cell.textLabel.textColor = UIColorFromRGB(0x000000); cell.textLabel.text  =[NSString stringWithFormat:@"%@病历报告",self.detailModel.recordDate];
         
         
     }else if (indexPath.section == 1 && indexPath.row ==1)

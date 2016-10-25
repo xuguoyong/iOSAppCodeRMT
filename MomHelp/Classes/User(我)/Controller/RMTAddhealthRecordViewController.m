@@ -12,9 +12,11 @@
 #import "TZImagePickerController.h"
 #import <AliyunOSSiOS/OSSService.h>
 #import "RMTTextView.h"
+#import "HooDatePicker.h"
+
 #define itemW  ((d_screen_width-45)/4.0f)
 
-@interface RMTAddhealthRecordViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TZImagePickerControllerDelegate,UIScrollViewDelegate>
+@interface RMTAddhealthRecordViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,TZImagePickerControllerDelegate,UIScrollViewDelegate,HooDatePickerDelegate,UITextViewDelegate>
 {
     OSSClient *_client;
 }
@@ -28,7 +30,8 @@
 @property (nonatomic,strong) NSArray *imageArr;
 @property (nonatomic,strong) UILabel *textLenthLabel;
 @property (nonatomic,strong) UIButton *commitButton;
-
+@property (nonatomic, strong) HooDatePicker *datePicker;
+@property (nonatomic,strong) NSString *selectDateString;
 
 @property (nonatomic,strong) RMTTextView *textView;
 @end
@@ -46,7 +49,7 @@
         
         UILabel *typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, d_screen_width -30, 45)];
         typeLabel.textColor =UIColorFromRGB(0x000000);
-        typeLabel.text  =@"病例档案";
+        typeLabel.text  =@"病历档案";
         typeLabel.font = [UIFont systemFontOfSize:15.0f];
         [view addSubview:typeLabel];
         
@@ -58,7 +61,7 @@
         UIView *bigBgView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(typeLabel.frame) + 10, d_screen_width, 400)];
         bigBgView.backgroundColor = [UIColor whiteColor];
         [_bgScrollView addSubview:bigBgView];
-        _bgScrollView.contentSize = CGSizeMake(0, bigBgView.height + typeLabel.height + 200);
+        _bgScrollView.contentSize = CGSizeMake(0, bigBgView.height + typeLabel.height + 400);
         
         
         self.recordDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, d_screen_width -30, 45)];
@@ -66,6 +69,9 @@
         self.recordDateLabel.textColor =UIColorFromRGB(0x868686);
         self.recordDateLabel.font = [UIFont systemFontOfSize:15.0f];
         self.recordDateLabel.text  =[NSString stringWithFormat:@"档案日期 %@", [NSDate getCurrentStandarTimeWithFormatter:@"yyyy-MM-dd"]];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(changeDate)];
+        [self.recordDateLabel addGestureRecognizer:tap];
+        self.recordDateLabel.userInteractionEnabled =YES;
         
         [bigBgView addSubview:self.recordDateLabel];
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.recordDateLabel.frame), d_screen_width, 0.5)];
@@ -103,6 +109,7 @@
         self.textLenthLabel.font = [UIFont systemFontOfSize:15.0f];
         self.textLenthLabel.textAlignment = NSTextAlignmentRight;
         [viewGray addSubview:self.textLenthLabel];
+        self.textView.delegate = self;
         self.textLenthLabel.sd_layout.rightSpaceToView(viewGray,5).widthIs(100).bottomSpaceToView(viewGray,0).heightIs(30);
         
         
@@ -119,6 +126,16 @@
     [super viewDidLoad];
     self.title  = @"添加档案";
     [self.view addSubview:self.bgScrollView];
+    self.datePicker = [[HooDatePicker alloc] initWithSuperView:self.view];
+    self.datePicker.delegate = self;
+    self.datePicker.datePickerMode = HooDatePickerModeDate;
+    NSDateFormatter *dateFormatter = [NSDate shareDateFormatter];
+    [dateFormatter setDateFormat:kDateFormatYYYYMMDD];
+    NSDate *maxDate =[dateFormatter dateFromString:@"2049-01-01"];
+    NSDate *minDate = [dateFormatter dateFromString:@"1900-01-01"];
+    self.datePicker.minimumDate = minDate;
+    self.datePicker.maximumDate = maxDate;
+    self.selectDateString = [NSDate dateToString:@"yyyy-MM-dd" byDate:[NSDate date]];
 }
 
 #pragma mark===懒加载瀑布流
@@ -181,6 +198,20 @@
     return cell;
     
     
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.textLenthLabel.text = [NSString stringWithFormat:@"%ld/400",textView.text.length];
+   
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (textView.text.length >=400) {
+        return NO;
+    }
+    return YES;
 }
 
 //点击每一个宝宝会调用的方法
@@ -325,7 +356,7 @@
     NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
     
     parmeters[@"type"] = @"caseFile";
-    parmeters[@"recordDate"] = [NSDate getCurrentStandarTimeWithFormatter:@"yyyy-MM-dd"];
+    parmeters[@"recordDate"] = self.selectDateString;
     
     parmeters[@"remark"] = self.textView.text.length<=0?@"":self.textView.text;
     parmeters[@"covers"]=@"";
@@ -353,6 +384,18 @@
     [self.view endEditing:YES];
 }
 
+
+- (void)changeDate
+{
+    [self.datePicker setDate:[NSDate date]];
+    [self.datePicker show];
+}
+- (void)datePicker:(HooDatePicker *)dataPicker didSelectedDate:(NSDate *)date
+{
+    self.selectDateString = [NSDate dateToString:@"yyyy-MM-dd" byDate:date];
+    self.recordDateLabel.text = [NSString stringWithFormat:@"档案日期 %@",self.selectDateString];
+
+}
 
 
 @end

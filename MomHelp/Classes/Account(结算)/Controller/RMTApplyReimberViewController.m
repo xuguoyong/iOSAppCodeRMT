@@ -212,7 +212,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
             cell.textLabel.font = [UIFont systemFontOfSize:17.0f];
         }
-        cell.textLabel.text = @"病例档案";
+        cell.textLabel.text = @"病历档案";
         return cell;
     }else if (indexPath.section == 1)
     {
@@ -227,7 +227,7 @@
             RMTSelectHealthRecordCell *healthCell = [tableView dequeueReusableCellWithIdentifier:@"healthCell"];
             RMTReimburListModel *healthModel =self.reproDataSource [indexPath.row];
              NSString *tameStame =[healthModel.createdAt substringToIndex:10];
-            healthCell.tLabel.text =[NSString stringWithFormat:@"%@病例档案",[NSDate  timestampChangesStandarTime:tameStame withFormatter:@"yyyy年M月d日"]];
+            healthCell.tLabel.text =[NSString stringWithFormat:@"%@病历档案",[NSDate  timestampChangesStandarTime:tameStame withFormatter:@"yyyy年M月d日"]];
            
             if (healthModel.isSelect) {
                 healthCell.selectImageView.image = [UIImage imageNamed:@"select_icon"];

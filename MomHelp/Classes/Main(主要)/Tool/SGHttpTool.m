@@ -22,9 +22,11 @@
     // 声明获取到的数据格式
    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     NSString *access_token = [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"];
+    
     if (access_token!=nil) {
         [manager.requestSerializer setValue:[NSString stringWithFormat:@"bearer %@",access_token] forHTTPHeaderField:@"Authorization"];
     }
+    
     return manager;
 }
 

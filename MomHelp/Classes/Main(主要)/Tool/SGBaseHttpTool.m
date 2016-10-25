@@ -31,9 +31,11 @@
     }
     // 显示状态栏上面的菊花
     dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].keyWindow.userInteractionEnabled =NO;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         if (showHud) {
            [SGShowMesssageTool showLoadingHUD];
+            
         }
        
     });
@@ -41,7 +43,7 @@
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
     
     [SGHttpTool get:allURL params:parma success:^(id responseObj) {
-     
+     [UIApplication sharedApplication].keyWindow.userInteractionEnabled =YES;
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
            NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
@@ -75,6 +77,7 @@
           [SGShowMesssageTool hideLoadingHUD];
         });
     } failure:^(NSError *error) {
+         [UIApplication sharedApplication].keyWindow.userInteractionEnabled =YES;
         if (failure) {
             failure(error,[NSString stringWithFormat:@"%ld",error.code],[error localizedDescription]);
         }
@@ -111,6 +114,7 @@
         
     }
     dispatch_async(dispatch_get_main_queue(), ^{
+        [UIApplication sharedApplication].keyWindow.userInteractionEnabled =NO;
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         if (showHud) {
             [SGShowMesssageTool showLoadingHUD];
@@ -118,6 +122,7 @@
     });
     NSString *allURL = [NSString stringWithFormat:@"%@%@",MainURL,url];
     [SGHttpTool post:allURL params:parma success:^(id responseObj) {
+         [UIApplication sharedApplication].keyWindow.userInteractionEnabled =YES;
         if (success && [responseObj isKindOfClass:[NSDictionary class]]) {
             
             NSString *code =  [NSString stringWithFormat:@"%@",responseObj[@"statusCode"]];
@@ -155,6 +160,8 @@
 
         });
     } failure:^(NSError *error) {
+        [UIApplication sharedApplication].keyWindow.userInteractionEnabled =YES;
+
         if (failure) {
             failure(error,[NSString stringWithFormat:@"%ld",error.code],[error localizedDescription]);
         }

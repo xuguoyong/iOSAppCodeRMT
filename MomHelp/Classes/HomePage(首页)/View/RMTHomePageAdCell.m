@@ -53,13 +53,14 @@
         imageView.tag = 10 + i;
         [_backgroundScrollView addSubview:imageView];
     }
-    _pageControl =[[UIPageControl alloc] initWithFrame:CGRectMake(0, d_screen_width *advImagesScale - 20, d_screen_width, 20)];
+    _pageControl =[[UIPageControl alloc] initWithFrame:CGRectMake(0, d_screen_width *advImagesScale - 20, 100, 20)];
     _pageControl.backgroundColor = [UIColor clearColor];
     _pageControl.numberOfPages = 3;
     _pageControl.currentPageIndicatorTintColor = MainColor;
     _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     [self.contentView addSubview:_pageControl];
     [self performSelector:@selector(addTimer) withObject:nil afterDelay:2.0f];
+    _pageControl.centerX = _backgroundScrollView.centerX;
     
 }
 

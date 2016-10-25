@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>AliyunOSSiOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>FMDB.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -49,10 +54,30 @@
 			<key>orderHint</key>
 			<integer>9</integer>
 		</dict>
+		<key>VPImageCropper.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0769BE77A6CFEE89CE929AA96C9E5860</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1FAC249D48092AF8CDE4197E9640AAA8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>50F77E0DBA67DBA8199C01AE5ABEE629</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5AFDEAA610781DECDDC3B7D8E052CBD9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +92,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>780BA5FE47B78FBB0F70DD9AFD950EE5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8ACF7886E115CBC7F7602CBC29DC5D5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>97B2ACF3AA4080D1991B55C3E50A10F5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +132,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C08A811847137988E14BFE28B93E02D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CF44DEB347D8936D55A5C8E6023899AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D3A3A0F782F6773D86DF787E4EB9F6F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F54E17DAF22F6D32EA3083CE8CB8546B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

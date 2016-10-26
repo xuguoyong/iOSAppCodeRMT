@@ -299,6 +299,7 @@
     return _tips;
 }
 
+
 - (void)uploadPhotoWithImageArray:(NSArray *)imageArr oSSClient:(OSSClient *)client parga:(NSDictionary *)parmar
 {
     NSLog(@"%@",imageArr);
@@ -313,7 +314,6 @@
     
     
 }
-
 - (void)uploadOneImage:(NSData *)imageData oSSClient:(OSSClient *)client currentIndex:(NSInteger)index parga:(NSDictionary *)parmar
 {
     OSSPutObjectRequest * put = [OSSPutObjectRequest new];

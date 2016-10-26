@@ -11,11 +11,13 @@
 #import "RMTHomePageAdCell.h"
 #import "RMTHomePageHealthCarThreeTableViewCell.h"
 #import "RMTHomePageHealthCarOneTableViewCell.h"
-
+#import "RMTMessageListModel.h"
+#import "RMTRMTMessageDetailViewController.h"
 @interface RMTHomePageViewController ()<UITableViewDelegate,UITableViewDataSource>
 //数据模型
 @property (nonatomic,strong) RMTHomepageModel *homePageModel;
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) NSMutableArray *messageList;
 @end
 
 @implementation RMTHomePageViewController
@@ -59,6 +61,12 @@
         RMTHomePageAdCell *adv = [tableView dequeueReusableCellWithIdentifier:@"advCell"];
         adv.selectionStyle = UITableViewCellSelectionStyleNone;
         adv.model = self.homePageModel;
+        adv.clickEveryImageViewCallBackBlock = ^(int index)
+        {
+            if (weakself.messageList.count > index) {
+                [weakself clickToMessageDetailMesssage:[weakself.messageList objectAtIndex:index]];
+            }
+        };
         return adv;
     }
     else if (indexPath.section == 1)
@@ -124,6 +132,14 @@
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
        [weakself.tableView.mj_header endRefreshing];
     }];
+    
+    [RMTDataService getDataWithURL:GET_Notice_List parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
+        self.messageList = [RMTMessageListModel mj_objectArrayWithKeyValuesArray:[responseObj objectForKey:@"data"]];
+    } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
+        
+    }];
+    
+    
 }
 
 #pragma mark --= 跳转至页面详情
@@ -144,6 +160,13 @@
     self.navigationController.navigationBarHidden = NO;
 }
 
+- (void)clickToMessageDetailMesssage:(RMTMessageListModel *)message
+{
+    RMTRMTMessageDetailViewController *detail  =[[RMTRMTMessageDetailViewController alloc] initWithNibName:@"RMTRMTMessageDetailViewController" bundle:nil];
+   
+    detail.detailModel = message;
+    [self.navigationController pushViewController:detail animated:YES];
+}
 
 
 @end

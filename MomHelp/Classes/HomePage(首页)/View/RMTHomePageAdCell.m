@@ -51,6 +51,9 @@
     for (NSInteger i = 0; i < 5; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * d_screen_width, 0, d_screen_width,d_screen_width *advImagesScale)];
         imageView.tag = 10 + i;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickEveryImageView:)];
+        [imageView addGestureRecognizer:tap];
+        imageView.userInteractionEnabled = YES;
         [_backgroundScrollView addSubview:imageView];
     }
     _pageControl =[[UIPageControl alloc] initWithFrame:CGRectMake(0, d_screen_width *advImagesScale - 20, 100, 20)];
@@ -164,6 +167,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    for (NSInteger i = 0; i < 100; i ++) {
+        
+        
+        
+    }
+    
+    
     
 }
 
@@ -172,5 +182,11 @@
 
     
 }
+- (void)clickEveryImageView:(UITapGestureRecognizer *)tap
+{
+    if (self.clickEveryImageViewCallBackBlock) {
+        self.clickEveryImageViewCallBackBlock((int)tap.view.tag-9);
+    }
 
+}
 @end

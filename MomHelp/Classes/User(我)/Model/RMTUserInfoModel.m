@@ -73,4 +73,8 @@ static RMTUserInfoModel *_userInfoModelInstance;
     
     NSLog(@"%@这个类缺少%@字段没有定义",NSStringFromClass([self class]),key);
 }
+
+
+
+
 @end

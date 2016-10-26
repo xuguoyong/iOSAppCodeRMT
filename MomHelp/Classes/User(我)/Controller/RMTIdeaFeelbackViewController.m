@@ -231,6 +231,7 @@
         UIImage *image = [imageArr objectAtIndex:i];
         NSData *data =  UIImageJPEGRepresentation(image, 0.7);
         [self.tips addObject:@"noSuccess"];
+        NSLog(@"循环执行%ld",i);
         [self uploadOneImage:data oSSClient:client currentIndex:i parga:parmar];
     }
     

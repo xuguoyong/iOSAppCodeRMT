@@ -28,6 +28,10 @@
 
 /** 首页数据接口*/
 #define GET_HomePageDataURL @"/product/index"
+
+/** 主页公告*/
+#define GET_Notice_List @"/notice/list"
+
 /** 用户登录接口*/
 #define POST_Login @"/oauth/token" 
 

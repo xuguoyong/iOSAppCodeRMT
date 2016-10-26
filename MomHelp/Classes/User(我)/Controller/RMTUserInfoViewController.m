@@ -133,6 +133,7 @@
         
         self.userModel = [RMTUserInfoModel shareInstance];
         [self.userModel setValuesForKeysWithDictionary:[responseObj objectForKey:@"data"]];
+        
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {

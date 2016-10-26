@@ -34,7 +34,7 @@
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [SGShowMesssageTool showLoadingHUDWithErrorMessage:@"网络家加载失败"];
+    [SGShowMesssageTool showLoadingHUDWithErrorMessage:@"网络加载失败"];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView

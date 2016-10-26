@@ -13,4 +13,6 @@
 
 @interface RMTHomePageAdCell : UITableViewCell <UIScrollViewDelegate>
 @property (nonatomic,strong)RMTHomepageModel *model;
+@property (nonatomic,strong) void (^clickEveryImageViewCallBackBlock)(int index);
+
 @end

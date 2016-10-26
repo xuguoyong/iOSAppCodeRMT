@@ -106,7 +106,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
         self.oldSelectIndex = 0;
         [_bgView addSubview:_segControl];
 
-        
+    
         
     }
     return _bgView;
@@ -259,10 +259,10 @@ typedef NS_ENUM (NSInteger,ProductType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.incrementValue = @"";
-    self.totalCount = @"";
-    self.totalValue = @"";
-    self.incrementValue = @"";
+    self.incrementValue = @"0.00";
+    self.totalCount = @"0.00";
+    self.totalValue = @"0.00";
+    self.incrementValue = @"0.00";
   
     
     
@@ -272,7 +272,10 @@ typedef NS_ENUM (NSInteger,ProductType) {
      [self requestDirectDataFromBack];
     [self requestTransferListDataFromBack];
     self.carPage = 1;
-    [self requestpackCarListDataFromBack];
+    if ([RMTUserInfoModel isUserLogin]) {
+        [self requestpackCarListDataFromBack];
+    }
+   
     
     [self.view addSubview:self.toobarView];
     self.toobarView.sd_layout.bottomEqualToView(self.view).leftEqualToView(self.view).rightSpaceToView(self.view,0).heightIs(50);
@@ -354,6 +357,9 @@ typedef NS_ENUM (NSInteger,ProductType) {
     
     [RMTDataService getDataWithURL:GET_Transfer_List parma:nil showErrorMessage:YES showHUD:NO logData:NO success:^(NSDictionary *responseObj) {
         self.transferDataSource = [RMTtransferListModel mj_objectArrayWithKeyValuesArray:[responseObj objectForKey:@"data"]];
+  
+        
+        
         [self.changeTableView reloadData];
         [self.changeTableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
@@ -776,15 +782,21 @@ typedef NS_ENUM (NSInteger,ProductType) {
 #pragma mark ===segmentControl的点击事件
 -(void)segmentControlClickAction:(UISegmentedControl *)seg
 {
-    NSLog(@"%ld",seg.selectedSegmentIndex);
-    
-    
-    
     if (seg.selectedSegmentIndex == 2 && ![RMTUserInfoModel isUserLogin]) {
         seg.selectedSegmentIndex = self.oldSelectIndex;
         
         [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
-            [self.carTableView.mj_header beginRefreshing];
+            dispatch_async(dispatch_get_main_queue(), ^{
+               
+                seg.selectedSegmentIndex = 2;
+                 [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *seg.selectedSegmentIndex,0) animated:NO];
+                [self.carTableView.mj_header beginRefreshing];
+            
+                [self.tabBarController.tabBar setHidden:NO];
+                    self.toobarView.hidden =YES;
+               
+            });
+            
         }];
         return;
     }

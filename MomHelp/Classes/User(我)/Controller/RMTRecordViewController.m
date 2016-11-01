@@ -97,6 +97,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+    
     RMTRecordListModel *model =self.dataSource[indexPath.row];
     RMTRecordDetailViewController *detail = [[RMTRecordDetailViewController alloc] init];
     detail.detailModel = model;

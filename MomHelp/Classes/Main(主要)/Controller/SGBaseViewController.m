@@ -9,10 +9,15 @@
 #import "SGBaseViewController.h"
 #import "RMTHomePageViewController.h"
 #import "RMTHealthCarViewController.h"
-#import "RMTAccountViewController.h"
 #import "RMTUserInfoViewController.h"
 #import "SGControllerTool.h"
 #import "RMTLoginViewController.h"
+
+//原结算界面
+//#import "RMTAccountViewController.h"
+//更改为商城界面
+#import "RMTShopMainViewController.h"
+
 @interface SGBaseViewController ()
 
 @end
@@ -25,7 +30,7 @@
     [super viewDidLoad];
      self.view.backgroundColor = [UIColor whiteColor];
     
-    if (![self isKindOfClass:[RMTHomePageViewController class]]&&![self isKindOfClass:[RMTHealthCarViewController class]] &&![self isKindOfClass:[RMTHealthCarViewController class]] &&![self isKindOfClass:[RMTAccountViewController class]] &&![self isKindOfClass:[RMTUserInfoViewController class]] ) {
+    if (![self isKindOfClass:[RMTHomePageViewController class]]&&![self isKindOfClass:[RMTHealthCarViewController class]] &&![self isKindOfClass:[RMTHealthCarViewController class]] &&![self isKindOfClass:[RMTShopMainViewController class]] &&![self isKindOfClass:[RMTUserInfoViewController class]] ) {
         // 设置导航栏按钮
         self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"view_leftAndBack_white_icon" highImageName:@"view_leftAndBack_white_icon" target:self action:@selector(leftButtonClickToback:)];
     }

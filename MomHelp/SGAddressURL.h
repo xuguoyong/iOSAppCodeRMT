@@ -9,14 +9,14 @@
 #ifndef SGAddressURL_h
 #define SGAddressURL_h
 
-////正式库
+//正式库
 #define MainURL  @"https://api.91stjk.com"
 #define VersionType @""
 #define UionPayModel @"01"
 
-//测试库 liuying
-//#define MainURL  @"http://192.168.1.197:7777"
-//#define VersionType @"beta_liuying"
+////测试库 chenlixiong
+//#define MainURL  @"http://192.168.1.119:7777"
+//#define VersionType @"beta_chenlixiong"
 //#define UionPayModel @"00"
 
 //测试库 liyong

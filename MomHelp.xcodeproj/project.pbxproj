@@ -161,6 +161,7 @@
 		674A69991DB8B76900E9E08C /* RMTMoneyPackageCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A69971DB8B76900E9E08C /* RMTMoneyPackageCarCell.xib */; };
 		674A699D1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 674A699B1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.m */; };
 		674A699E1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 674A699C1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.xib */; };
+		965E72A61DC86A4300414F71 /* RMTShopMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 965E72A51DC86A4300414F71 /* RMTShopMainViewController.m */; };
 		BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */; };
 		BA1415EF1D62AA5D00C23C27 /* GetUserInfoParm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415EE1D62AA5D00C23C27 /* GetUserInfoParm.m */; };
 		BA1415F31D62B72600C23C27 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1415F21D62B72600C23C27 /* Foundation+Log.m */; };
@@ -554,7 +555,7 @@
 		674A697C1DB872E900E9E08C /* RMTProductListButButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTProductListButButtonCell.m; sourceTree = "<group>"; };
 		674A697D1DB872E900E9E08C /* RMTProductListButButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTProductListButButtonCell.xib; sourceTree = "<group>"; };
 		674A69801DB877B800E9E08C /* RMTPayPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTPayPageViewController.h; sourceTree = "<group>"; };
-		674A69811DB877B800E9E08C /* RMTPayPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTPayPageViewController.m; sourceTree = "<group>"; };
+		674A69811DB877B800E9E08C /* RMTPayPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTPayPageViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		674A69831DB8789600E9E08C /* RMTPayPageHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTPayPageHeadCell.h; sourceTree = "<group>"; };
 		674A69841DB8789600E9E08C /* RMTPayPageHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTPayPageHeadCell.m; sourceTree = "<group>"; };
 		674A69851DB8789600E9E08C /* RMTPayPageHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTPayPageHeadCell.xib; sourceTree = "<group>"; };
@@ -572,6 +573,8 @@
 		674A699A1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTMoneyPackageHeadCell.h; sourceTree = "<group>"; };
 		674A699B1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTMoneyPackageHeadCell.m; sourceTree = "<group>"; };
 		674A699C1DB8C3B300E9E08C /* RMTMoneyPackageHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMTMoneyPackageHeadCell.xib; sourceTree = "<group>"; };
+		965E72A41DC86A4300414F71 /* RMTShopMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTShopMainViewController.h; sourceTree = "<group>"; };
+		965E72A51DC86A4300414F71 /* RMTShopMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTShopMainViewController.m; sourceTree = "<group>"; };
 		BA1415EA1D62AA0300C23C27 /* UserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoModel.h; sourceTree = "<group>"; };
 		BA1415EB1D62AA0300C23C27 /* UserInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		BA1415ED1D62AA5D00C23C27 /* GetUserInfoParm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoParm.h; sourceTree = "<group>"; };
@@ -788,7 +791,7 @@
 		DCBE94251DADCF27003677AF /* RMTHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTHomePageViewController.h; sourceTree = "<group>"; };
 		DCBE94261DADCF27003677AF /* RMTHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTHomePageViewController.m; sourceTree = "<group>"; };
 		DCBE94281DADCF3C003677AF /* RMTHealthCarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTHealthCarViewController.h; sourceTree = "<group>"; };
-		DCBE94291DADCF3C003677AF /* RMTHealthCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTHealthCarViewController.m; sourceTree = "<group>"; };
+		DCBE94291DADCF3C003677AF /* RMTHealthCarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTHealthCarViewController.m; sourceTree = "<group>"; wrapsLines = 1; };
 		DCBE942B1DADCF49003677AF /* RMTAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTAccountViewController.h; sourceTree = "<group>"; };
 		DCBE942C1DADCF49003677AF /* RMTAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMTAccountViewController.m; sourceTree = "<group>"; };
 		DCBE942E1DADCF5A003677AF /* RMTUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMTUserInfoViewController.h; sourceTree = "<group>"; };
@@ -1206,6 +1209,15 @@
 				674A69181DB70C0700E9E08C /* RMTBankCarViewController.m */,
 			);
 			name = "银行卡";
+			sourceTree = "<group>";
+		};
+		965E72A31DC869F600414F71 /* 新的空界面 */ = {
+			isa = PBXGroup;
+			children = (
+				965E72A41DC86A4300414F71 /* RMTShopMainViewController.h */,
+				965E72A51DC86A4300414F71 /* RMTShopMainViewController.m */,
+			);
+			name = "新的空界面";
 			sourceTree = "<group>";
 		};
 		B35E10B051B8F15CAC87B8D3 /* Frameworks */ = {
@@ -1717,6 +1729,7 @@
 		DCBE94161DADCE9A003677AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				965E72A31DC869F600414F71 /* 新的空界面 */,
 				DCBE942B1DADCF49003677AF /* RMTAccountViewController.h */,
 				DCBE942C1DADCF49003677AF /* RMTAccountViewController.m */,
 				674A69391DB75C8B00E9E08C /* RMTReplyDetailViewController.h */,
@@ -2006,7 +2019,7 @@
 				TargetAttributes = {
 					BA699E9D1D5C8969002B0DE7 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = YY5BNMAGUW;
+						DevelopmentTeam = 3YT9TFY22A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -2249,6 +2262,7 @@
 				DCBE94301DADCF5A003677AF /* RMTUserInfoViewController.m in Sources */,
 				DC4E89C41DAF944600E24579 /* RMTHTMLViewController.m in Sources */,
 				BA699ECD1D5C9317002B0DE7 /* SGBaseViewController.m in Sources */,
+				965E72A61DC86A4300414F71 /* RMTShopMainViewController.m in Sources */,
 				674A69021DB639E800E9E08C /* RMTRecordDetailViewController.m in Sources */,
 				BAEB058E1D5DD625001D1E86 /* SGShowMesssageTool.m in Sources */,
 				BA1415EC1D62AA0300C23C27 /* UserInfoModel.m in Sources */,
@@ -2484,7 +2498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YY5BNMAGUW;
+				DEVELOPMENT_TEAM = 3YT9TFY22A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK",
@@ -2517,7 +2531,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YY5BNMAGUW;
+				DEVELOPMENT_TEAM = 3YT9TFY22A;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MomHelp/Classes/Main(主要)/lib/ShareSDK",

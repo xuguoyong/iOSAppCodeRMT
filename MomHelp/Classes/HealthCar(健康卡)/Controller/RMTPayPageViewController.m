@@ -25,10 +25,13 @@ typedef NS_ENUM(NSUInteger,PayType) {
 
 @interface RMTPayPageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
+    
 @property (nonatomic,strong) NSMutableArray *select;
+
 @end
 
 @implementation RMTPayPageViewController
+
 
 -(NSMutableArray *)select
 {
@@ -43,8 +46,11 @@ typedef NS_ENUM(NSUInteger,PayType) {
     return _select;
 }
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"支付";
     self.tableView = [self addTableViewWithDelegate:self style:UITableViewStyleGrouped];
      [self.tableView registerNib:[UINib nibWithNibName:@"RMTPayPageHeadCell" bundle:nil] forCellReuseIdentifier:@"headCell"];
@@ -54,6 +60,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getUnionPayTypeStautes:) name:NotificationUionPayStaues object:nil];
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getAliyPayTypeStautes:) name:NotificationAlipayPayStaues object:nil];
+
     
     
     

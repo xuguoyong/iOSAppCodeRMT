@@ -48,11 +48,14 @@ typedef NS_ENUM (NSInteger,ProductType) {
 @property (nonatomic,strong) NSMutableArray *productListArray;
 @property (nonatomic,strong) UITableView *drectBuyTableView;
 @property (nonatomic,strong) RMTDirctBuyProductModel *willBuyModel;
+@property (nonatomic,assign) BOOL trasferHasData;
 
 //转让
 @property (nonatomic,strong) UITableView *changeTableView;
 @property (nonatomic,strong) UIView *toobarView;
+//转让大厅购买按钮
 @property (nonatomic,strong) UIButton *buyButton;
+//转让大厅提示请到直购界面购买按钮
 @property (nonatomic,strong) UIButton *tipsButton;
 @property (nonatomic,strong) UITextField *moneyTextField;
 @property (nonatomic,strong) NSMutableArray *transferDataSource;
@@ -182,37 +185,17 @@ typedef NS_ENUM (NSInteger,ProductType) {
         }];
 
     }
-    /*
-     
-     [tableView addRefreshNormalHeaderWithRefreshBlock:^{
-     if (type == SYSTEM_Message) {
-     [self requestSystemMessageWithIndex:0];
-     }else if (type == RECEVE_Message)
-     {
-     [self requestReceveMoneyMessageWithIndex:0];
-     }else
-     {
-     [self requestdemiseMessageWithIndex:0];
-     }
-     } andRefrshNormalFooterWithRefreshBlock:^{
-     if (type == SYSTEM_Message) {
-     [self requestSystemMessageWithIndex:0];
-     }else if (type == RECEVE_Message)
-     {
-     [self requestReceveMoneyMessageWithIndex:0];
-     }else
-     {
-     [self requestdemiseMessageWithIndex:0];
-     }
-     }];
-     
-     */
+
     
      tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     return tableView;
     
 }
 
+    
+/**
+ 转让大厅下面的购买工具栏
+ */
 - (UIView *)toobarView
 {
     if (!_toobarView) {
@@ -263,6 +246,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
     self.totalCount = @"0.00";
     self.totalValue = @"0.00";
     self.incrementValue = @"0.00";
+    self.trasferHasData = NO;
   
     
     
@@ -286,8 +270,22 @@ typedef NS_ENUM (NSInteger,ProductType) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
    
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLoginSuccess) name:NotificationUserLoginSuccess object:nil];
+    
+   
 }
 
+    
+/**
+ 用户登录成功之后会走的回调
+ */
+- (void)userLoginSuccess
+{
+        [self requestDirectDataFromBack];
+        [self requestpackCarListDataFromBack];
+        [self requestTransferListDataFromBack];
+    
+}
 
 #pragma mark - 键盘处理
 /**
@@ -367,6 +365,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
     }];
     [RMTDataService getDataWithURL:GET_Product_Usable parma:nil showErrorMessage:YES showHUD:NO logData:NO success:^(NSDictionary *responseObj) {
         self.tipsButton.hidden = ![[responseObj objectForKey:@"data"] boolValue];
+        self.trasferHasData = [[responseObj objectForKey:@"data"] boolValue];
         [self.changeTableView.mj_header endRefreshing];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         [self.changeTableView.mj_header endRefreshing];
@@ -449,7 +448,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
     
     if (tableView == self.drectBuyTableView) {
         if (indexPath.section ==0) {
-            return d_screen_width *(270/640.0f);
+            return (d_screen_width -30) *(162/269.0f) +30;
         }else if (indexPath.section == 1 && self.productListArray.count>0)
         {
             NSInteger hangshu =self.productListArray.count %3==0?self.productListArray.count /3:self.productListArray.count /3+1;
@@ -523,9 +522,17 @@ typedef NS_ENUM (NSInteger,ProductType) {
             
             RMTProductListButButtonCell *buyCell = [tableView dequeueReusableCellWithIdentifier:@"buyCell"];
             buyCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            if (weaself.trasferHasData/*有数据 去转让大厅购买*/) {
+              
+                [buyCell.buyButton setTitle:@"前往转让大厅购买" forState:UIControlStateNormal];
+            }else/*转让大厅没有数据，直接显示购买*/
+            {
+                [buyCell.buyButton setTitle:@"购买" forState:UIControlStateNormal];
+            }
             buyCell.buyButtonClickBock = ^(id data)
             {
                 [weaself buyButtonClick:data];
+               
             };
             return buyCell;
             
@@ -541,7 +548,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
         alivingCell.timeLabel.text = model.transferTime;
         if ([model.status isEqualToString:@"transfer"]/*转让中*/) {
             alivingCell.stautesImageView.hidden = YES;
-            alivingCell.productImageView .image =[UIImage imageNamed:@"direct_buy_healthCar"];
+            alivingCell.productImageView .image =[UIImage imageNamed:@"not_transfer_image"];
             alivingCell.car_numberLabel.textColor = UIColorFromRGB(0x000000);
             alivingCell.zhukaLabel.textColor = UIColorFromRGB(0x000000);
             alivingCell.zhukaLabel.text = [NSString stringWithFormat:@"主卡 ¥ %@",model.currentValueAndServiceChargeTotal];
@@ -611,6 +618,8 @@ typedef NS_ENUM (NSInteger,ProductType) {
 
 
 }
+    
+#pragma mark --UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (![RMTTool isNumberRegex:string]) {
@@ -618,6 +627,11 @@ typedef NS_ENUM (NSInteger,ProductType) {
     }
     return YES;
 }
+    
+/**
+ UIScrollView 的代理方法
+ @param scrollView
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
@@ -638,14 +652,13 @@ typedef NS_ENUM (NSInteger,ProductType) {
 }
 
 
-#pragma mark  click--even
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-
-
-}
-
 #pragma mark==== 点击转让会调用的方法
+    
+/**
+ 点击卡包转让会调用的方法
+
+ @param carModel 转让的卡的模型
+ */
 - (void)transferHeathCarWithModel:(RMTCarPackageModel *)carModel
 {
 
@@ -669,6 +682,15 @@ typedef NS_ENUM (NSInteger,ProductType) {
     };
     [view showInWindow];
 }
+    
+
+
+/**
+ 点击转让按钮的输入密码完成后会调用的方法
+
+ @param carModel 转让的卡的模型
+ @param passwd 转让密码
+ */
 - (void)transferHeathCarAfterPutPasswdWithModel:(RMTCarPackageModel *)carModel andPasswd:(NSString *)passwd
 {
   
@@ -736,18 +758,24 @@ typedef NS_ENUM (NSInteger,ProductType) {
        
         }else{/*直购的购买*/
        
-            if (!self.willBuyModel) {
+            if (self.trasferHasData/*请到转让大厅购买*/) {
+                //进入这里说明转让大厅有数据 需要滚动到转让大厅 会自动 调用 bgScrollView代理方法
+                [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *1,0) animated:YES];
+                return;
+            }
+            
+                //是否选择直购卡
+                if (!self.willBuyModel) {
                     [SGShowMesssageTool showMessage:@"请选择要购买的直购卡" showTime:1.5f];
                     return;
                 }
-            
+                //输入的金额是否是100的整数倍
                 if (![RMTTool checkOneHundredNumberWithString:self.willBuyModel.worth]) {
                     [SGShowMesssageTool showMessage:RMTPutNotRightMoneyCountText showTime:1.5f];
                     return;
                 }
-                
-                
-                
+            
+                //调起支付界面
                 RMTPayPageViewController *pay = [[RMTPayPageViewController alloc] init];
                 if ([self.willBuyModel.userId isEqualToString:@"-10086"]) {
                     
@@ -759,6 +787,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
                 }
                 
                 __weak typeof(self)weakself =self;
+                //支付成功的回调
                 pay.buySccessBlock = ^(id dta)
                 {
                     [weakself.bgScrollView setContentOffset:CGPointMake(d_screen_width*2, 0)];
@@ -782,9 +811,10 @@ typedef NS_ENUM (NSInteger,ProductType) {
 #pragma mark ===segmentControl的点击事件
 -(void)segmentControlClickAction:(UISegmentedControl *)seg
 {
-    if (seg.selectedSegmentIndex == 2 && ![RMTUserInfoModel isUserLogin]) {
+    
+    if (seg.selectedSegmentIndex == 2 && ![RMTUserInfoModel isUserLogin]/*点击卡包但是用户没有登录*/) {
         seg.selectedSegmentIndex = self.oldSelectIndex;
-        
+        //跳转到登录界面
         [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
             dispatch_async(dispatch_get_main_queue(), ^{
                

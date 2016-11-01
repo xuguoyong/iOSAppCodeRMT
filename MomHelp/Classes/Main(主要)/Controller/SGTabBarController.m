@@ -10,10 +10,14 @@
 #import "SGTabBar.h"
 #import "RMTHomePageViewController.h"
 #import "RMTHealthCarViewController.h"
-#import "RMTAccountViewController.h"
 #import "SGNavigationController.h"
 #import "RMTUserInfoViewController.h"
 #import "SGControllerTool.h"
+
+//原结算界面
+//#import "RMTAccountViewController.h"
+//更改为商城界面
+#import "RMTShopMainViewController.h"
 
 
 @interface SGTabBarController () <UITabBarControllerDelegate>
@@ -73,11 +77,14 @@
     
     self.delegate = self;
     RMTHealthCarViewController *health = [[RMTHealthCarViewController alloc] init];
-    [self addOneChlildVc:health title:@"健康卡" imageName:@"health_nomal" selectedImageName:@"health_selected"];
-    
-    RMTAccountViewController *account = [[RMTAccountViewController alloc] init];
-    [self addOneChlildVc:account title:@"结算" imageName:@"account_normal" selectedImageName:@"account_selected"];
-   
+    [self addOneChlildVc:health title:@"购物卡" imageName:@"health_nomal" selectedImageName:@"health_selected"];
+
+#pragma mark --原结算界面 更改为商城界面
+//    RMTAccountViewController *account = [[RMTAccountViewController alloc] init];
+//    [self addOneChlildVc:account title:@"结算" imageName:@"account_normal" selectedImageName:@"account_selected"];
+    RMTShopMainViewController *account = [[RMTShopMainViewController alloc] init];
+       [self addOneChlildVc:account title:@"商城" imageName:@"account_normal" selectedImageName:@"account_selected"];
+
     RMTUserInfoViewController *me = [[RMTUserInfoViewController alloc] init];
     [self addOneChlildVc:me title:@"我" imageName:@"User_normal" selectedImageName:@"User_selected"];
 
@@ -129,17 +136,19 @@
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     //处理未登录的时候需要跳转到登录界面
-    NSLog(@"%ld",tabBarController.selectedIndex);
-    if ((tabBarController.selectedIndex == 2 || tabBarController.selectedIndex == 3) && ![RMTUserInfoModel isUserLogin]) {
+//    if ((tabBarController.selectedIndex == 2 || tabBarController.selectedIndex == 3) && ![RMTUserInfoModel isUserLogin]) {
+//        [self setSelectedIndex:self.lastSelectIndex];
+//        [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
+//            
+//        }];
+//    }
+    
+    if ((tabBarController.selectedIndex == 3) && ![RMTUserInfoModel isUserLogin]) {
         [self setSelectedIndex:self.lastSelectIndex];
         [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
             
         }];
     }
-    NSLog(@"%@",NSStringFromSelector(_cmd));
-    NSLog(@"%@",NSStringFromClass([viewController class]));
-    
-    
     
     
     

@@ -227,6 +227,8 @@
     NSLog(@"%@",imageArr);
    
     [self.tips removeAllObjects];
+//     dispatch_queue_t queue= dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
+    
     for (NSInteger i = 0; i < imageArr.count; i ++) {
         UIImage *image = [imageArr objectAtIndex:i];
         NSData *data =  UIImageJPEGRepresentation(image, 0.7);

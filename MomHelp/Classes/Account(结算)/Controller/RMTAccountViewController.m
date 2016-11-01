@@ -169,6 +169,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0 && indexPath.row == 0)return;
     RMTReplyDetailViewController *detail = [[ RMTReplyDetailViewController alloc] init];
       RMTReimburListModel *model = self.dataSources[indexPath.row];
     detail.detailModel = model;

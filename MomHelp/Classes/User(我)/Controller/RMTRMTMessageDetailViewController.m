@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title  =@"消息详情";
     self.messageTitle.text = self.detailModel.title;
     self.messageTimeLabel.text = self.detailModel.date;
     self.messageContentTextView.text = self.detailModel.content;

@@ -163,7 +163,7 @@
 - (void)clickToMessageDetailMesssage:(RMTMessageListModel *)message
 {
     RMTRMTMessageDetailViewController *detail  =[[RMTRMTMessageDetailViewController alloc] initWithNibName:@"RMTRMTMessageDetailViewController" bundle:nil];
-   
+    
     detail.detailModel = message;
     [self.navigationController pushViewController:detail animated:YES];
 }

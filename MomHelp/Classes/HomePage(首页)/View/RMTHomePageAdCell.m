@@ -109,8 +109,8 @@
     self.sce = 0;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(uploadImageView:) userInfo:nil repeats:YES];
     [self.timer fire];
-  //  [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
-    NSLog(@"定时器开始");
+   [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    
     
     
 }
@@ -167,11 +167,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    for (NSInteger i = 0; i < 100; i ++) {
-        
-        
-        
-    }
     
     
     
@@ -185,7 +180,15 @@
 - (void)clickEveryImageView:(UITapGestureRecognizer *)tap
 {
     if (self.clickEveryImageViewCallBackBlock) {
-        self.clickEveryImageViewCallBackBlock((int)tap.view.tag-9);
+        int index =(int)tap.view.tag-11;
+        //防止快速滑动时候越界
+        if (index< 0) {
+            index = 0;
+        }else if (index > 3)
+        {
+            index =3;
+        }
+        self.clickEveryImageViewCallBackBlock(index);
     }
 
 }

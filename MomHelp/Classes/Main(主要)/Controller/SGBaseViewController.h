@@ -16,6 +16,16 @@
  *  @return 返回一个tableView
  */
 - (UITableView *)addTableViewWithDelegate:(id <UITableViewDelegate,UITableViewDataSource>)delegate style:(UITableViewStyle)style;
+    /**
+     给界面添加一个TableView
+     
+     @param frame tableView的frame
+     @param delegate 代理对象
+     @param style tableView的样式
+     @return UITableView
+     */
+- (UITableView *)addTableViewWithFrame:(CGRect)frame Delegate:(id <UITableViewDelegate,UITableViewDataSource>)delegate style:(UITableViewStyle)style;
+    
 /**
  *  右边按钮的点击事件
  *

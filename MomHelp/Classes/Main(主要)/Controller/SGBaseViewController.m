@@ -95,6 +95,29 @@
 }
 
 
+/**
+    给界面添加一个TableView
+
+ @param frame tableView的frame
+ @param delegate 代理对象
+ @param style tableView的样式
+ @return UITableView
+ */
+- (UITableView *)addTableViewWithFrame:(CGRect)frame Delegate:(id <UITableViewDelegate,UITableViewDataSource>)delegate style:(UITableViewStyle)style
+{
+        
+        UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:style];
+        
+        tableView.delegate = delegate;
+        tableView.dataSource = delegate;
+        [self.view addSubview:tableView];
+        tableView.frame = frame;
+        tableView.backgroundColor = viewAndTableViewBackgroundColor;
+        tableView.separatorColor = tableViewSeparateColor;
+        
+        return tableView;
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

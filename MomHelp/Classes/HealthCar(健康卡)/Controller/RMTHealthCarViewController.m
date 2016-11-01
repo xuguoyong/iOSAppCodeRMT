@@ -20,6 +20,7 @@
 #import "RMTPutPasswrdView.h"
 #import "UserInfoModel.h"
 #import "SGControllerTool.h"
+#import "RMTHTMLViewController.h"
 /**
  *  每个产品的大小
  */
@@ -618,7 +619,20 @@ typedef NS_ENUM (NSInteger,ProductType) {
 
 
 }
-    
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+    {
+        if (tableView == self.drectBuyTableView) {
+            if (indexPath.section == 0 &&indexPath.row ==0 &&self.productListArray.count >0) {
+                RMTHTMLViewController *html = [[RMTHTMLViewController alloc] init];
+                html.title = @"直购详情";
+                RMTDirctBuyProductModel *model = [self.productListArray objectAtIndex:0];
+                html.urlString = [NSString stringWithFormat:@"%@%@",model.productDetail,model.productId];
+                [self.navigationController pushViewController:html animated:YES];
+            }
+        }
+        
+    }
 #pragma mark --UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -651,6 +665,9 @@ typedef NS_ENUM (NSInteger,ProductType) {
     
 }
 
+    
+    
+    
 
 #pragma mark==== 点击转让会调用的方法
     

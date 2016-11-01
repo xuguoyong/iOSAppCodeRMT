@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView = [[UIWebView alloc] init];
     [self.view addSubview:self.webView];
+    self.webView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     self.webView.delegate = self;
     
 }

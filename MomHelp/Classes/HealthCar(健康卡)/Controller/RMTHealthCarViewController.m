@@ -650,7 +650,29 @@ typedef NS_ENUM (NSInteger,ProductType) {
 {
     [self.view endEditing:YES];
     if (![scrollView isKindOfClass:[UITableView class]]) {
+        self.oldSelectIndex = self.segControl.selectedSegmentIndex;
         [self.segControl setSelectedSegmentIndex:(int)(scrollView.contentOffset.x/d_screen_width)];
+        
+        if (self.segControl.selectedSegmentIndex == 2 && ![RMTUserInfoModel isUserLogin]/*点击卡包但是用户没有登录*/) {
+            self.segControl.selectedSegmentIndex = self.oldSelectIndex;
+            [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *self.segControl.selectedSegmentIndex,0) animated:NO];
+            //跳转到登录界面
+            [SGControllerTool popToLoginControllerTarget:self loginSuccessBlock:^(id data) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    self.segControl.selectedSegmentIndex = 2;
+                    [self.bgScrollView setContentOffset:CGPointMake(d_screen_width *self.segControl.selectedSegmentIndex,0) animated:NO];
+                    [self.carTableView.mj_header beginRefreshing];
+                    
+                    [self.tabBarController.tabBar setHidden:NO];
+                    self.toobarView.hidden =YES;
+                    
+                });
+                
+            }];
+            return;
+        }
+        
         if (self.segControl.selectedSegmentIndex == 1) {
             [self.tabBarController.tabBar setHidden:YES];
             self.toobarView.hidden =NO;

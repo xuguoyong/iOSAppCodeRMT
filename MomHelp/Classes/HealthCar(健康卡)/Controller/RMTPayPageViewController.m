@@ -516,7 +516,6 @@ typedef NS_ENUM(NSUInteger,PayType) {
 
 }
 
-
 - (void)popToSuccessPage
 {
     RMTBuyProdecuOrCarSuccessViewController *success = [[RMTBuyProdecuOrCarSuccessViewController alloc] initWithNibName:@"RMTBuyProdecuOrCarSuccessViewController" bundle:nil];

@@ -564,7 +564,7 @@ static CGFloat TZScreenScale;
                 if (success && completion) {
                     completion(nil);
                 } else if (error) {
-                    NSLog(@"保存照片出错:%@",error.localizedDescription);
+                   
                     if (completion) {
                         completion(error);
                     }
@@ -577,7 +577,7 @@ static CGFloat TZScreenScale;
         [self.assetLibrary writeImageToSavedPhotosAlbum:image.CGImage orientation:[self orientationFromImage:image] completionBlock:^(NSURL *assetURL, NSError *error) {
 #pragma clang diagnostic pop
             if (error) {
-                NSLog(@"保存图片失败:%@",error.localizedDescription);
+               
                 if (completion) {
                     completion(error);
                 }
@@ -663,7 +663,7 @@ static CGFloat TZScreenScale;
         if ([supportedTypeArray containsObject:AVFileTypeMPEG4]) {
             session.outputFileType = AVFileTypeMPEG4;
         } else if (supportedTypeArray.count == 0) {
-            NSLog(@"No supported file types 视频类型暂不支持导出");
+           
             return;
         } else {
             session.outputFileType = [supportedTypeArray objectAtIndex:0];

@@ -44,7 +44,7 @@
 {
     __weak typeof(self)weakself =self;
     [RMTDataService getDataWithURL:GET_Record_List parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+       
         [self.dataSource removeAllObjects];
         self.dataSource = [RMTRecordListModel mj_objectArrayWithKeyValuesArray:[responseObj objectForKey:@"data"]];
         [weakself.tableView reloadData];

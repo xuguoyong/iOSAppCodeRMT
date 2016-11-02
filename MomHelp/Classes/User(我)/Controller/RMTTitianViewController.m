@@ -104,7 +104,7 @@
         [view showInWindow];
     view.userHasPutPassWord = ^(NSString *passwd)
     {
-        NSLog(@"用户密码为 %@",passwd);
+      
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakself tixianAcitonWithPasswd:passwd];
         });

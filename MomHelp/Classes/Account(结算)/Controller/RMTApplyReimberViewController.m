@@ -104,7 +104,7 @@
     __weak typeof(self)weakself =self;
     
     [RMTDataService getDataWithURL:GET_HealthRecord_UserList parma:@{@"page":[NSString stringWithFormat:@"%d",self.carPage]} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+     
         NSDictionary *data = [responseObj objectForKey:@"data"];
      weakself.dataSources = [RMTReimburListModel mj_objectArrayWithKeyValuesArray:data];
         [weakself addReportRcord];

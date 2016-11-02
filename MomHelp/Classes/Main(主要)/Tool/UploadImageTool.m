@@ -20,7 +20,7 @@
         token.tSecretKey = [parmar objectForKey:@"accessKeySecret"];
         token.tToken = [parmar objectForKey:@"securityToken"];
         token.expirationTimeInGMTFormat = [parmar objectForKey:@"expiration"];
-        NSLog(@"get token: %@", token);
+     
         return token;
     }];
     
@@ -51,7 +51,7 @@
     // 上传阿里云
     [putTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
-            NSLog(@"upload object success!");
+           
             if (successBlock) {
                 successBlock(objectKey);
             }
@@ -59,7 +59,7 @@
             if (faile) {
                 faile(task.error);
             }
-            NSLog(@"upload object failed, error: %@" , task.error);
+           
         }
         return nil;
     }];

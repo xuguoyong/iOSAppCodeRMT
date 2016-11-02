@@ -195,7 +195,7 @@
             token.tSecretKey = [parmar objectForKey:@"accessKeySecret"];
             token.tToken = [parmar objectForKey:@"securityToken"];
             token.expirationTimeInGMTFormat = [parmar objectForKey:@"expiration"];
-            NSLog(@"get token: %@", token);
+          
             return token;
         }];
         
@@ -224,16 +224,16 @@
 
 - (void)uploadPhotoWithImageArray:(NSArray *)imageArr oSSClient:(OSSClient *)client parga:(NSDictionary *)parmar
 {
-    NSLog(@"%@",imageArr);
+   
    
     [self.tips removeAllObjects];
-//     dispatch_queue_t queue= dispatch_queue_create("test.queue", DISPATCH_QUEUE_CONCURRENT);
+
     
     for (NSInteger i = 0; i < imageArr.count; i ++) {
         UIImage *image = [imageArr objectAtIndex:i];
         NSData *data =  UIImageJPEGRepresentation(image, 0.7);
         [self.tips addObject:@"noSuccess"];
-        NSLog(@"循环执行%ld",i);
+      
         [self uploadOneImage:data oSSClient:client currentIndex:i parga:parmar];
     }
     
@@ -258,7 +258,7 @@
     // 上传阿里云
     [putTask continueWithBlock:^id(OSSTask *task) {
         if (!task.error) {
-            NSLog(@"upload object success!");
+       
             [self.tips replaceObjectAtIndex:index withObject:objectKey];
             if (![self.tips containsObject:@"noSuccess"]) {
                 [self didFinishUploadAllPhotoWithAllObjectKey:self.tips];
@@ -266,7 +266,7 @@
             
         } else {
             
-            NSLog(@"upload object failed, error: %@" , task.error);
+       
             [SGShowMesssageTool showLoadingHUDWithErrorMessage:@"意见上传失败，请稍后重试"];
         }
         return nil;

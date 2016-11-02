@@ -684,7 +684,7 @@ typedef NS_ENUM (NSInteger,ProductType) {
     __weak typeof(self)weakself =self;
     view.userHasPutPassWord = ^(NSString *passwd)
     {
-        NSLog(@"用户密码为 %@",passwd);
+      
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakself transferHeathCarAfterPutPasswdWithModel:carModel andPasswd:passwd];
         });

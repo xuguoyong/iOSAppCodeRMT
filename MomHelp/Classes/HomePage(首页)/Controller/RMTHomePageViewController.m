@@ -145,7 +145,6 @@
 #pragma mark --= 跳转至页面详情
 - (void)clickToDetailWithProductModel:(RMTProductListModel *)model
 {
-    NSLog(@"%@",model);
 
     self.tabBarController.selectedIndex = 1;
 }

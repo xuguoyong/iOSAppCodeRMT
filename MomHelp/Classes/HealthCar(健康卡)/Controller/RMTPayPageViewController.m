@@ -245,7 +245,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
             __weak typeof(self)weakself =self;
             view.userHasPutPassWord = ^(NSString *passwd)
             {
-                NSLog(@"用户密码为 %@",passwd);
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [weakself payForPayPayType_Balance:PayType_Balance passwd:passwd];
                 });
@@ -276,7 +276,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
 //银联支付
 - (void)payForPayType_Unionpay:(PayType)type
 {
-    NSLog(@"银联支付");
+   
     
     NSString *URL = nil;
     NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
@@ -320,7 +320,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
 //支付宝支付
 - (void)payForPayPayType_Zhifubao:(PayType)type
 {
-    NSLog(@"支付宝支付");
+
     NSString *URL = nil;
     NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
     if (self.buyType == BuyCarType_trasfer) {
@@ -346,7 +346,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
         
  
         [[AlipaySDK defaultService] payUrlOrder:payOrderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
+           
            
             [self getAliyPayTypeStautes:resultDic];
             
@@ -362,7 +362,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
 //易宝支付
 - (void)payForPayType_Yeepay:(PayType)type
 {
-    NSLog(@"易宝支付");
+  
     NSString *URL = nil;
     NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
     if (self.buyType == BuyCarType_trasfer) {
@@ -381,7 +381,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
     parmeters[@"tradePassword"] = self.payPassword?self.payPassword:@"";
     
     [RMTDataService postDataWithURL:URL parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+       
         NSDictionary *data = [responseObj objectForKey:@"data"];
         NSDictionary *payOrderData = data[@"payOrderData"];
         NSString *payUrl = payOrderData[@"payUrl"];
@@ -408,9 +408,8 @@ typedef NS_ENUM(NSUInteger,PayType) {
 - (void)payForPayPayType_Balance:(PayType)type passwd:(NSString *)passwd
 {
     
-    NSLog(@"余额支付");
-    
-    NSLog(@"易宝支付");
+   
+  
     NSString *URL = nil;
     NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
     if (self.buyType == BuyCarType_trasfer) {
@@ -429,7 +428,7 @@ typedef NS_ENUM(NSUInteger,PayType) {
     parmeters[@"tradePassword"] = passwd;
     
     [RMTDataService postDataWithURL:URL parma:parmeters showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+      
         [SGShowMesssageTool showMessage:@"支付成功"];
         if (self.buySccessBlock) {
             self.buySccessBlock(nil);

@@ -239,7 +239,7 @@
         
         self.dataModel = [RMTRecordListModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
         [self reloadAllDataToUI];
-    NSLog(@"%@",responseObj);
+ 
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];

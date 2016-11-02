@@ -92,7 +92,7 @@
  */
 - (void)shareButtonClick:(UIButton *)bar
 {
-    NSLog(@"分享按钮");
+  
     
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
     
@@ -114,7 +114,7 @@
 - (void)requestDataFromBack
 {
     [RMTDataService getDataWithURL:GET_User_Center parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+     
         self.centerModel = [RMTUserCenterModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
         [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
@@ -129,7 +129,7 @@
 - (void)requestUserInfoFromBack
 {
     [RMTDataService getDataWithURL:POST_GetUserInfo parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+        
         
         self.userModel = [RMTUserInfoModel shareInstance];
         [self.userModel setValuesForKeysWithDictionary:[responseObj objectForKey:@"data"]];

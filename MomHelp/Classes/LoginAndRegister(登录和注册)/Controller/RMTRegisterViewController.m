@@ -38,7 +38,7 @@
         //到后台回获取验证码
     __weak typeof(self)weakself = self;
     [RMTDataService postDataWithURL:POST_GetMesssageCode parma:@{@"mobile":self.phoneNumberTextField.text} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+      
         RMTRegisterCompeleteViewController *complete = [[RMTRegisterCompeleteViewController alloc] initWithNibName:@"RMTRegisterCompeleteViewController" bundle:nil];
         complete.mobile =weakself.phoneNumberTextField.text;
         complete.passwd =weakself.passwdTextField.text;

@@ -60,7 +60,7 @@
  */
 - (void)shareButtonClick:(UIButton *)bar
 {
-    NSLog(@"分享按钮");
+   
  
     RMTShareAppViewController *share = [[RMTShareAppViewController alloc] init];
     share.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

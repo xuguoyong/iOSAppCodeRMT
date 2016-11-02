@@ -56,7 +56,7 @@
     
     [RMTDataService getDataWithURL:GET_Friend_Profits parma:@{@"year":year,@"month":month} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
        self.dataModel = [RMTcontrListModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
-        NSLog(@"%@",responseObj);
+      
         [self.tableView reloadData];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         

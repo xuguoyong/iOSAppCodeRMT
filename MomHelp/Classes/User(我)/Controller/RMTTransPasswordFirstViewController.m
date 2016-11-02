@@ -33,7 +33,7 @@
     }
     
     [RMTDataService postDataWithURL:POST_Set_TradePassword parma:@{@"tradePassword":self.comfirTransPasswdTextField.text,@"identityCard":self.carNumber} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+      
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
         
     }];

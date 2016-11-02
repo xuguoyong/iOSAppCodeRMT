@@ -83,7 +83,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"%ld",textField.tag);
+    
     
     switch (textField.tag) {
         case 100:
@@ -173,9 +173,7 @@
         [SGShowMesssageTool showMessage:@"请填写卡号"];
     }else
     {
-        for (NSString *string in self.contentData) {
-            NSLog(@"%@",string);
-        }
+      
        
         NSMutableDictionary *parmeters = [NSMutableDictionary dictionary];
         

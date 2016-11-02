@@ -85,7 +85,7 @@
             self.userLoginSuccessBlock(nil);
         }
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {
-        NSLog(@"%@",error);
+       
     }];
 
 

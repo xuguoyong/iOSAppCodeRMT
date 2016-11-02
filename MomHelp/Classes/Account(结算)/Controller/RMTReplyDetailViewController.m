@@ -32,7 +32,7 @@
     __weak typeof(self)weakself =self;
     
     [RMTDataService getDataWithURL:GET_Reimbursement_Detail parma:@{@"reimbursementId":self.detailModel.reimbursementId} showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+      
         weakself.detailModel = [RMTReimburListModel mj_objectWithKeyValues:[responseObj objectForKey:@"data"]];
         [weakself.tableView reloadData];
     } failure:^(NSError *error, NSString *errorCode, NSString *remark) {

@@ -141,7 +141,7 @@
     
     int err = sqlite3_open([self sqlitePath], (sqlite3**)&_db );
     if(err != SQLITE_OK) {
-        NSLog(@"error opening!: %d", err);
+      
         return NO;
     }
     
@@ -165,7 +165,7 @@
     
     int err = sqlite3_open_v2([self sqlitePath], (sqlite3**)&_db, flags, [vfsName UTF8String]);
     if(err != SQLITE_OK) {
-        NSLog(@"error opening!: %d", err);
+    
         return NO;
     }
     
@@ -176,7 +176,7 @@
     
     return YES;
 #else
-    NSLog(@"openWithFlags requires SQLite 3.5");
+   
     return NO;
 #endif
 }
@@ -203,14 +203,14 @@
                 triedFinalizingOpenStatements = YES;
                 sqlite3_stmt *pStmt;
                 while ((pStmt = sqlite3_next_stmt(_db, nil)) !=0) {
-                    NSLog(@"Closing leaked statement");
+                  
                     sqlite3_finalize(pStmt);
                     retry = YES;
                 }
             }
         }
         else if (SQLITE_OK != rc) {
-            NSLog(@"error closing!: %d", rc);
+          
         }
     }
     while (retry);

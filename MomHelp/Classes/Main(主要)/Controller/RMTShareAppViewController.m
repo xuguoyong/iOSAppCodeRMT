@@ -124,13 +124,14 @@
     }
     
     
+    self.shareURL=[self.shareURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
           [shareParams SSDKSetupShareParamsByText:@"深度体检，常保健康" images:[UIImage imageNamed:@"app_icon"] url:[NSURL URLWithString:self.shareURL] title:@"深体健康" type:SSDKContentTypeAuto];
     if (type ==SSDKPlatformTypeSinaWeibo ) {
         [shareParams SSDKEnableUseClientShare];
     }
     [ShareSDK share:type parameters:shareParams onStateChanged:^(SSDKResponseState state, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error) {
-        NSLog(@"%@",userData);
+      
         
         switch (state) {
             case SSDKResponseStateBegin:

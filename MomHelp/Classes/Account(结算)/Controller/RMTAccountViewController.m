@@ -56,7 +56,7 @@
     __weak typeof(self)weakself =self;
     
     [RMTDataService getDataWithURL:GET_Reimbursement_List parma:nil showErrorMessage:YES showHUD:YES logData:NO success:^(NSDictionary *responseObj) {
-        NSLog(@"%@",responseObj);
+    
         NSDictionary *data = [responseObj objectForKey:@"data"];
         weakself.balance = [data objectForKey:@"balance"];
         weakself.totalReimbursementWorth = [data objectForKey:@"totalReimbursementWorth"];

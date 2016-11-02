@@ -116,7 +116,7 @@
 }
 - (void)removeTime
 {
-    NSLog(@"定时器停止");
+  
     [self.timer invalidate];
     self.timer = nil;
 }
